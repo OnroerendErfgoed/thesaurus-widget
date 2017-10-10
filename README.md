@@ -17,5 +17,7 @@ This widget is a pluggable component that acts as a frontend to a thesaurus api 
   - a uri to a specific thesaurus (e.g. https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN)
   - the way a user can select a concept ('autocomplete','tree','both')
   - if the component is a multiselect or not ('true','false'). This version only supports false
+- add meaningfull, unique class names to the html elements and an example style sheet (.scss)
 - there should be isolated test pages where the component can be tested manually
 - there should be useful unit & functional tests
+
