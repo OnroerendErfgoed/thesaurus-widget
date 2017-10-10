@@ -24,5 +24,5 @@ This widget is a pluggable component that acts as a frontend to a thesaurus api 
 ### Version 0.2
 - make the component a multiselect element; interface tbt
 - add extra configuration option
-  - a specific starting point inside the thesarus (a collection) for searching concepts, that will be used as 'root'
+  - a specific starting point inside the thesaurus (a collection) for searching concepts, that will be used as 'root'
 - ....?
