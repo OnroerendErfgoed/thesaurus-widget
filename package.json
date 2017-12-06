@@ -93,5 +93,8 @@
     "bump-version": "npm --no-git-tag-version version",
     "preprepare-release": "cross-env npm run test",
     "prepare-release": "cross-env npm run changelog && npm run build && npm run doc"
+  },
+  "dependencies": {
+    "aurelia-framework": "^1.1.5"
   }
 }
