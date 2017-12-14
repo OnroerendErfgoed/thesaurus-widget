@@ -1,9 +1,9 @@
 export interface ITree {
-  children: ITreeConcept[];
+  children: ITreeChild[];
 }
 
-export interface ITreeConcept {
-  children: ITreeConcept[];
+export interface ITreeChild {
+  children: ITreeChild[];
   concept_id: number;
   id: string;
   label: string;
@@ -48,9 +48,9 @@ export interface ILabel {
 }
 
 export interface INote {
-  note: string;
   type: string;
   language: string;
+  note: string;
 }
 
 export interface IMember {
