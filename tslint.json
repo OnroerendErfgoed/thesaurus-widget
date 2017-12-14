@@ -5,7 +5,6 @@
     "object-literal-sort-keys": false,
     "ordered-imports": [false],
     "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-separator", "check-type"],
-    "interface-name": [true, "never-prefix"],
     "no-implicit-dependencies": [true, "dev"],
     "no-shadowed-variable": false,
     "no-string-literal": false,
