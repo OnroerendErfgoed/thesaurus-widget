@@ -20,7 +20,7 @@ export interface ICollection {
   label: string;
   type: string;
   sources: any[];
-  notes: any[];
+  notes: INote[];
   superordinates: any[];
 }
 
@@ -32,15 +32,25 @@ export interface IConcept {
   uri: string;
   label: string;
   type: string;
-  notes: any[];
+  notes: INote[];
   subordinate_arrays: any[];
   matches: IMatches;
+  narrower: any[];
+  related: any[];
+  broader: any[];
+  sources: any[];
 }
 
 export interface ILabel {
   type: string;
   language: string;
   label: string;
+}
+
+export interface INote {
+  note: string;
+  type: string;
+  language: string;
 }
 
 export interface IMember {
