@@ -1,6 +1,4 @@
-export interface ITree {
-  children: ITreeChild[];
-}
+export interface ITree extends Array<ITreeChild> {}
 
 export interface ITreeChild {
   children: ITreeChild[];

@@ -20,10 +20,4 @@ export class TreeChild {
   }
 }
 
-export class Tree {
-  public children: TreeChild[];
-
-  constructor(children: TreeChild[]) {
-    this.children = children;
-  }
-}
+export class Tree extends Array<TreeChild> {}
