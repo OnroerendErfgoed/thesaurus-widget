@@ -56,6 +56,8 @@ require.config({
     /* tslint:disable */
     'text': '/base/node_modules/requirejs-text/text',
     /* tslint:enable */
+    'aurelia-http-client': '/base/node_modules/aurelia-http-client/dist/amd/aurelia-http-client',
+    'aurelia-http-client-mock': '/base/node_modules/aurelia-http-client-mock/dist/amd/aurelia-http-client-mock'
   },
   packages: [
     {

@@ -51,7 +51,8 @@
     "tslint": "^5.4.3",
     "typedoc": "^0.7.1",
     "typescript": "^2.4.1",
-    "aurelia-http-client": "^1.2.1"
+    "aurelia-http-client": "^1.2.1",
+    "aurelia-http-client-mock": "^0.1.0"
   },
   "jspm": {
     "registry": "npm",

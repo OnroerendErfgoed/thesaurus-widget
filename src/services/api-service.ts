@@ -2,12 +2,14 @@ import { HttpClient } from 'aurelia-http-client';
 import { ITree, IMember } from '../models/apiModel';
 
 export class ApiService {
-  private http: HttpClient;
+  public http: HttpClient;
   private base: string = 'https://dev-thesaurus.onroerenderfgoed.be';
   private type: string = 'MATERIALEN';
 
-  constructor() {
-    this.http = new HttpClient();
+  constructor(
+    http?: any
+  ) {
+    this.http = http || new HttpClient();
     this.http.configure(x => {
       x.withBaseUrl(`${this.base}/conceptschemes/${this.type}`);
       x.withHeader('Accept', 'application/json');
@@ -26,6 +28,7 @@ export class ApiService {
       .withParams(params)
       .send()
       .then(response => {
+        console.log(1);
         if (response.isSuccess) {
           return response.content as IMember[];
         } else {
