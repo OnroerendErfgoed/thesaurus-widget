@@ -3,7 +3,6 @@ import { ITree, IMember } from '../models/apiModel';
 
 export class ApiService {
   public http: HttpClient;
-  private type: string = 'MATERIALEN';
 
   constructor(
     base: string,
@@ -11,7 +10,7 @@ export class ApiService {
   ) {
     this.http = http || new HttpClient();
     this.http.configure(x => {
-      x.withBaseUrl(`${base.replace(/\/?$/, '/')}conceptschemes/${this.type}`);
+      x.withBaseUrl(`${base.replace(/\/?$/, '/')}conceptschemes/`);
       x.withHeader('Accept', 'application/json');
       x.withInterceptor({
         responseError(res) {
@@ -22,8 +21,8 @@ export class ApiService {
     });
   }
 
-  public getConcepts(params?: any) {
-    return this.http.createRequest('/c')
+  public getConcepts(type: string, params?: any) {
+    return this.http.createRequest(`${type}/c`)
       .asGet()
       .withParams(params)
       .send()
@@ -41,8 +40,8 @@ export class ApiService {
       });
   }
 
-  public getTree() {
-    return this.http.get('/tree').then(response => {
+  public getTree(type: string) {
+    return this.http.get(`${type}/tree`).then(response => {
       if (response.isSuccess) {
         return response.content as ITree;
       } else {

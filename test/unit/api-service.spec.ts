@@ -66,7 +66,7 @@ describe('the ApiService module', () => {
       .withResponseStatus(200)
       .withResponseBody(true);
 
-    sut.getConcepts()
+    sut.getConcepts('MATERIALEN')
       .then(response  => {
         console.debug('response', response);
         expect(response).toBeTruthy();
@@ -80,7 +80,7 @@ describe('the ApiService module', () => {
       .withResponseStatus(200)
       .withResponseBody(testConcepts);
 
-    sut.getConcepts({ label: 'aard' })
+    sut.getConcepts('MATERIALEN', { label: 'aard' })
       .then(response  => {
         console.debug('response', response);
         expect(response as IMember[]).toEqual(testConcepts as IMember[]);
@@ -95,7 +95,7 @@ describe('the ApiService module', () => {
       .withResponseStatus(200)
       .withResponseBody(testTree);
 
-    sut.getTree()
+    sut.getTree('MATERIALEN')
       .then(response  => {
         console.debug('response', response);
         expect(response as ITree).toEqual(testTree as ITree);
