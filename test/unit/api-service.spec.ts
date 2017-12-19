@@ -74,12 +74,12 @@ describe('the ApiService module', () => {
   });
 
   it('should parse the concepts response correctly', done => {
-    httpMock.expect('https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN/c')
+    httpMock.expect('https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN/c?label=aard')
       .withMethod('GET')
       .withResponseStatus(200)
       .withResponseBody(testConcepts);
 
-    sut.getConcepts()
+    sut.getConcepts({ label: 'aard' })
       .then(response  => {
         console.debug('response', response);
         expect(response as IMember[]).toEqual(testConcepts as IMember[]);
