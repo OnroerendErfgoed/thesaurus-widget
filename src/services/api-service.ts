@@ -28,7 +28,6 @@ export class ApiService {
       .withParams(params)
       .send()
       .then(response => {
-        console.log(1);
         if (response.isSuccess) {
           return response.content as IMember[];
         } else {
