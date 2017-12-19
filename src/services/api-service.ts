@@ -1,4 +1,5 @@
 import { HttpClient } from 'aurelia-http-client';
+import { ITree, IMember } from '../models/apiModel';
 
 export class ApiService {
   private http: HttpClient;
@@ -19,23 +20,31 @@ export class ApiService {
     });
   }
 
-  public getConcepts() {
-    return this.http.get('/c').then(response => {
-      if (response.isSuccess) {
-        // handle response
-      }
-    }).catch(error => {
-      console.debug(error);
-      return new Promise<void>(reject => {
-        reject();
+  public getConcepts(params?: any) {
+    return this.http.createRequest('/c')
+      .asGet()
+      .withParams(params)
+      .send()
+      .then(response => {
+        if (response.isSuccess) {
+          return response.content as IMember[];
+        } else {
+          return;
+        }
+      }).catch(error => {
+        console.debug(error);
+        return new Promise<void>(reject => {
+          reject();
+        });
       });
-    });
   }
 
   public getTree() {
     return this.http.get('/tree').then(response => {
       if (response.isSuccess) {
-        // handle response
+        return response.content as ITree;
+      } else {
+        return;
       }
     }).catch(error => {
       console.debug(error);
