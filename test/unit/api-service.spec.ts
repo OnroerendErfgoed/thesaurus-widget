@@ -6,6 +6,7 @@ describe('the ApiService module', () => {
 
   let httpMock: HttpClientMock;
   let sut: ApiService;
+  const apiBaseUrl = 'https://www.mock.be/';
 
   const testConcepts = [
     {
@@ -56,11 +57,11 @@ describe('the ApiService module', () => {
 
   beforeEach(() => {
     httpMock = new HttpClientMock();
-    sut = new ApiService(httpMock);
+    sut = new ApiService(apiBaseUrl, httpMock);
   });
 
   it('should call the correct base url', done => {
-    httpMock.expect('https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN/c')
+    httpMock.expect(apiBaseUrl + 'conceptschemes/MATERIALEN/c')
       .withMethod('GET')
       .withResponseStatus(200)
       .withResponseBody(true);
@@ -74,7 +75,7 @@ describe('the ApiService module', () => {
   });
 
   it('should parse the concepts response correctly', done => {
-    httpMock.expect('https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN/c?label=aard')
+    httpMock.expect(apiBaseUrl + 'conceptschemes/MATERIALEN/c?label=aard')
       .withMethod('GET')
       .withResponseStatus(200)
       .withResponseBody(testConcepts);
@@ -89,7 +90,7 @@ describe('the ApiService module', () => {
   });
 
   it('should parse the tree response correctly', done => {
-    httpMock.expect('https://dev-thesaurus.onroerenderfgoed.be/conceptschemes/MATERIALEN/tree')
+    httpMock.expect(apiBaseUrl + 'conceptschemes/MATERIALEN/tree')
       .withMethod('GET')
       .withResponseStatus(200)
       .withResponseBody(testTree);

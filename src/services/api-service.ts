@@ -3,15 +3,15 @@ import { ITree, IMember } from '../models/apiModel';
 
 export class ApiService {
   public http: HttpClient;
-  private base: string = 'https://dev-thesaurus.onroerenderfgoed.be';
   private type: string = 'MATERIALEN';
 
   constructor(
+    base: string,
     http?: any
   ) {
     this.http = http || new HttpClient();
     this.http.configure(x => {
-      x.withBaseUrl(`${this.base}/conceptschemes/${this.type}`);
+      x.withBaseUrl(`${base.replace(/\/?$/, '/')}conceptschemes/${this.type}`);
       x.withHeader('Accept', 'application/json');
       x.withInterceptor({
         responseError(res) {
