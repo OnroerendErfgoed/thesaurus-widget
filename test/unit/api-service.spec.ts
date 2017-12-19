@@ -68,7 +68,6 @@ describe('the ApiService module', () => {
 
     sut.getConcepts('MATERIALEN')
       .then(response  => {
-        console.debug('response', response);
         expect(response).toBeTruthy();
         done();
       });
@@ -82,7 +81,6 @@ describe('the ApiService module', () => {
 
     sut.getConcepts('MATERIALEN', { label: 'aard' })
       .then(response  => {
-        console.debug('response', response);
         expect(response as IMember[]).toEqual(testConcepts as IMember[]);
         expect(response as IMember[]).toContain(jasmine.objectContaining({id: 19}));
         done();
@@ -97,7 +95,6 @@ describe('the ApiService module', () => {
 
     sut.getTree('MATERIALEN')
       .then(response  => {
-        console.debug('response', response);
         expect(response as ITree).toEqual(testTree as ITree);
         expect(response as ITree).toContain(jasmine.objectContaining({ concept_id: 1 }));
         done();
