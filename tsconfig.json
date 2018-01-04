@@ -1,5 +1,4 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "sourceMap": true,
     "target": "es5",
@@ -21,4 +20,3 @@
     "jspm_packages"
   ]
 }
-

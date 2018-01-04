@@ -1,9 +1,7 @@
 /*
 original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701aeb
 * */
-import { bindingMode, observable } from 'aurelia-binding';
-import { bindable } from 'aurelia-templating';
-import { inject } from 'aurelia-dependency-injection';
+import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 
 let nextID: number = 0;
 
@@ -159,7 +157,7 @@ export class OeThesaurusInput {
   }
 
   public focus() {
-    (<HTMLElement> this.element.firstElementChild).focus();
+    (this.element.firstElementChild as HTMLElement).focus();
   }
 
   // tslint:disable:no-unused-variable
