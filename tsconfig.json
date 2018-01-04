@@ -1,23 +1,16 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "sourceMap": true,
     "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "outDir": "dist/commonjs",
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "strictNullChecks": true,
-    "declaration": true,
-    "forceConsistentCasingInFileNames": true,
+    "module": "amd",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noEmitHelpers": false,
-    "stripInternal": true
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"]
   },
   "exclude": [
     ".idea",
@@ -28,3 +21,4 @@
     "jspm_packages"
   ]
 }
+

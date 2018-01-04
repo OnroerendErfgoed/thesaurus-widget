@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var OeThesaurusInput = /** @class */ (function () {
-    function OeThesaurusInput() {
-        this.text = 'oe-thesaurus-input';
-    }
-    return OeThesaurusInput;
-}());
-exports.OeThesaurusInput = OeThesaurusInput;
