@@ -8,8 +8,15 @@ describe('The thesaurus input component', () => {
   beforeEach(async done => {
     component = StageComponent
       .withResources('src/oe-thesaurus-input')
-      .inView('<oe-thesaurus-input></oe-thesaurus-input>')
-      .boundTo({ });
+      // .inView('<oe-thesaurus-input></oe-thesaurus-input>')
+      .inView(`
+        <oe-thesaurus-input service.bind="service" label="naam">
+          <template replace-part="suggestion"></template>
+        </oe-thesaurus-input>
+      `)
+      .boundTo({
+        service: { suggest: () => ( ['test', 'test2'] ) }
+      });
     await component.create(bootstrap);
     done();
   });
@@ -19,6 +26,7 @@ describe('The thesaurus input component', () => {
   });
 
   it('should render the text', () => {
+    console.debug(component);
     const text = (component.element.textContent || '').trim();
     expect(text).toEqual('input: oe-thesaurus-input');
   });
