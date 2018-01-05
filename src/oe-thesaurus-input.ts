@@ -10,6 +10,7 @@ let nextID: number = 0;
 export class OeThesaurusInput {
   @observable public inputValue: string = '';
   @bindable public type: string;
+  @bindable public minlength: number = null;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
@@ -64,7 +65,7 @@ export class OeThesaurusInput {
   }
 
   public inputValueChanged(value) {
-    if (this.updatingInput) {
+    if (this.updatingInput || (this.minlength > value.length)) {
       return;
     }
     this.userInput = value;

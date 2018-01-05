@@ -10,12 +10,13 @@ describe('The thesaurus input component', () => {
     component = StageComponent
       .withResources('src/oe-thesaurus-input')
       .inView(`
-        <oe-thesaurus-input type.bind="type" label="naam">
+        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" label="naam">
           <template replace-part="suggestion"></template>
         </oe-thesaurus-input>
       `)
       .boundTo({
-        type: 'MATERIALEN'
+        type: 'MATERIALEN',
+        minlength: 2
       });
     await component.create(bootstrap);
     done();
@@ -26,7 +27,12 @@ describe('The thesaurus input component', () => {
   });
 
   it('should have a type property', () => {
-    console.debug(component.viewModel.type);
-    expect(component.viewModel).toBeDefined();
+    expect(component.viewModel.type).toBeDefined();
+    expect(component.viewModel.type).toBe('MATERIALEN');
+  });
+
+  it('should have a minlength property', () => {
+    expect(component.viewModel.minlength).toBeDefined();
+    expect(component.viewModel.minlength).toBe(2);
   });
 });
