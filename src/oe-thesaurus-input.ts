@@ -2,13 +2,14 @@
 original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701aeb
 * */
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
+import { ApiService } from './services/api-service';
 
 let nextID: number = 0;
 
-@inject(Element)
+@inject(Element, ApiService)
 export class OeThesaurusInput {
   @observable public inputValue: string = '';
-  @bindable public service: any;
+  @bindable public type: string;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
@@ -22,10 +23,12 @@ export class OeThesaurusInput {
   public suggestionsUL = null;
   public userInput: string = '';
   public element: Element = null;
+  private service: any;
 
-  constructor(element: Element) {
+  constructor(element: Element, service: ApiService) {
     this.element = element;
     this.id = nextID++;
+    this.service = service;
   }
 
   public display(name: string) {
@@ -70,7 +73,7 @@ export class OeThesaurusInput {
       this.collapse();
       return;
     }
-    this.service.suggest(value)
+    this.service.getConcepts(this.type, { label: value })
     .then((suggestions) => {
       this.index = -1;
       this.suggestions.splice(0, this.suggestions.length, ...suggestions);
