@@ -26,7 +26,7 @@ describe('The thesaurus input component', () => {
     component.dispose();
   });
 
-  /*it('should have a type property', () => {
+  it('should have a type property', () => {
     expect(component.viewModel.type).toBeDefined();
     expect(component.viewModel.type).toBe('MATERIALEN');
   });
@@ -34,5 +34,5 @@ describe('The thesaurus input component', () => {
   it('should have a minlength property', () => {
     expect(component.viewModel.minlength).toBeDefined();
     expect(component.viewModel.minlength).toBe(2);
-  });*/
+  });
 });
