@@ -6,7 +6,7 @@ import { ApiService } from './services/api-service';
 
 let nextID: number = 0;
 
-@inject(Element, ApiService)
+@inject(Element)
 export class OeThesaurusInput {
   @observable public inputValue: string = '';
   @bindable public type: string;
@@ -26,10 +26,10 @@ export class OeThesaurusInput {
   public element: Element = null;
   private service: any;
 
-  constructor(element: Element, service: ApiService) {
+  constructor(element: Element) {
     this.element = element;
     this.id = nextID++;
-    this.service = service;
+    this.service = new ApiService('https://www.mock.be/');
   }
 
   public display(name: string) {
