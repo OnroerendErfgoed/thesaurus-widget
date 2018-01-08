@@ -13,4 +13,3 @@ export class Collection {
         this.superordinates = apiCollection.superordinates;
     }
 }
-//# sourceMappingURL=collection.js.map

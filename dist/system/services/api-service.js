@@ -63,4 +63,3 @@ System.register(["aurelia-http-client"], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=api-service.js.map

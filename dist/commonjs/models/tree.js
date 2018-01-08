@@ -29,4 +29,3 @@ var Tree = (function (_super) {
     return Tree;
 }(Array));
 exports.Tree = Tree;
-//# sourceMappingURL=tree.js.map

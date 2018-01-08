@@ -3,4 +3,3 @@ export class OeThesaurusTree {
         this.text = 'oe-thesaurus-tree';
     }
 }
-//# sourceMappingURL=oe-thesaurus-tree.js.map

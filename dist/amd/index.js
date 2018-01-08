@@ -11,4 +11,3 @@ define(["require", "exports", "./oe-thesaurus-input", "./oe-thesaurus-tree", "au
     }
     exports.configure = configure;
 });
-//# sourceMappingURL=index.js.map

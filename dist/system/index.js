@@ -29,4 +29,3 @@ System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "aurelia-framewo
         }
     };
 });
-//# sourceMappingURL=index.js.map

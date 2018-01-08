@@ -22,4 +22,3 @@ define(["require", "exports"], function (require, exports) {
     }());
     exports.Concept = Concept;
 });
-//# sourceMappingURL=concept.js.map

@@ -68,7 +68,7 @@ var OeThesaurusInput = (function () {
             this.collapse();
             return;
         }
-        this.service.getConcepts(this.type, { label: value })
+        this.service.suggest(this.type, { label: value })
             .then(function (suggestions) {
             _this.index = -1;
             (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
@@ -192,4 +192,3 @@ var OeThesaurusInput = (function () {
     return OeThesaurusInput;
 }());
 exports.OeThesaurusInput = OeThesaurusInput;
-//# sourceMappingURL=oe-thesaurus-input.js.map

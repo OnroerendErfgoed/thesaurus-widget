@@ -5,4 +5,3 @@ var OeThesaurusTree = (function () {
     return OeThesaurusTree;
 }());
 export { OeThesaurusTree };
-//# sourceMappingURL=oe-thesaurus-tree.js.map

@@ -53,4 +53,3 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
     }());
     exports.ApiService = ApiService;
 });
-//# sourceMappingURL=api-service.js.map

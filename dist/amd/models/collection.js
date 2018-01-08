@@ -19,4 +19,3 @@ define(["require", "exports"], function (require, exports) {
     }());
     exports.Collection = Collection;
 });
-//# sourceMappingURL=collection.js.map

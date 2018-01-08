@@ -7,4 +7,3 @@ var OeThesaurusTree = (function () {
     return OeThesaurusTree;
 }());
 exports.OeThesaurusTree = OeThesaurusTree;
-//# sourceMappingURL=oe-thesaurus-tree.js.map

@@ -9,4 +9,3 @@ define(["require", "exports"], function (require, exports) {
     }());
     exports.OeThesaurusTree = OeThesaurusTree;
 });
-//# sourceMappingURL=oe-thesaurus-tree.js.map

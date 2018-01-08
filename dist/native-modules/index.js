@@ -7,4 +7,3 @@ export function configure(config) {
         PLATFORM.moduleName('./oe-thesaurus-tree')
     ]);
 }
-//# sourceMappingURL=index.js.map

@@ -9,4 +9,3 @@ export class TreeChild {
 }
 export class Tree extends Array {
 }
-//# sourceMappingURL=tree.js.map

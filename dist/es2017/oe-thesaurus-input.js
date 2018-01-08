@@ -65,7 +65,7 @@ let OeThesaurusInput = class OeThesaurusInput {
             this.collapse();
             return;
         }
-        this.service.getConcepts(this.type, { label: value })
+        this.service.suggest(this.type, { label: value })
             .then((suggestions) => {
             this.index = -1;
             this.suggestions.splice(0, this.suggestions.length, ...suggestions);
@@ -187,4 +187,3 @@ OeThesaurusInput = __decorate([
     __metadata("design:paramtypes", [Element, ApiService])
 ], OeThesaurusInput);
 export { OeThesaurusInput };
-//# sourceMappingURL=oe-thesaurus-input.js.map

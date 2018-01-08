@@ -16,4 +16,3 @@ export class Concept {
         this.sources = apiConcept.sources;
     }
 }
-//# sourceMappingURL=concept.js.map
