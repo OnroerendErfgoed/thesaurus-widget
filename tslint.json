@@ -1,5 +1,5 @@
 {
-  "extends": "tslint:recommended",
+  "extends": "tslint:latest",
   "rules": {
     "quotemark": [true, "single"],
     "object-literal-sort-keys": false,
