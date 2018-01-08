@@ -26,7 +26,7 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.element = null;
         this.element = element;
         this.id = nextID++;
-        this.service = new ApiService('https://www.mock.be/');
+        this.service = new ApiService(this.baseUrl);
     }
     display(name) {
         this.updatingInput = true;

@@ -38,7 +38,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     this.element = null;
                     this.element = element;
                     this.id = nextID++;
-                    this.service = new api_service_1.ApiService('https://www.mock.be/');
+                    this.service = new api_service_1.ApiService(this.baseUrl);
                 }
                 OeThesaurusInput.prototype.display = function (name) {
                     this.updatingInput = true;

@@ -30,7 +30,7 @@ export class OeThesaurusInput {
   constructor(element: Element) {
     this.element = element;
     this.id = nextID++;
-    this.service = new ApiService('https://www.mock.be/');
+    this.service = new ApiService(this.baseUrl);
   }
 
   public display(name: string) {
