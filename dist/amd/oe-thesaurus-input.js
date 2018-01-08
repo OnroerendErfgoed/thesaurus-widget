@@ -12,7 +12,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
     Object.defineProperty(exports, "__esModule", { value: true });
     var nextID = 0;
     var OeThesaurusInput = (function () {
-        function OeThesaurusInput(element, service) {
+        function OeThesaurusInput(element) {
             this.inputValue = '';
             this.minlength = null;
             this.placeholder = '';
@@ -27,7 +27,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             this.element = null;
             this.element = element;
             this.id = nextID++;
-            this.service = service;
+            this.service = new api_service_1.ApiService('https://www.mock.be/');
         }
         OeThesaurusInput.prototype.display = function (name) {
             this.updatingInput = true;
@@ -185,8 +185,8 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             __metadata("design:type", Boolean)
         ], OeThesaurusInput.prototype, "disabled", void 0);
         OeThesaurusInput = __decorate([
-            aurelia_framework_1.inject(Element, api_service_1.ApiService),
-            __metadata("design:paramtypes", [Element, api_service_1.ApiService])
+            aurelia_framework_1.inject(Element),
+            __metadata("design:paramtypes", [Element])
         ], OeThesaurusInput);
         return OeThesaurusInput;
     }());

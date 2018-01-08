@@ -1,4 +1,3 @@
-import { ApiService } from './services/api-service';
 export declare class OeThesaurusInput {
     inputValue: string;
     type: string;
@@ -17,7 +16,7 @@ export declare class OeThesaurusInput {
     userInput: string;
     element: Element;
     private service;
-    constructor(element: Element, service: ApiService);
+    constructor(element: Element);
     display(name: string): void;
     getName(suggestion: any): any;
     collapse(): void;

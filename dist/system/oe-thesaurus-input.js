@@ -23,7 +23,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
         execute: function () {
             nextID = 0;
             OeThesaurusInput = (function () {
-                function OeThesaurusInput(element, service) {
+                function OeThesaurusInput(element) {
                     this.inputValue = '';
                     this.minlength = null;
                     this.placeholder = '';
@@ -38,7 +38,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     this.element = null;
                     this.element = element;
                     this.id = nextID++;
-                    this.service = service;
+                    this.service = new api_service_1.ApiService('https://www.mock.be/');
                 }
                 OeThesaurusInput.prototype.display = function (name) {
                     this.updatingInput = true;
@@ -196,8 +196,8 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     __metadata("design:type", Boolean)
                 ], OeThesaurusInput.prototype, "disabled", void 0);
                 OeThesaurusInput = __decorate([
-                    aurelia_framework_1.inject(Element, api_service_1.ApiService),
-                    __metadata("design:paramtypes", [Element, api_service_1.ApiService])
+                    aurelia_framework_1.inject(Element),
+                    __metadata("design:paramtypes", [Element])
                 ], OeThesaurusInput);
                 return OeThesaurusInput;
             }());

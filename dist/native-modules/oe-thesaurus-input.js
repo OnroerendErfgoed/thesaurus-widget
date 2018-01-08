@@ -11,7 +11,7 @@ import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 import { ApiService } from './services/api-service';
 var nextID = 0;
 var OeThesaurusInput = (function () {
-    function OeThesaurusInput(element, service) {
+    function OeThesaurusInput(element) {
         this.inputValue = '';
         this.minlength = null;
         this.placeholder = '';
@@ -26,7 +26,7 @@ var OeThesaurusInput = (function () {
         this.element = null;
         this.element = element;
         this.id = nextID++;
-        this.service = service;
+        this.service = new ApiService('https://www.mock.be/');
     }
     OeThesaurusInput.prototype.display = function (name) {
         this.updatingInput = true;
@@ -184,8 +184,8 @@ var OeThesaurusInput = (function () {
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
     OeThesaurusInput = __decorate([
-        inject(Element, ApiService),
-        __metadata("design:paramtypes", [Element, ApiService])
+        inject(Element),
+        __metadata("design:paramtypes", [Element])
     ], OeThesaurusInput);
     return OeThesaurusInput;
 }());
