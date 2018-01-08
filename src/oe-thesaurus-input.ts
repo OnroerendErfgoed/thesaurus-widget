@@ -11,6 +11,7 @@ export class OeThesaurusInput {
   @observable public inputValue: string = '';
   @bindable public type: string;
   @bindable public minlength: number = null;
+  @bindable public baseUrl: string;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
@@ -74,7 +75,7 @@ export class OeThesaurusInput {
       this.collapse();
       return;
     }
-    this.service.suggest(this.type, { label: value })
+    this.service.getConcepts(this.type, { label: value })
     .then((suggestions) => {
       this.index = -1;
       this.suggestions.splice(0, this.suggestions.length, ...suggestions);

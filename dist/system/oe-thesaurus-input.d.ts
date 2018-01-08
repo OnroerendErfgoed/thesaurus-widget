@@ -2,6 +2,7 @@ export declare class OeThesaurusInput {
     inputValue: string;
     type: string;
     minlength: number;
+    baseUrl: string;
     value: string;
     placeholder: string;
     delay: number;

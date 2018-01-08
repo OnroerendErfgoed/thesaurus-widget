@@ -10,13 +10,14 @@ describe('The thesaurus input component', () => {
     component = StageComponent
       .withResources('src/oe-thesaurus-input')
       .inView(`
-        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" label="naam">
+        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" base-url.bind="baseUrl" label="naam">
           <template replace-part="suggestion"></template>
         </oe-thesaurus-input>
       `)
       .boundTo({
         type: 'MATERIALEN',
-        minlength: 2
+        minlength: 2,
+        baseUrl: 'https://www.mock.be/'
       });
     await component.create(bootstrap);
     done();

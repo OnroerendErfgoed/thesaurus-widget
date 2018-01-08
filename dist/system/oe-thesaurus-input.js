@@ -78,7 +78,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                         this.collapse();
                         return;
                     }
-                    this.service.suggest(this.type, { label: value })
+                    this.service.getConcepts(this.type, { label: value })
                         .then(function (suggestions) {
                         _this.index = -1;
                         (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
@@ -175,6 +175,10 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     aurelia_framework_1.bindable,
                     __metadata("design:type", Number)
                 ], OeThesaurusInput.prototype, "minlength", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", String)
+                ], OeThesaurusInput.prototype, "baseUrl", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", String)
