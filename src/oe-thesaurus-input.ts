@@ -44,7 +44,7 @@ export class OeThesaurusInput {
     this.updatingInput = false;
   }
 
-  public getName(suggestion) {
+  public getName(suggestion: any) {
     if (suggestion == null) {
       return '';
     }
@@ -56,7 +56,7 @@ export class OeThesaurusInput {
     this.index = -1;
   }
 
-  public select(suggestion) {
+  public select(suggestion: any) {
     if (suggestion) {
       this.value = suggestion;
       const name = this.getName(this.value);
@@ -70,7 +70,7 @@ export class OeThesaurusInput {
     this.select(this.value);
   }
 
-  public inputValueChanged(value) {
+  public inputValueChanged(value: string) {
     if (this.updatingInput || (this.minlength > value.length)) {
       return;
     }
@@ -162,7 +162,7 @@ export class OeThesaurusInput {
     this.element.dispatchEvent(event);
   }
 
-  public suggestionClicked(suggestion) {
+  public suggestionClicked(suggestion: any) {
     this.select(suggestion);
   }
 
@@ -172,7 +172,7 @@ export class OeThesaurusInput {
 
   // tslint:disable:no-unused-variable
   // Function gets called automatically every time the input disabled gets changed
-  private disabledChanged(newValue, oldValue) {
+  private disabledChanged(newValue: string, oldValue: string) {
     // tslint:enable:no-unused-variable
     this.inputValue = '';
   }
