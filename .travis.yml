@@ -1,9 +1,12 @@
-language: nodejs
+language: node_js
+node_js: 
+ - 'node'
 env:
   - PROJECT=thesaurus-widget
 notifications:
   email:
     - axel.verstappen@gmail.com
+sudo: required
 addons:
   chrome: stable
 before_script:
