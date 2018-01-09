@@ -15,6 +15,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
         function OeThesaurusInput(element) {
             this.inputValue = '';
             this.minlength = null;
+            this.baseUrl = '';
             this.placeholder = '';
             this.delay = 300;
             this.label = 'name';
@@ -27,8 +28,12 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             this.element = null;
             this.element = element;
             this.id = nextID++;
-            this.service = new api_service_1.ApiService(this.baseUrl);
         }
+        OeThesaurusInput.prototype.baseUrlChanged = function () {
+            if (!this.service) {
+                this.service = new api_service_1.ApiService(this.baseUrl);
+            }
+        };
         OeThesaurusInput.prototype.display = function (name) {
             this.updatingInput = true;
             this.inputValue = name;

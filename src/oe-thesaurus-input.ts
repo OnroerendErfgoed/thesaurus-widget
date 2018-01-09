@@ -11,7 +11,7 @@ export class OeThesaurusInput {
   @observable public inputValue: string = '';
   @bindable public type: string;
   @bindable public minlength: number = null;
-  @bindable public baseUrl: string;
+  @bindable public baseUrl: string = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
@@ -30,7 +30,12 @@ export class OeThesaurusInput {
   constructor(element: Element) {
     this.element = element;
     this.id = nextID++;
-    this.service = new ApiService(this.baseUrl);
+  }
+
+  public baseUrlChanged() {
+    if (!this.service) {
+      this.service = new ApiService(this.baseUrl);
+    }
   }
 
   public display(name: string) {

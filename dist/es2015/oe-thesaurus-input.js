@@ -14,6 +14,7 @@ let OeThesaurusInput = class OeThesaurusInput {
     constructor(element) {
         this.inputValue = '';
         this.minlength = null;
+        this.baseUrl = '';
         this.placeholder = '';
         this.delay = 300;
         this.label = 'name';
@@ -26,7 +27,11 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.element = null;
         this.element = element;
         this.id = nextID++;
-        this.service = new ApiService(this.baseUrl);
+    }
+    baseUrlChanged() {
+        if (!this.service) {
+            this.service = new ApiService(this.baseUrl);
+        }
     }
     display(name) {
         this.updatingInput = true;

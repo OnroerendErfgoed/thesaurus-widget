@@ -14,6 +14,7 @@ var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
         this.inputValue = '';
         this.minlength = null;
+        this.baseUrl = '';
         this.placeholder = '';
         this.delay = 300;
         this.label = 'name';
@@ -26,8 +27,12 @@ var OeThesaurusInput = (function () {
         this.element = null;
         this.element = element;
         this.id = nextID++;
-        this.service = new ApiService(this.baseUrl);
     }
+    OeThesaurusInput.prototype.baseUrlChanged = function () {
+        if (!this.service) {
+            this.service = new ApiService(this.baseUrl);
+        }
+    };
     OeThesaurusInput.prototype.display = function (name) {
         this.updatingInput = true;
         this.inputValue = name;
