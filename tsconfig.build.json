@@ -24,35 +24,3 @@
     "test"
   ]
 }
-
-/*{
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "outDir": "dist/commonjs",
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "strictNullChecks": true,
-    "declaration": true,
-    "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
-    "noEmitHelpers": false,
-    "stripInternal": true
-  },
-  "exclude": [
-    ".vscode",
-    ".idea",
-    "dist",
-    "docs",
-    "node_modules",
-    "jspm_packages",
-    "test"
-  ]
-}*/

@@ -36,4 +36,9 @@ describe('The thesaurus input component', () => {
     expect(component.viewModel.minlength).toBeDefined();
     expect(component.viewModel.minlength).toBe(2);
   });
+
+  it('should have a baseUrl property', () => {
+    expect(component.viewModel.baseUrl).toBeDefined();
+    expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
+  });
 });
