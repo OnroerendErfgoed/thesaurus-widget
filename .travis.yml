@@ -1,0 +1,16 @@
+language: nodejs
+env:
+  - PROJECT=thesaurus-widget
+notifications:
+  email:
+    - axel.verstappen@gmail.com
+addons:
+  chrome: stable
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+install:
+  - (cd ./src && npm install)
+script:
+  - (cd ./src && npm test)
