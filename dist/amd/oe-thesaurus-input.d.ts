@@ -24,7 +24,7 @@ export declare class OeThesaurusInput {
     collapse(): void;
     select(suggestion: any): void;
     valueChanged(): void;
-    inputValueChanged(value: any): void;
+    inputValueChanged(value: string): void;
     scroll(): void;
     keydown(key: number): boolean;
     blur(): void;
