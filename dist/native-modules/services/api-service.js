@@ -1,5 +1,5 @@
 import { HttpClient } from 'aurelia-http-client';
-var ApiService = /** @class */ (function () {
+var ApiService = (function () {
     function ApiService(base, http) {
         this.http = http || new HttpClient();
         this.http.configure(function (x) {

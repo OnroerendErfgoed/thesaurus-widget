@@ -5,7 +5,7 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            OeThesaurusTree = /** @class */ (function () {
+            OeThesaurusTree = (function () {
                 function OeThesaurusTree() {
                     this.text = 'oe-thesaurus-tree';
                 }

@@ -8,7 +8,7 @@ var aurelia_framework_1 = require("aurelia-framework");
 function configure(config) {
     config.globalResources([
         aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-input'),
-        aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree'),
+        aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree')
     ]);
 }
 exports.configure = configure;

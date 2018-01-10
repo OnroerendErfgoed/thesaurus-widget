@@ -1,4 +1,4 @@
-var Concept = /** @class */ (function () {
+var Concept = (function () {
     function Concept(apiConcept) {
         this.id = apiConcept.id;
         this.labels = apiConcept.labels;

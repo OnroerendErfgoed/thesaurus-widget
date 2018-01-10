@@ -1,4 +1,4 @@
-var OeThesaurusTree = /** @class */ (function () {
+var OeThesaurusTree = (function () {
     function OeThesaurusTree() {
         this.text = 'oe-thesaurus-tree';
     }

@@ -8,18 +8,40 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var TreeChild = /** @class */ (function () {
+var TreeChild = (function () {
     function TreeChild(children, conceptId, id, label, type) {
+        this.visible = false;
+        this.expanded = false;
         this.children = children;
         this.conceptId = conceptId;
         this.id = id;
         this.label = label;
         this.type = type;
+        this.visible = true;
+        if (this.hasChildren()) {
+            this.icon = 'fa fa-chevron-down';
+            this.expanded = true;
+        }
     }
+    TreeChild.prototype.hasChildren = function () {
+        return this.children.length > 0;
+    };
+    TreeChild.prototype.toggleNode = function () {
+        for (var i = 0; i < this.children.length; i++) {
+            this.children[i].visible = !this.children[i].visible;
+        }
+        this.expanded = !this.expanded;
+        if (this.expanded === true) {
+            this.icon = 'fa fa-chevron-down';
+        }
+        else {
+            this.icon = 'fa fa-chevron-right';
+        }
+    };
     return TreeChild;
 }());
 export { TreeChild };
-var Tree = /** @class */ (function (_super) {
+var Tree = (function (_super) {
     __extends(Tree, _super);
     function Tree() {
         return _super !== null && _super.apply(this, arguments) || this;

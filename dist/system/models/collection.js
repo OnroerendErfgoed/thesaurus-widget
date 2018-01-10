@@ -5,7 +5,7 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            Collection = /** @class */ (function () {
+            Collection = (function () {
                 function Collection(apiCollection) {
                     this.id = apiCollection.id;
                     this.labels = apiCollection.labels;

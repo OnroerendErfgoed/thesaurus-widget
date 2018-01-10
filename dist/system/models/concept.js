@@ -5,7 +5,7 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            Concept = /** @class */ (function () {
+            Concept = (function () {
                 function Concept(apiConcept) {
                     this.id = apiConcept.id;
                     this.labels = apiConcept.labels;
