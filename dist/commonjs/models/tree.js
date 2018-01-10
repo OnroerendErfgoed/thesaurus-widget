@@ -12,12 +12,34 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var TreeChild = /** @class */ (function () {
     function TreeChild(children, conceptId, id, label, type) {
+        this.visible = false;
+        this.expanded = false;
         this.children = children;
         this.conceptId = conceptId;
         this.id = id;
         this.label = label;
         this.type = type;
+        this.visible = true;
+        if (this.hasChildren()) {
+            this.icon = 'fa fa-chevron-down';
+            this.expanded = true;
+        }
     }
+    TreeChild.prototype.hasChildren = function () {
+        return this.children.length > 0;
+    };
+    TreeChild.prototype.toggleNode = function () {
+        for (var i = 0; i < this.children.length; i++) {
+            this.children[i].visible = !this.children[i].visible;
+        }
+        this.expanded = !this.expanded;
+        if (this.expanded === true) {
+            this.icon = 'fa fa-chevron-down';
+        }
+        else {
+            this.icon = 'fa fa-chevron-right';
+        }
+    };
     return TreeChild;
 }());
 exports.TreeChild = TreeChild;
