@@ -8,7 +8,12 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
+  public element: Element = null;
   private service: ApiService;
+
+  constructor(element: Element) {
+    this.element = element;
+  }
 
   public parseNode(node: ITreeChild) {
     let children: TreeChild[] = [];

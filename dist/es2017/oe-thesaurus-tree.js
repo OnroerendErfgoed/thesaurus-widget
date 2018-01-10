@@ -11,9 +11,11 @@ import { inject, bindable } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ApiService } from './services/api-service';
 let OeThesaurusTree = class OeThesaurusTree {
-    constructor() {
+    constructor(element) {
         this.nodes = [];
         this.baseUrl = '';
+        this.element = null;
+        this.element = element;
     }
     parseNode(node) {
         let children = [];
@@ -50,6 +52,7 @@ __decorate([
     __metadata("design:type", String)
 ], OeThesaurusTree.prototype, "baseUrl", void 0);
 OeThesaurusTree = __decorate([
-    inject(Element)
+    inject(Element),
+    __metadata("design:paramtypes", [Element])
 ], OeThesaurusTree);
 export { OeThesaurusTree };

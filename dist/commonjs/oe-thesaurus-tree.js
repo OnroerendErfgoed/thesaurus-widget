@@ -13,9 +13,11 @@ var aurelia_framework_1 = require("aurelia-framework");
 var tree_1 = require("./models/tree");
 var api_service_1 = require("./services/api-service");
 var OeThesaurusTree = (function () {
-    function OeThesaurusTree() {
+    function OeThesaurusTree(element) {
         this.nodes = [];
         this.baseUrl = '';
+        this.element = null;
+        this.element = element;
     }
     OeThesaurusTree.prototype.parseNode = function (node) {
         var _this = this;
@@ -53,7 +55,8 @@ var OeThesaurusTree = (function () {
         __metadata("design:type", String)
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     OeThesaurusTree = __decorate([
-        aurelia_framework_1.inject(Element)
+        aurelia_framework_1.inject(Element),
+        __metadata("design:paramtypes", [Element])
     ], OeThesaurusTree);
     return OeThesaurusTree;
 }());

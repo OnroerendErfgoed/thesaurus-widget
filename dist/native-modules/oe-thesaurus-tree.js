@@ -11,9 +11,11 @@ import { inject, bindable } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ApiService } from './services/api-service';
 var OeThesaurusTree = (function () {
-    function OeThesaurusTree() {
+    function OeThesaurusTree(element) {
         this.nodes = [];
         this.baseUrl = '';
+        this.element = null;
+        this.element = element;
     }
     OeThesaurusTree.prototype.parseNode = function (node) {
         var _this = this;
@@ -51,7 +53,8 @@ var OeThesaurusTree = (function () {
         __metadata("design:type", String)
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     OeThesaurusTree = __decorate([
-        inject(Element)
+        inject(Element),
+        __metadata("design:paramtypes", [Element])
     ], OeThesaurusTree);
     return OeThesaurusTree;
 }());

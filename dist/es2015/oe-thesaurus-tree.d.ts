@@ -4,7 +4,9 @@ export declare class OeThesaurusTree {
     nodes: Tree;
     type: string;
     baseUrl: string;
+    element: Element;
     private service;
+    constructor(element: Element);
     parseNode(node: ITreeChild): TreeChild;
     attached(): void;
 }

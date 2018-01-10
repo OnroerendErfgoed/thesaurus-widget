@@ -11,9 +11,11 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var OeThesaurusTree = (function () {
-        function OeThesaurusTree() {
+        function OeThesaurusTree(element) {
             this.nodes = [];
             this.baseUrl = '';
+            this.element = null;
+            this.element = element;
         }
         OeThesaurusTree.prototype.parseNode = function (node) {
             var _this = this;
@@ -51,7 +53,8 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
             __metadata("design:type", String)
         ], OeThesaurusTree.prototype, "baseUrl", void 0);
         OeThesaurusTree = __decorate([
-            aurelia_framework_1.inject(Element)
+            aurelia_framework_1.inject(Element),
+            __metadata("design:paramtypes", [Element])
         ], OeThesaurusTree);
         return OeThesaurusTree;
     }());

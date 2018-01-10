@@ -25,4 +25,9 @@ describe('The thesaurus tree component', () => {
     expect(component.viewModel.type).toBeDefined();
     expect(component.viewModel.type).toBe('MATERIALEN');
   });
+
+  it('should have a baseUrl property', () => {
+    expect(component.viewModel.baseUrl).toBeDefined();
+    expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
+  });
 });
