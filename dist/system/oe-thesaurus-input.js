@@ -5,7 +5,7 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            OeThesaurusInput = /** @class */ (function () {
+            OeThesaurusInput = (function () {
                 function OeThesaurusInput() {
                     this.text = 'oe-thesaurus-input';
                 }

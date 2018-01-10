@@ -3,6 +3,6 @@ import { ITree, IMember } from '../models/apiModel';
 export declare class ApiService {
     http: HttpClient;
     constructor(base: string, http?: any);
-    getConcepts(type: string, params?: any): Promise<void | IMember[] | undefined>;
-    getTree(type: string): Promise<void | ITree | undefined>;
+    getConcepts(type: string, params?: any): Promise<void | IMember[]>;
+    getTree(type: string): Promise<void | ITree>;
 }

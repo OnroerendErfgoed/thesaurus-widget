@@ -9,7 +9,7 @@ System.register(["aurelia-http-client"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            ApiService = /** @class */ (function () {
+            ApiService = (function () {
                 function ApiService(base, http) {
                     this.http = http || new aurelia_http_client_1.HttpClient();
                     this.http.configure(function (x) {

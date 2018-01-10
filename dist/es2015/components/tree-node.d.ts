@@ -1,3 +1,3 @@
 export declare class TreeNode {
-    current: null;
+    current: any;
 }

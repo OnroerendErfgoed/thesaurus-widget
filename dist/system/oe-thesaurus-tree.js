@@ -6,6 +6,9 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, tree_1, api_service_1, OeThesaurusTree;
     return {
@@ -21,7 +24,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
             }
         ],
         execute: function () {
-            OeThesaurusTree = /** @class */ (function () {
+            OeThesaurusTree = (function () {
                 function OeThesaurusTree() {
                     this.nodes = [];
                     this.baseUrl = '';
@@ -50,13 +53,16 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     });
                 };
                 __decorate([
-                    aurelia_framework_1.bindable
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", tree_1.Tree)
                 ], OeThesaurusTree.prototype, "nodes", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", String)
                 ], OeThesaurusTree.prototype, "type", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", String)
                 ], OeThesaurusTree.prototype, "baseUrl", void 0);
                 OeThesaurusTree = __decorate([
                     aurelia_framework_1.inject(Element)

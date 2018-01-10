@@ -1,7 +1,7 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var Collection = /** @class */ (function () {
+    var Collection = (function () {
         function Collection(apiCollection) {
             this.id = apiCollection.id;
             this.labels = apiCollection.labels;
