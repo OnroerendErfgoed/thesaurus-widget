@@ -5,8 +5,6 @@
         <span if.bind="current.hasChildren()" click.trigger="current.toggleNode()" class="${current.icon}"></span>
         <span>${current.label}</span>
       </div>
-
-      <tree-node repeat.for="node of current.children" current.bind="node"></tree-node>
     </li>
   </ul>
 </template>
