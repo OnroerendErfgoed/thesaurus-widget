@@ -1,3 +1,10 @@
+import { bindable } from 'aurelia-framework';
+import { NodeModel } from './components/node-model';
+
 export class OeThesaurusTree {
-  public text = 'oe-thesaurus-tree';
+  @bindable public nodes: NodeModel[];
+
+  constructor() {
+    
+  }
 }
