@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,14 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable } from 'aurelia-framework';
-import { TreeChild } from './models/tree';
-export class TreeNode {
-    constructor() {
+Object.defineProperty(exports, "__esModule", { value: true });
+var aurelia_framework_1 = require("aurelia-framework");
+var tree_1 = require("../models/tree");
+var TreeNode = (function () {
+    function TreeNode() {
         this.current = null;
     }
-}
-__decorate([
-    bindable,
-    __metadata("design:type", TreeChild)
-], TreeNode.prototype, "current", void 0);
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", tree_1.TreeChild)
+    ], TreeNode.prototype, "current", void 0);
+    return TreeNode;
+}());
+exports.TreeNode = TreeNode;

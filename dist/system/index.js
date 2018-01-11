@@ -1,11 +1,11 @@
-System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "aurelia-framework"], function (exports_1, context_1) {
+System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "./components/tree-node", "aurelia-framework"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function configure(config) {
         config.globalResources([
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-input'),
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree'),
-            aurelia_framework_1.PLATFORM.moduleName('./tree-node')
+            aurelia_framework_1.PLATFORM.moduleName('./components/tree-node')
         ]);
     }
     exports_1("configure", configure);
