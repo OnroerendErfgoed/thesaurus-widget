@@ -10,13 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
+var tree_1 = require("./models/tree");
 var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", Object)
+        __metadata("design:type", tree_1.TreeChild)
     ], TreeNode.prototype, "current", void 0);
     return TreeNode;
 }());

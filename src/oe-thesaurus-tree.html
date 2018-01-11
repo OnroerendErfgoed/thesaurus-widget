@@ -1,10 +1,4 @@
 <template>
-  <ul repeat.for="node of nodes" show.bind="node.visible" style="list-style-type: none;">
-    <li>
-      <div>
-        <span if.bind="node.hasChildren()" click.trigger="node.toggleNode()" class="${current.icon}"></span>
-        <span>${node.label}</span>
-      </div>
-    </li>
-  </ul>
+  <require from="./tree-node"></require>
+  <tree-node repeat.for="node of nodes" current.bind="node"></tree-node>
 </template>
