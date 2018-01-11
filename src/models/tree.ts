@@ -23,8 +23,7 @@ export class TreeChild {
     this.visible = true;
 
     if (this.hasChildren()) {
-      this.icon = 'fa fa-chevron-down';
-      this.expanded = true;
+      this.icon = 'fa fa-chevron-right';
     }
   }
 
