@@ -4,7 +4,8 @@ System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "aurelia-framewo
     function configure(config) {
         config.globalResources([
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-input'),
-            aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree')
+            aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree'),
+            aurelia_framework_1.PLATFORM.moduleName('./tree-node')
         ]);
     }
     exports_1("configure", configure);

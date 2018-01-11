@@ -6,7 +6,8 @@ define(["require", "exports", "./oe-thesaurus-input", "./oe-thesaurus-tree", "au
     function configure(config) {
         config.globalResources([
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-input'),
-            aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree')
+            aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree'),
+            aurelia_framework_1.PLATFORM.moduleName('./tree-node')
         ]);
     }
     exports.configure = configure;
