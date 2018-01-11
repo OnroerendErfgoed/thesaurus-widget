@@ -28,7 +28,7 @@ var OeThesaurusInput = (function () {
         this.element = element;
         this.id = nextID++;
     }
-    OeThesaurusInput.prototype.baseUrlChanged = function () {
+    OeThesaurusInput.prototype.attached = function () {
         if (!this.service) {
             this.service = new ApiService(this.baseUrl);
         }

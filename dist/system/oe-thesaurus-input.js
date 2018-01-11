@@ -40,7 +40,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     this.element = element;
                     this.id = nextID++;
                 }
-                OeThesaurusInput.prototype.baseUrlChanged = function () {
+                OeThesaurusInput.prototype.attached = function () {
                     if (!this.service) {
                         this.service = new api_service_1.ApiService(this.baseUrl);
                     }

@@ -28,7 +28,7 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.element = element;
         this.id = nextID++;
     }
-    baseUrlChanged() {
+    attached() {
         if (!this.service) {
             this.service = new ApiService(this.baseUrl);
         }

@@ -18,7 +18,7 @@ export declare class OeThesaurusInput {
     element: Element;
     private service;
     constructor(element: Element);
-    baseUrlChanged(): void;
+    attached(): void;
     display(name: string): void;
     getName(suggestion: any): any;
     collapse(): void;
