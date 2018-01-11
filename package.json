@@ -103,6 +103,7 @@
     "prepare-release": "cross-env npm run changelog && npm run build && npm run doc"
   },
   "dependencies": {
-    "aurelia-framework": "^1.1.5"
+    "aurelia-framework": "^1.1.5",
+    "aurelia-http-client": "^1.2.1"
   }
 }
