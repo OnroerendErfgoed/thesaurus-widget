@@ -32,7 +32,7 @@ export class OeThesaurusInput {
     this.id = nextID++;
   }
 
-  public baseUrlChanged() {
+  public attached() {
     if (!this.service) {
       this.service = new ApiService(this.baseUrl);
     }
