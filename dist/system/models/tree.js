@@ -25,7 +25,6 @@ System.register([], function (exports_1, context_1) {
                     this.label = label;
                     this.type = type;
                     if (this.hasChildren()) {
-                        this.icon = 'fa fa-chevron-right';
                         this.toggleNode();
                     }
                 }
@@ -38,10 +37,10 @@ System.register([], function (exports_1, context_1) {
                     }
                     this.expanded = !this.expanded;
                     if (this.expanded === true) {
-                        this.icon = 'fa fa-chevron-down';
+                        this.icon = 'fa fa-minus-square';
                     }
                     else {
-                        this.icon = 'fa fa-chevron-right';
+                        this.icon = 'fa fa-plus-square';
                     }
                 };
                 return TreeChild;

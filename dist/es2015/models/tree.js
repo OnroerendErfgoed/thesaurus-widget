@@ -8,7 +8,6 @@ export class TreeChild {
         this.label = label;
         this.type = type;
         if (this.hasChildren()) {
-            this.icon = 'fa fa-chevron-right';
             this.toggleNode();
         }
     }
@@ -21,10 +20,10 @@ export class TreeChild {
         }
         this.expanded = !this.expanded;
         if (this.expanded === true) {
-            this.icon = 'fa fa-chevron-down';
+            this.icon = 'fa fa-minus-square';
         }
         else {
-            this.icon = 'fa fa-chevron-right';
+            this.icon = 'fa fa-plus-square';
         }
     }
 }
