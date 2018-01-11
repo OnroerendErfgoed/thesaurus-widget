@@ -18,7 +18,7 @@ System.register([], function (exports_1, context_1) {
             TreeChild = (function () {
                 function TreeChild(children, conceptId, id, label, type) {
                     this.visible = true;
-                    this.expanded = false;
+                    this.expanded = true;
                     this.children = children;
                     this.conceptId = conceptId;
                     this.id = id;

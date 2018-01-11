@@ -1,4 +1,5 @@
 <template>
   <require from="./tree-node"></require>
-  <tree-node repeat.for="node of nodes" current.bind="node"></tree-node>
+  <button type="button" click.delegate="toggleTree()"><span class="fa fa-search"></span></button>
+  <tree-node show.bind="treeVisible" repeat.for="node of nodes" current.bind="node"></tree-node>
 </template>

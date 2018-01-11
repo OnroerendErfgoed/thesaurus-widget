@@ -28,6 +28,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                 function OeThesaurusTree(element) {
                     this.nodes = [];
                     this.baseUrl = '';
+                    this.treeVisible = false;
                     this.element = null;
                     this.element = element;
                 }
@@ -41,18 +42,23 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     }
                     return new tree_1.TreeChild(children, node.concept_id, node.id, node.label, node.type);
                 };
-                OeThesaurusTree.prototype.attached = function () {
+                OeThesaurusTree.prototype.toggleTree = function () {
                     var _this = this;
+                    if (this.nodes.length > 0) {
+                        this.service.getTree(this.type).then(function (data) {
+                            if (data) {
+                                _this.nodes = data.map(function (d) {
+                                    return _this.parseNode(d);
+                                });
+                            }
+                        });
+                    }
+                    this.treeVisible = !this.treeVisible;
+                };
+                OeThesaurusTree.prototype.attached = function () {
                     if (!this.service) {
                         this.service = new api_service_1.ApiService(this.baseUrl);
                     }
-                    this.service.getTree(this.type).then(function (data) {
-                        if (data) {
-                            _this.nodes = data.map(function (d) {
-                                return _this.parseNode(d);
-                            });
-                        }
-                    });
                 };
                 __decorate([
                     aurelia_framework_1.bindable,

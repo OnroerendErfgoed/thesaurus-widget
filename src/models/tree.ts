@@ -5,7 +5,7 @@ export class TreeChild {
   public label: string;
   public type: string;
   public visible: boolean = true;
-  public expanded: boolean = false;
+  public expanded: boolean = true;
   public icon: string;
 
   constructor(

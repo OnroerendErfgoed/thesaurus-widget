@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 var TreeChild = (function () {
     function TreeChild(children, conceptId, id, label, type) {
         this.visible = true;
-        this.expanded = false;
+        this.expanded = true;
         this.children = children;
         this.conceptId = conceptId;
         this.id = id;

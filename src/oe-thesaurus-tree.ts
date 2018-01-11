@@ -8,6 +8,7 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
+  public treeVisible: boolean = false;
   public element: Element = null;
   private service: ApiService;
 
@@ -31,17 +32,22 @@ export class OeThesaurusTree {
     );
   }
 
+  public toggleTree() {
+    if (this.nodes.length > 0) {
+      this.service.getTree(this.type).then((data) => {
+        if (data) {
+          this.nodes = data.map(d => {
+            return this.parseNode(d);
+          });
+        }
+      });
+    }
+    this.treeVisible = !this.treeVisible;
+  }
+
   public attached() {
     if (!this.service) {
       this.service = new ApiService(this.baseUrl);
     }
-
-    this.service.getTree(this.type).then((data) => {
-      if (data) {
-        this.nodes = data.map(d => {
-          return this.parseNode(d);
-        });
-      }
-    });
   }
 }

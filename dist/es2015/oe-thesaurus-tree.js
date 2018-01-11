@@ -14,6 +14,7 @@ let OeThesaurusTree = class OeThesaurusTree {
     constructor(element) {
         this.nodes = [];
         this.baseUrl = '';
+        this.treeVisible = false;
         this.element = null;
         this.element = element;
     }
@@ -26,17 +27,22 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
         return new TreeChild(children, node.concept_id, node.id, node.label, node.type);
     }
+    toggleTree() {
+        if (this.nodes.length > 0) {
+            this.service.getTree(this.type).then((data) => {
+                if (data) {
+                    this.nodes = data.map(d => {
+                        return this.parseNode(d);
+                    });
+                }
+            });
+        }
+        this.treeVisible = !this.treeVisible;
+    }
     attached() {
         if (!this.service) {
             this.service = new ApiService(this.baseUrl);
         }
-        this.service.getTree(this.type).then((data) => {
-            if (data) {
-                this.nodes = data.map(d => {
-                    return this.parseNode(d);
-                });
-            }
-        });
     }
 };
 __decorate([
