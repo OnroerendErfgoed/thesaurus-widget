@@ -13,16 +13,16 @@ define(["require", "exports"], function (require, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     var TreeChild = (function () {
         function TreeChild(children, conceptId, id, label, type) {
-            this.visible = false;
+            this.visible = true;
             this.expanded = false;
             this.children = children;
             this.conceptId = conceptId;
             this.id = id;
             this.label = label;
             this.type = type;
-            this.visible = true;
             if (this.hasChildren()) {
                 this.icon = 'fa fa-chevron-right';
+                this.toggleNode();
             }
         }
         TreeChild.prototype.hasChildren = function () {

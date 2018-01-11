@@ -4,7 +4,7 @@ export class TreeChild {
   public id: string;
   public label: string;
   public type: string;
-  public visible: boolean = false;
+  public visible: boolean = true;
   public expanded: boolean = false;
   public icon: string;
 
@@ -20,10 +20,10 @@ export class TreeChild {
     this.id = id;
     this.label = label;
     this.type = type;
-    this.visible = true;
 
     if (this.hasChildren()) {
       this.icon = 'fa fa-chevron-right';
+      this.toggleNode();
     }
   }
 
