@@ -8,13 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { bindable } from 'aurelia-framework';
+import { TreeChild } from '../models/tree';
 var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
     __decorate([
         bindable,
-        __metadata("design:type", Object)
+        __metadata("design:type", TreeChild)
     ], TreeNode.prototype, "current", void 0);
     return TreeNode;
 }());
