@@ -8,8 +8,11 @@ describe('The thesaurus tree component', () => {
   beforeEach(async done => {
     component = StageComponent
       .withResources('src/oe-thesaurus-tree')
-      .inView('<oe-thesaurus-tree></oe-thesaurus-tree>')
-      .boundTo({ });
+      .inView('<oe-thesaurus-tree type.bind="type" base-url.bind="baseUrl"></oe-thesaurus-tree>')
+      .boundTo({
+        type: 'MATERIALEN',
+        baseUrl: 'https://www.mock.be/'
+      });
     await component.create(bootstrap);
     done();
   });
@@ -18,8 +21,13 @@ describe('The thesaurus tree component', () => {
     component.dispose();
   });
 
-  it('should render the text', () => {
-    const text = (component.element.textContent || '').trim();
-    expect(text).toEqual('tree: oe-thesaurus-tree');
+  it('should have a type property', () => {
+    expect(component.viewModel.type).toBeDefined();
+    expect(component.viewModel.type).toBe('MATERIALEN');
+  });
+
+  it('should have a baseUrl property', () => {
+    expect(component.viewModel.baseUrl).toBeDefined();
+    expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
   });
 });

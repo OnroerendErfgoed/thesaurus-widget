@@ -1,3 +1,12 @@
+import { Tree, TreeChild } from './models/tree';
+import { ITreeChild } from './models/apiModel';
 export declare class OeThesaurusTree {
-    text: string;
+    nodes: Tree;
+    type: string;
+    baseUrl: string;
+    element: Element;
+    private service;
+    constructor(element: Element);
+    parseNode(node: ITreeChild): TreeChild;
+    attached(): void;
 }

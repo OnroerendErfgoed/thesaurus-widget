@@ -1,3 +1,4 @@
 <template>
-  <p>tree: ${text}</p>
+  <require from="./components/tree-node"></require>
+  <tree-node repeat.for="node of nodes" current.bind="node"></tree-node>
 </template>
