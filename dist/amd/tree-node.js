@@ -7,14 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { bindable } from 'aurelia-framework';
-import { TreeChild } from '../models/tree';
-export class TreeNode {
-    constructor() {
-        this.current = null;
-    }
-}
-__decorate([
-    bindable,
-    __metadata("design:type", TreeChild)
-], TreeNode.prototype, "current", void 0);
+define(["require", "exports", "aurelia-framework", "./models/tree"], function (require, exports, aurelia_framework_1, tree_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var TreeNode = (function () {
+        function TreeNode() {
+            this.current = null;
+        }
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", tree_1.TreeChild)
+        ], TreeNode.prototype, "current", void 0);
+        return TreeNode;
+    }());
+    exports.TreeNode = TreeNode;
+});

@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { bindable } from 'aurelia-framework';
-import { TreeChild } from '../models/tree';
+import { TreeChild } from './models/tree';
 export class TreeNode {
     constructor() {
         this.current = null;
