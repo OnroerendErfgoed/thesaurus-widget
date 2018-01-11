@@ -28,7 +28,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         return new TreeChild(children, node.concept_id, node.id, node.label, node.type);
     }
     toggleTree() {
-        if (this.nodes.length > 0) {
+        if (this.nodes.length === 0) {
             this.service.getTree(this.type).then((data) => {
                 if (data) {
                     this.nodes = data.map(d => {

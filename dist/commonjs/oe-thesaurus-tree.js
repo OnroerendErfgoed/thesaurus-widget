@@ -32,7 +32,7 @@ var OeThesaurusTree = (function () {
     };
     OeThesaurusTree.prototype.toggleTree = function () {
         var _this = this;
-        if (this.nodes.length > 0) {
+        if (this.nodes.length === 0) {
             this.service.getTree(this.type).then(function (data) {
                 if (data) {
                     _this.nodes = data.map(function (d) {
