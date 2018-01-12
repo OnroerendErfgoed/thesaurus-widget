@@ -29,6 +29,6 @@ oe-thesaurus-input .suggestion {
 
 oe-thesaurus-input .suggestion:hover,
 oe-thesaurus-input .suggestion.selected {
-  background: $fresh-blue;
-  color: $white;
+  background: #2da3ce;
+  color: #FFF;
 }
