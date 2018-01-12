@@ -7,6 +7,7 @@ export declare class OeThesaurusTree {
     value: any;
     treeVisible: boolean;
     element: Element;
+    context: any;
     private service;
     constructor(element: Element);
     parseNode(node: ITreeChild): TreeChild;

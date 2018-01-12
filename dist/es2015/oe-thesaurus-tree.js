@@ -16,6 +16,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         this.baseUrl = '';
         this.treeVisible = false;
         this.element = null;
+        this.context = this;
         this.element = element;
     }
     parseNode(node) {

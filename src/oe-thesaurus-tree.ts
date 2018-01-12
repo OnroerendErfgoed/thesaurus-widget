@@ -11,6 +11,7 @@ export class OeThesaurusTree {
   @bindable public value: any;
   public treeVisible: boolean = false;
   public element: Element = null;
+  public context: any = this;
   private service: ApiService;
 
   constructor(element: Element) {

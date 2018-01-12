@@ -30,6 +30,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     this.baseUrl = '';
                     this.treeVisible = false;
                     this.element = null;
+                    this.context = this;
                     this.element = element;
                 }
                 OeThesaurusTree.prototype.parseNode = function (node) {

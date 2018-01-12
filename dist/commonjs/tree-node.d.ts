@@ -1,6 +1,5 @@
 import { TreeChild } from './models/tree';
 export declare class TreeNode {
     current: TreeChild;
-    updateValue: any;
-    attached(): void;
+    parent: any;
 }

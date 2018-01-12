@@ -2,5 +2,5 @@
   <require from="./tree-node"></require>
   
   <button type="button" click.delegate="toggleTree()"><span class="fa fa-search"></span></button>
-  <tree-node show.bind="treeVisible" update-value.call="updateValue(x)" repeat.for="node of nodes" current.bind="node"></tree-node>
+  <tree-node show.bind="treeVisible" parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
 </template>

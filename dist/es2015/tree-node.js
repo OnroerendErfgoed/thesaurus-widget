@@ -13,9 +13,6 @@ export class TreeNode {
     constructor() {
         this.current = null;
     }
-    attached() {
-        console.debug(this.updateValue);
-    }
 }
 __decorate([
     bindable,
@@ -24,4 +21,4 @@ __decorate([
 __decorate([
     bindable,
     __metadata("design:type", Object)
-], TreeNode.prototype, "updateValue", void 0);
+], TreeNode.prototype, "parent", void 0);

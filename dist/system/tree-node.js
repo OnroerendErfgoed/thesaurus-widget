@@ -25,9 +25,6 @@ System.register(["aurelia-framework", "./models/tree"], function (exports_1, con
                 function TreeNode() {
                     this.current = null;
                 }
-                TreeNode.prototype.attached = function () {
-                    console.debug(this.updateValue);
-                };
                 __decorate([
                     aurelia_framework_1.bindable,
                     __metadata("design:type", tree_1.TreeChild)
@@ -35,7 +32,7 @@ System.register(["aurelia-framework", "./models/tree"], function (exports_1, con
                 __decorate([
                     aurelia_framework_1.bindable,
                     __metadata("design:type", Object)
-                ], TreeNode.prototype, "updateValue", void 0);
+                ], TreeNode.prototype, "parent", void 0);
                 return TreeNode;
             }());
             exports_1("TreeNode", TreeNode);
