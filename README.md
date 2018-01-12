@@ -69,9 +69,11 @@ Use the components in a template
   ...
   
   <div>
-    <oe-thesaurus-input></oe-thesaurus-input>
-    <oe-thesaurus-tree></oe-thesaurus-tree>
-</div>
+    <oe-thesaurus-input value.bind="value" type.bind="type" base-url.bind="baseUrl" minlength.bind="minlength" label="label">
+      <template replace-part="suggestion">${suggestion.label}</template>
+    </oe-thesaurus-input>
+    <oe-thesaurus-tree value.bind="value" type.bind="type" base-url.bind="baseUrl"></oe-thesaurus-tree>
+  </div>
     
 ```
 
