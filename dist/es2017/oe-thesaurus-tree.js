@@ -45,7 +45,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
     }
     valueChanged(nv, ov) {
-        alert(nv + ', ' + ov);
+        alert(nv + ', ' + ov + ' tree');
     }
 };
 __decorate([

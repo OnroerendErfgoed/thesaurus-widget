@@ -47,7 +47,7 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
             }
         };
         OeThesaurusTree.prototype.valueChanged = function (nv, ov) {
-            alert(nv + ', ' + ov);
+            alert(nv + ', ' + ov + ' tree');
         };
         __decorate([
             aurelia_framework_1.bindable,

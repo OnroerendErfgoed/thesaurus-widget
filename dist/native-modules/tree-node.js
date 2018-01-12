@@ -13,6 +13,9 @@ var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
+    TreeNode.prototype.valueChanged = function (nv, ov) {
+        alert(nv + ', ' + ov + ' node');
+    };
     __decorate([
         bindable,
         __metadata("design:type", TreeChild)

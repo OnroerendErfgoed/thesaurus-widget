@@ -13,6 +13,9 @@ export class TreeNode {
     constructor() {
         this.current = null;
     }
+    valueChanged(nv, ov) {
+        alert(nv + ', ' + ov + ' node');
+    }
 }
 __decorate([
     bindable,

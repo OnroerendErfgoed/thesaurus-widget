@@ -53,6 +53,6 @@ export class OeThesaurusTree {
   }
 
   public valueChanged(nv, ov) {
-    alert(nv + ', ' + ov);
+    alert(nv + ', ' + ov + ' tree');
   }
 }

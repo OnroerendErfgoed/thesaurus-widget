@@ -15,6 +15,9 @@ var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
+    TreeNode.prototype.valueChanged = function (nv, ov) {
+        alert(nv + ', ' + ov + ' node');
+    };
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", tree_1.TreeChild)
