@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ApiService } from './services/api-service';
 var OeThesaurusTree = (function () {
@@ -63,7 +63,7 @@ var OeThesaurusTree = (function () {
         __metadata("design:type", String)
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     __decorate([
-        bindable,
+        bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)
     ], OeThesaurusTree.prototype, "value", void 0);
     OeThesaurusTree = __decorate([

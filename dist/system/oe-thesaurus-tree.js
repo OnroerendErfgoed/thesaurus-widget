@@ -77,7 +77,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     __metadata("design:type", String)
                 ], OeThesaurusTree.prototype, "baseUrl", void 0);
                 __decorate([
-                    aurelia_framework_1.bindable,
+                    aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
                     __metadata("design:type", Object)
                 ], OeThesaurusTree.prototype, "value", void 0);
                 OeThesaurusTree = __decorate([

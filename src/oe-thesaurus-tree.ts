@@ -1,4 +1,4 @@
-import { inject, bindable } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
@@ -8,7 +8,7 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
-  @bindable public value: any;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
   public treeVisible: boolean = false;
   public element: Element = null;
   public context: any = this;
