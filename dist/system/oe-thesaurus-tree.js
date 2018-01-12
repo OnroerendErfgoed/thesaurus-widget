@@ -62,11 +62,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     }
                 };
                 OeThesaurusTree.prototype.updateValue = function (value) {
-                    alert(value);
                     this.value = value;
-                };
-                OeThesaurusTree.prototype.valueChanged = function (nv, ov) {
-                    alert(nv + ', ' + ov + ' tree');
                 };
                 __decorate([
                     aurelia_framework_1.bindable,

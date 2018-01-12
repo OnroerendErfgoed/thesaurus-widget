@@ -54,11 +54,6 @@ export class OeThesaurusTree {
   }
 
   public updateValue(value) {
-    alert(value);
     this.value = value;
-  }
-
-  public valueChanged(nv, ov) {
-    alert(nv + ', ' + ov + ' tree');
   }
 }

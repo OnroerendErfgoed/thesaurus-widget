@@ -14,5 +14,4 @@ export declare class OeThesaurusTree {
     toggleTree(): void;
     attached(): void;
     updateValue(value: any): void;
-    valueChanged(nv: any, ov: any): void;
 }
