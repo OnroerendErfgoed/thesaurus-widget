@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_http_client_1 = require("aurelia-http-client");
-var ApiService = /** @class */ (function () {
+var ApiService = (function () {
     function ApiService(base, http) {
         this.http = http || new aurelia_http_client_1.HttpClient();
         this.http.configure(function (x) {

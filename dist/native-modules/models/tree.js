@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var TreeChild = /** @class */ (function () {
+var TreeChild = (function () {
     function TreeChild(children, conceptId, id, label, type) {
         this.children = children;
         this.conceptId = conceptId;
@@ -19,7 +19,7 @@ var TreeChild = /** @class */ (function () {
     return TreeChild;
 }());
 export { TreeChild };
-var Tree = /** @class */ (function (_super) {
+var Tree = (function (_super) {
     __extends(Tree, _super);
     function Tree() {
         return _super !== null && _super.apply(this, arguments) || this;

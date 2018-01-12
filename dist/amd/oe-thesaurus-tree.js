@@ -1,7 +1,7 @@
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var OeThesaurusTree = /** @class */ (function () {
+    var OeThesaurusTree = (function () {
         function OeThesaurusTree() {
             this.text = 'oe-thesaurus-tree';
         }

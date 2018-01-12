@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var TreeChild = /** @class */ (function () {
+var TreeChild = (function () {
     function TreeChild(children, conceptId, id, label, type) {
         this.children = children;
         this.conceptId = conceptId;
@@ -21,7 +21,7 @@ var TreeChild = /** @class */ (function () {
     return TreeChild;
 }());
 exports.TreeChild = TreeChild;
-var Tree = /** @class */ (function (_super) {
+var Tree = (function (_super) {
     __extends(Tree, _super);
     function Tree() {
         return _super !== null && _super.apply(this, arguments) || this;

@@ -1,4 +1,4 @@
-var Collection = /** @class */ (function () {
+var Collection = (function () {
     function Collection(apiCollection) {
         this.id = apiCollection.id;
         this.labels = apiCollection.labels;
