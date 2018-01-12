@@ -44,6 +44,9 @@ let OeThesaurusTree = class OeThesaurusTree {
             this.service = new ApiService(this.baseUrl);
         }
     }
+    valueChanged(nv, ov) {
+        alert(nv + ', ' + ov);
+    }
 };
 __decorate([
     bindable,
@@ -57,6 +60,10 @@ __decorate([
     bindable,
     __metadata("design:type", String)
 ], OeThesaurusTree.prototype, "baseUrl", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", Object)
+], OeThesaurusTree.prototype, "value", void 0);
 OeThesaurusTree = __decorate([
     inject(Element),
     __metadata("design:paramtypes", [Element])

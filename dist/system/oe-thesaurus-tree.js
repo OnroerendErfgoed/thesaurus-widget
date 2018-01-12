@@ -60,6 +60,9 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                         this.service = new api_service_1.ApiService(this.baseUrl);
                     }
                 };
+                OeThesaurusTree.prototype.valueChanged = function (nv, ov) {
+                    alert(nv + ', ' + ov);
+                };
                 __decorate([
                     aurelia_framework_1.bindable,
                     __metadata("design:type", tree_1.Tree)
@@ -72,6 +75,10 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     aurelia_framework_1.bindable,
                     __metadata("design:type", String)
                 ], OeThesaurusTree.prototype, "baseUrl", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", Object)
+                ], OeThesaurusTree.prototype, "value", void 0);
                 OeThesaurusTree = __decorate([
                     aurelia_framework_1.inject(Element),
                     __metadata("design:paramtypes", [Element])

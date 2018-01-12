@@ -4,6 +4,7 @@ export declare class OeThesaurusTree {
     nodes: Tree;
     type: string;
     baseUrl: string;
+    value: any;
     treeVisible: boolean;
     element: Element;
     private service;
@@ -11,4 +12,5 @@ export declare class OeThesaurusTree {
     parseNode(node: ITreeChild): TreeChild;
     toggleTree(): void;
     attached(): void;
+    valueChanged(nv: any, ov: any): void;
 }

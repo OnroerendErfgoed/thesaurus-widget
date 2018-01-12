@@ -29,6 +29,10 @@ System.register(["aurelia-framework", "./models/tree"], function (exports_1, con
                     aurelia_framework_1.bindable,
                     __metadata("design:type", tree_1.TreeChild)
                 ], TreeNode.prototype, "current", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", Object)
+                ], TreeNode.prototype, "value", void 0);
                 return TreeNode;
             }());
             exports_1("TreeNode", TreeNode);

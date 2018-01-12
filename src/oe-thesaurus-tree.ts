@@ -8,6 +8,7 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
+  @bindable public value: any;
   public treeVisible: boolean = false;
   public element: Element = null;
   private service: ApiService;
@@ -49,5 +50,9 @@ export class OeThesaurusTree {
     if (!this.service) {
       this.service = new ApiService(this.baseUrl);
     }
+  }
+
+  public valueChanged(nv, ov) {
+    alert(nv + ', ' + ov);
   }
 }

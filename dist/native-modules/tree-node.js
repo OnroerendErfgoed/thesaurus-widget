@@ -17,6 +17,10 @@ var TreeNode = (function () {
         bindable,
         __metadata("design:type", TreeChild)
     ], TreeNode.prototype, "current", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Object)
+    ], TreeNode.prototype, "value", void 0);
     return TreeNode;
 }());
 export { TreeNode };
