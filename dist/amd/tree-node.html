@@ -3,10 +3,10 @@
     <li>
       <div>
         <span if.bind="current.hasChildren()" click.trigger="current.toggleNode()" class="${current.icon}"></span>
-        <span click.delegate="value = current.label">${current.label}</span>
+        <span click.delegate="updateValue({x: current.label})">${current.label}</span>
       </div>
 
-      <tree-node value.bind="value" repeat.for="node of current.children" current.bind="node"></tree-node>
+      <tree-node update-value.call="updateValue(x)" repeat.for="node of current.children" current.bind="node"></tree-node>
     </li>
   </ul>
 </template>

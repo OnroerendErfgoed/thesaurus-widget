@@ -8,13 +8,15 @@ describe('The thesaurus tree component', () => {
   beforeEach(async done => {
     component = StageComponent
       .withResources('src/oe-thesaurus-tree')
-      .inView(`<oe-thesaurus-tree value.bind='value' nodes.bind='nodes'
+      .inView(`<oe-thesaurus-tree update-value.call='updateValue(x)' nodes.bind='nodes'
                 type.bind='type' base-url.bind='baseUrl'>
                </oe-thesaurus-tree>`)
       .boundTo({
         type: 'MATERIALEN',
         baseUrl: 'https://www.mock.be/',
-        value: 'test',
+        updateValue: function updateValue(value) {
+          this.value = value;
+        },
         nodes: [
           {
               children: [

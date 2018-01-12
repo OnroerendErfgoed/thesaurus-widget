@@ -46,6 +46,10 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
                 this.service = new api_service_1.ApiService(this.baseUrl);
             }
         };
+        OeThesaurusTree.prototype.updateValue = function (value) {
+            alert(value);
+            this.value = value;
+        };
         OeThesaurusTree.prototype.valueChanged = function (nv, ov) {
             alert(nv + ', ' + ov + ' tree');
         };

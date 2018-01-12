@@ -13,8 +13,8 @@ var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
-    TreeNode.prototype.valueChanged = function (nv, ov) {
-        alert(nv + ', ' + ov + ' node');
+    TreeNode.prototype.attached = function () {
+        console.debug(this.updateValue);
     };
     __decorate([
         bindable,
@@ -23,7 +23,7 @@ var TreeNode = (function () {
     __decorate([
         bindable,
         __metadata("design:type", Object)
-    ], TreeNode.prototype, "value", void 0);
+    ], TreeNode.prototype, "updateValue", void 0);
     return TreeNode;
 }());
 export { TreeNode };

@@ -44,6 +44,10 @@ let OeThesaurusTree = class OeThesaurusTree {
             this.service = new ApiService(this.baseUrl);
         }
     }
+    updateValue(value) {
+        alert(value);
+        this.value = value;
+    }
     valueChanged(nv, ov) {
         alert(nv + ', ' + ov + ' tree');
     }

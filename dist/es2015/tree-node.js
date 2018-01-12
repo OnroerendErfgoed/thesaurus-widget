@@ -13,8 +13,8 @@ export class TreeNode {
     constructor() {
         this.current = null;
     }
-    valueChanged(nv, ov) {
-        alert(nv + ', ' + ov + ' node');
+    attached() {
+        console.debug(this.updateValue);
     }
 }
 __decorate([
@@ -24,4 +24,4 @@ __decorate([
 __decorate([
     bindable,
     __metadata("design:type", Object)
-], TreeNode.prototype, "value", void 0);
+], TreeNode.prototype, "updateValue", void 0);

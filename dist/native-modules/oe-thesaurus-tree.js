@@ -46,6 +46,10 @@ var OeThesaurusTree = (function () {
             this.service = new ApiService(this.baseUrl);
         }
     };
+    OeThesaurusTree.prototype.updateValue = function (value) {
+        alert(value);
+        this.value = value;
+    };
     OeThesaurusTree.prototype.valueChanged = function (nv, ov) {
         alert(nv + ', ' + ov + ' tree');
     };

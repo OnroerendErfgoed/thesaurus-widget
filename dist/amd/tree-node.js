@@ -14,8 +14,8 @@ define(["require", "exports", "aurelia-framework", "./models/tree"], function (r
         function TreeNode() {
             this.current = null;
         }
-        TreeNode.prototype.valueChanged = function (nv, ov) {
-            alert(nv + ', ' + ov + ' node');
+        TreeNode.prototype.attached = function () {
+            console.debug(this.updateValue);
         };
         __decorate([
             aurelia_framework_1.bindable,
@@ -24,7 +24,7 @@ define(["require", "exports", "aurelia-framework", "./models/tree"], function (r
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", Object)
-        ], TreeNode.prototype, "value", void 0);
+        ], TreeNode.prototype, "updateValue", void 0);
         return TreeNode;
     }());
     exports.TreeNode = TreeNode;

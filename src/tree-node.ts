@@ -3,9 +3,9 @@ import { TreeChild } from './models/tree';
 
 export class TreeNode {
   @bindable public current: TreeChild = null;
-  @bindable public value: any;
+  @bindable public updateValue: any;
 
-  public valueChanged(nv, ov) {
-    alert(nv + ', ' + ov + ' node');
+  public attached() {
+    console.debug(this.updateValue);
   }
 }

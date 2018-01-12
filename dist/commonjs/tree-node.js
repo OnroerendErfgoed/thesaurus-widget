@@ -15,8 +15,8 @@ var TreeNode = (function () {
     function TreeNode() {
         this.current = null;
     }
-    TreeNode.prototype.valueChanged = function (nv, ov) {
-        alert(nv + ', ' + ov + ' node');
+    TreeNode.prototype.attached = function () {
+        console.debug(this.updateValue);
     };
     __decorate([
         aurelia_framework_1.bindable,
@@ -25,7 +25,7 @@ var TreeNode = (function () {
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", Object)
-    ], TreeNode.prototype, "value", void 0);
+    ], TreeNode.prototype, "updateValue", void 0);
     return TreeNode;
 }());
 exports.TreeNode = TreeNode;
