@@ -6,9 +6,8 @@
   </button>
   <div class="popup" tabindex="0"
        show.bind="treeVisible"
-       blur.trigger="treeVisible=false"
        css="left: ${coords.x}px; top: ${coords.y}px"
   >
-    <tree-node show.bind="treeVisible" parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+    <tree-node parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
   </div>
 </template>
