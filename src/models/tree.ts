@@ -6,7 +6,6 @@ export class TreeChild {
   public type: string;
   public visible: boolean = true;
   public expanded: boolean = true;
-  public icon: string;
 
   constructor(
     children: TreeChild[],
@@ -36,12 +35,6 @@ export class TreeChild {
     }
 
     this.expanded = !this.expanded;
-
-    if (this.expanded === true) {
-      this.icon = 'fa fa-minus-square';
-    } else {
-      this.icon = 'fa fa-plus-square';
-    }
   }
 }
 

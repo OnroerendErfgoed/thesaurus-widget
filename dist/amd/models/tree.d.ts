@@ -6,7 +6,6 @@ export declare class TreeChild {
     type: string;
     visible: boolean;
     expanded: boolean;
-    icon: string;
     constructor(children: TreeChild[], conceptId: number, id: string, label: string, type: string);
     hasChildren(): boolean;
     toggleNode(): void;

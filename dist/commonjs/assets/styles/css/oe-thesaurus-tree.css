@@ -9,6 +9,7 @@ oe-thesaurus-tree .popup {
   border: 1px solid #bfd6eb;
   outline: none;
   padding: 10px;
+  white-space: nowrap;
 }
 oe-thesaurus-tree .popup .fa-plus-square,
 oe-thesaurus-tree .popup .fa-minus-square {
@@ -16,6 +17,8 @@ oe-thesaurus-tree .popup .fa-minus-square {
 }
 oe-thesaurus-tree .popup .option {
   cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
 }
 oe-thesaurus-tree .popup ul {
   margin: 0;

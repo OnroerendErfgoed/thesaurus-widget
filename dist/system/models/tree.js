@@ -36,12 +36,6 @@ System.register([], function (exports_1, context_1) {
                         this.children[i].visible = !this.children[i].visible;
                     }
                     this.expanded = !this.expanded;
-                    if (this.expanded === true) {
-                        this.icon = 'fa fa-minus-square';
-                    }
-                    else {
-                        this.icon = 'fa fa-plus-square';
-                    }
                 };
                 return TreeChild;
             }());
