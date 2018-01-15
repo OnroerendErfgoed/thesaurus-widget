@@ -1,16 +1,14 @@
 <template>
-  <ul show.bind="current.visible" style="list-style-type: none;">
-    <li>
-      <div>
-        <span if.bind="current.hasChildren()" click.trigger="current.toggleNode()" class="fa ${current.expanded ? 'fa-minus-square' : 'fa-plus-square'}"></span>
-        <div class="option" click.delegate="parent.updateValue(current)">
-          <span if.bind="!current.hasChildren()" class="fa fa-file-text-o"></span>
-          <span if.bind="current.hasChildren()" class="fa ${current.expanded ? 'fa-folder-open-o' : 'fa-folder-o'}"></span>
-          ${current.label}
-        </div>
+    <li show.bind="current.visible">
+      <span if.bind="current.hasChildren()" click.trigger="current.toggleNode()" class="fa ${current.expanded ? 'fa-minus-square' : 'fa-plus-square'}"></span>
+      <div class="option" click.delegate="parent.updateValue(current)">
+        <span if.bind="!current.hasChildren()" class="fa fa-file-text-o"></span>
+        <span if.bind="current.hasChildren()" class="fa ${current.expanded ? 'fa-folder-open-o' : 'fa-folder-o'}"></span>
+        ${current.label}
       </div>
-
-      <tree-node parent.bind="parent" repeat.for="node of current.children" current.bind="node"></tree-node>
+      
+      <ul>
+        <tree-node parent.bind="parent" repeat.for="node of current.children" current.bind="node"></tree-node>
+      </ul>
     </li>
-  </ul>
 </template>

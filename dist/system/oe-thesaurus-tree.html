@@ -4,10 +4,9 @@
   <button type="button" click.delegate="toggleTree()">
     <span class="fa fa-search"></span>&nbsp;<span class="fa fa-caret-down"></span>
   </button>
-  <div class="popup" tabindex="0"
-       show.bind="treeVisible"
-       css="left: ${coords.x}px; top: ${coords.y}px"
-  >
-    <tree-node parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+  <div class="popup" tabindex="0" show.bind="treeVisible" css="left: ${coords.x}px; top: ${coords.y}px">
+    <ul>
+      <tree-node parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+    </ul>
   </div>
 </template>
