@@ -7,7 +7,7 @@
       ${current.label}
     </div>
 
-    <ul>
+    <ul show.bind="current.expanded">
       <li repeat.for="node of current.children">
         <tree-node parent.bind="parent" current.bind="node"></tree-node>
       </li>
