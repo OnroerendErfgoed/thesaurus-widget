@@ -1,6 +1,14 @@
 <template>
   <require from="./tree-node"></require>
   
-  <button type="button" click.delegate="toggleTree()"><span class="fa fa-search"></span></button>
-  <tree-node show.bind="treeVisible" parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+  <button type="button" click.delegate="toggleTree()">
+    <span class="fa fa-search"></span>&nbsp;<span class="fa fa-caret-down"></span>
+  </button>
+  <div class="popup" tabindex="0"
+       show.bind="treeVisible"
+       blur.trigger="treeVisible=false"
+       css="left: ${coords.x}px; top: ${coords.y}px"
+  >
+    <tree-node show.bind="treeVisible" parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+  </div>
 </template>

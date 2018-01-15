@@ -1,0 +1,25 @@
+oe-thesaurus-tree {
+  display: inline-block;
+  position: relative;
+}
+oe-thesaurus-tree .popup {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  border: 1px solid #bfd6eb;
+  outline: none;
+  padding: 10px;
+}
+oe-thesaurus-tree .popup .fa-plus-square,
+oe-thesaurus-tree .popup .fa-minus-square {
+  font-size: 12px;
+}
+oe-thesaurus-tree .popup .option {
+  cursor: pointer;
+}
+oe-thesaurus-tree .popup ul {
+  margin: 0;
+}
+oe-thesaurus-tree .popup ul ul {
+  margin-left: 15px;
+}

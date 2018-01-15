@@ -3,7 +3,12 @@
     <li>
       <div>
         <span if.bind="current.hasChildren()" click.trigger="current.toggleNode()" class="${current.icon}"></span>
-        <span click.delegate="parent.updateValue(current)">${current.label}</span>
+        <div class="option" click.delegate="parent.updateValue(current)">
+          <span if.bind="!current.hasChildren()" class="fa fa-file-text-o"></span>
+          <span if.bind="current.hasChildren()" class="fa fa-folder-o"></span>
+          &nbsp;
+          ${current.label}
+        </div>
       </div>
 
       <tree-node parent.bind="parent" repeat.for="node of current.children" current.bind="node"></tree-node>
