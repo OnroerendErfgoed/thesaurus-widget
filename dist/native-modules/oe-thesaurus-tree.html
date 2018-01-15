@@ -6,7 +6,9 @@
   </button>
   <div class="popup" tabindex="0" show.bind="treeVisible" css="left: ${coords.x}px; top: ${coords.y}px">
     <ul>
-      <tree-node parent.bind="context" repeat.for="node of nodes" current.bind="node"></tree-node>
+      <li repeat.for="node of nodes">
+        <tree-node parent.bind="context" current.bind="node"></tree-node>
+      </li>
     </ul>
   </div>
 </template>
