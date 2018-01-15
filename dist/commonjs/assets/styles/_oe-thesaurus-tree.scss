@@ -11,6 +11,10 @@ oe-thesaurus-tree {
     padding: 10px;
     white-space: nowrap;
     
+    tree-node {
+      display: inline-flex;
+    }
+    
     .fa-plus-square,
     .fa-minus-square {
       font-size: 12px;
@@ -34,7 +38,7 @@ oe-thesaurus-tree {
           border-left: 1px dotted #BBB;
 
           &:before {
-            position:relative;
+            position: relative;
             top: -0.3em;
             height: 1em;
             width: 12px;

@@ -11,6 +11,9 @@ oe-thesaurus-tree .popup {
   padding: 10px;
   white-space: nowrap;
 }
+oe-thesaurus-tree .popup tree-node {
+  display: inline-flex;
+}
 oe-thesaurus-tree .popup .fa-plus-square,
 oe-thesaurus-tree .popup .fa-minus-square {
   font-size: 12px;
