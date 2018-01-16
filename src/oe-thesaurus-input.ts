@@ -2,6 +2,7 @@
 original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701aeb
 * */
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
+import { Concept } from './models/concept';
 import { ApiService } from './services/api-service';
 
 let nextID: number = 0;
@@ -12,7 +13,7 @@ export class OeThesaurusInput {
   @bindable public type: string;
   @bindable public minlength: number = null;
   @bindable public baseUrl: string = '';
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Concept;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
   @bindable public disabled: boolean;
@@ -57,11 +58,15 @@ export class OeThesaurusInput {
 
   public select(suggestion: any) {
     if (suggestion) {
-      this.value = suggestion;
-      const name = this.getName(this.value);
-      this.userInput = name;
-      this.display(name);
-      this.collapse();
+      this.service.getConceptById(this.type, suggestion.id).then((data) => {
+        if (data) {
+          this.value = new Concept(data);
+          const name = this.getName(this.value);
+          this.userInput = name;
+          this.display(name);
+          this.collapse();
+        }
+      });
     }
   }
 

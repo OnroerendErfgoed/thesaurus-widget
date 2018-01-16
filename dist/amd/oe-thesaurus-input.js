@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "./services/api-service"], function (require, exports, aurelia_framework_1, api_service_1) {
+define(["require", "exports", "aurelia-framework", "./models/concept", "./services/api-service"], function (require, exports, aurelia_framework_1, concept_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var nextID = 0;
@@ -49,12 +49,17 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             this.index = -1;
         };
         OeThesaurusInput.prototype.select = function (suggestion) {
+            var _this = this;
             if (suggestion) {
-                this.value = suggestion;
-                var name_1 = this.getName(this.value);
-                this.userInput = name_1;
-                this.display(name_1);
-                this.collapse();
+                this.service.getConceptById(this.type, suggestion.id).then(function (data) {
+                    if (data) {
+                        _this.value = new concept_1.Concept(data);
+                        var name_1 = _this.getName(_this.value);
+                        _this.userInput = name_1;
+                        _this.display(name_1);
+                        _this.collapse();
+                    }
+                });
             }
         };
         OeThesaurusInput.prototype.valueChanged = function () {
@@ -174,7 +179,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
         ], OeThesaurusInput.prototype, "baseUrl", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", String)
+            __metadata("design:type", concept_1.Concept)
         ], OeThesaurusInput.prototype, "value", void 0);
         __decorate([
             aurelia_framework_1.bindable,

@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var tree_1 = require("./models/tree");
+var concept_1 = require("./models/concept");
 var api_service_1 = require("./services/api-service");
 var OeThesaurusTree = (function () {
     function OeThesaurusTree(taskQueue, element) {
@@ -72,7 +73,7 @@ var OeThesaurusTree = (function () {
         var _this = this;
         this.service.getConceptById(this.type, id).then(function (data) {
             if (data) {
-                _this.value = data;
+                _this.value = new concept_1.Concept(data);
             }
         });
         this.treeVisible = false;
@@ -91,7 +92,7 @@ var OeThesaurusTree = (function () {
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-        __metadata("design:type", Object)
+        __metadata("design:type", concept_1.Concept)
     ], OeThesaurusTree.prototype, "value", void 0);
     OeThesaurusTree = __decorate([
         aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),

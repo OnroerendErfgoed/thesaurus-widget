@@ -1,9 +1,10 @@
+import { Concept } from './models/concept';
 export declare class OeThesaurusInput {
     inputValue: string;
     type: string;
     minlength: number;
     baseUrl: string;
-    value: string;
+    value: Concept;
     placeholder: string;
     delay: number;
     disabled: boolean;

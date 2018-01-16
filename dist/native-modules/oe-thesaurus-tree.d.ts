@@ -1,5 +1,6 @@
 import { TaskQueue } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
+import { Concept } from './models/concept';
 import { ITreeChild } from './models/apiModel';
 export declare class OeThesaurusTree {
     private taskQueue;
@@ -7,7 +8,7 @@ export declare class OeThesaurusTree {
     nodes: Tree;
     type: string;
     baseUrl: string;
-    value: any;
+    value: Concept;
     treeVisible: boolean;
     context: any;
     position: string;

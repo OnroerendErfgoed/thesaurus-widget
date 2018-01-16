@@ -1,5 +1,6 @@
 import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
+import { Concept } from './models/concept';
 import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
@@ -8,7 +9,7 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Concept;
   public treeVisible: boolean = false;
   public context: any = this;
   public position: string;
@@ -73,11 +74,10 @@ export class OeThesaurusTree {
 
   public updateValue(id: number) {
     this.service.getConceptById(this.type, id).then((data) => {
-        if (data) {
-          this.value = data;
-        }
-      });
-    // this.value = value;
+      if (data) {
+        this.value = new Concept(data);
+      }
+    });
     this.treeVisible = false;
   }
 }

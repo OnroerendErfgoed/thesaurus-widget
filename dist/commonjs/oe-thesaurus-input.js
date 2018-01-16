@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
+var concept_1 = require("./models/concept");
 var api_service_1 = require("./services/api-service");
 var nextID = 0;
 var OeThesaurusInput = (function () {
@@ -50,12 +51,17 @@ var OeThesaurusInput = (function () {
         this.index = -1;
     };
     OeThesaurusInput.prototype.select = function (suggestion) {
+        var _this = this;
         if (suggestion) {
-            this.value = suggestion;
-            var name_1 = this.getName(this.value);
-            this.userInput = name_1;
-            this.display(name_1);
-            this.collapse();
+            this.service.getConceptById(this.type, suggestion.id).then(function (data) {
+                if (data) {
+                    _this.value = new concept_1.Concept(data);
+                    var name_1 = _this.getName(_this.value);
+                    _this.userInput = name_1;
+                    _this.display(name_1);
+                    _this.collapse();
+                }
+            });
         }
     };
     OeThesaurusInput.prototype.valueChanged = function () {
@@ -175,7 +181,7 @@ var OeThesaurusInput = (function () {
     ], OeThesaurusInput.prototype, "baseUrl", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-        __metadata("design:type", String)
+        __metadata("design:type", concept_1.Concept)
     ], OeThesaurusInput.prototype, "value", void 0);
     __decorate([
         aurelia_framework_1.bindable,

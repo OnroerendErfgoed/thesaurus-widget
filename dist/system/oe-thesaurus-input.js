@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "./services/api-service"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "./models/concept", "./services/api-service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,11 +10,14 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, api_service_1, nextID, OeThesaurusInput;
+    var aurelia_framework_1, concept_1, api_service_1, nextID, OeThesaurusInput;
     return {
         setters: [
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
+            },
+            function (concept_1_1) {
+                concept_1 = concept_1_1;
             },
             function (api_service_1_1) {
                 api_service_1 = api_service_1_1;
@@ -60,12 +63,17 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     this.index = -1;
                 };
                 OeThesaurusInput.prototype.select = function (suggestion) {
+                    var _this = this;
                     if (suggestion) {
-                        this.value = suggestion;
-                        var name_1 = this.getName(this.value);
-                        this.userInput = name_1;
-                        this.display(name_1);
-                        this.collapse();
+                        this.service.getConceptById(this.type, suggestion.id).then(function (data) {
+                            if (data) {
+                                _this.value = new concept_1.Concept(data);
+                                var name_1 = _this.getName(_this.value);
+                                _this.userInput = name_1;
+                                _this.display(name_1);
+                                _this.collapse();
+                            }
+                        });
                     }
                 };
                 OeThesaurusInput.prototype.valueChanged = function () {
@@ -185,7 +193,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                 ], OeThesaurusInput.prototype, "baseUrl", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", String)
+                    __metadata("design:type", concept_1.Concept)
                 ], OeThesaurusInput.prototype, "value", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,

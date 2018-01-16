@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
+import { Concept } from './models/concept';
 import { ApiService } from './services/api-service';
 var nextID = 0;
 var OeThesaurusInput = (function () {
@@ -48,12 +49,17 @@ var OeThesaurusInput = (function () {
         this.index = -1;
     };
     OeThesaurusInput.prototype.select = function (suggestion) {
+        var _this = this;
         if (suggestion) {
-            this.value = suggestion;
-            var name_1 = this.getName(this.value);
-            this.userInput = name_1;
-            this.display(name_1);
-            this.collapse();
+            this.service.getConceptById(this.type, suggestion.id).then(function (data) {
+                if (data) {
+                    _this.value = new Concept(data);
+                    var name_1 = _this.getName(_this.value);
+                    _this.userInput = name_1;
+                    _this.display(name_1);
+                    _this.collapse();
+                }
+            });
         }
     };
     OeThesaurusInput.prototype.valueChanged = function () {
@@ -173,7 +179,7 @@ var OeThesaurusInput = (function () {
     ], OeThesaurusInput.prototype, "baseUrl", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", String)
+        __metadata("design:type", Concept)
     ], OeThesaurusInput.prototype, "value", void 0);
     __decorate([
         bindable,
