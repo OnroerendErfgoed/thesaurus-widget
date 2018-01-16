@@ -54,9 +54,11 @@ export class OeThesaurusTree {
       this.calcPosition();
     }
     this.treeVisible = !this.treeVisible;
-    this.taskQueue.queueMicroTask(() => {
-      (this.element.querySelector('.popup') as HTMLElement).focus();
-    });
+    if (this.treeVisible) {
+      this.taskQueue.queueMicroTask(() => {
+        (this.element.querySelector('.popup') as HTMLElement).focus();
+      });
+    }
   }
 
   public calcPosition() {

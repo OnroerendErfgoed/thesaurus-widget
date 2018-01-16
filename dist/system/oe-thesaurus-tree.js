@@ -64,9 +64,11 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                         this.calcPosition();
                     }
                     this.treeVisible = !this.treeVisible;
-                    this.taskQueue.queueMicroTask(function () {
-                        _this.element.querySelector('.popup').focus();
-                    });
+                    if (this.treeVisible) {
+                        this.taskQueue.queueMicroTask(function () {
+                            _this.element.querySelector('.popup').focus();
+                        });
+                    }
                 };
                 OeThesaurusTree.prototype.calcPosition = function () {
                     var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
