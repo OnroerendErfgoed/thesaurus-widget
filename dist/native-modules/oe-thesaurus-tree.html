@@ -1,3 +1,15 @@
 <template>
-  <p>tree: ${text}</p>
+  <require from="./tree-node"></require>
+  
+  <button type="button" class="tiny" click.delegate="toggleTree()">
+    <span class="fa fa-search"></span>&nbsp;<span class="fa fa-caret-down"></span>
+  </button>
+  <div class="popup" tabindex="0" show.bind="treeVisible" blur.trigger="treeVisible=false" css="${position}">
+    <span if.bind="nodes.length === 0" class="fa fa-spinner fa-pulse"></span>
+    <ul if.bind="nodes.length > 0">
+      <li repeat.for="node of nodes">
+        <tree-node parent.bind="context" current.bind="node"></tree-node>
+      </li>
+    </ul>
+  </div>
 </template>

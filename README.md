@@ -1,6 +1,8 @@
 # thesaurus-widget
 A widget that can interact with a thesaurus api to select concepts.
 
+DEV_0.1 branch: [![Build Status](https://travis-ci.org/OnroerendErfgoed/thesaurus-widget.svg?branch=DEV_0.1)](https://travis-ci.org/OnroerendErfgoed/thesaurus-widget) 
+
 This widget is a pluggable component that acts as a frontend to a thesaurus api provided by [athramisis](https://github.com/OnroerendErfgoed/atramhasis). This API has following endpoints: http://atramhasis.readthedocs.io/en/latest/services.html
 
 The widget is based on this [skeleton](https://github.com/manuel-guilbault/aurelia-skeleton-plugin-typescript). 
@@ -66,10 +68,12 @@ Use the components in a template
 ```html
   <require from="thesaurus-widget/oe-thesaurus-input"></require>
   <require from="thesaurus-widget/oe-thesaurus-tree"></require>
+  <require from='thesaurus-widget/assets/styles/css/oe-thesaurus-input.css'></require>
+  <require from='thesaurus-widget/assets/styles/css/oe-thesaurus-tree.css'></require> 
   ...
   
   <div>
-    <oe-thesaurus-input value.bind="value" type.bind="type" base-url.bind="baseUrl" minlength.bind="minlength" label="label">
+    <oe-thesaurus-input value.bind="value" type.bind="type" minlength.bind="minlength" base-url.bind="baseUrl" label="label">
       <template replace-part="suggestion">${suggestion.label}</template>
     </oe-thesaurus-input>
     <oe-thesaurus-tree value.bind="value" type.bind="type" base-url.bind="baseUrl"></oe-thesaurus-tree>

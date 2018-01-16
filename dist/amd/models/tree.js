@@ -13,12 +13,26 @@ define(["require", "exports"], function (require, exports) {
     Object.defineProperty(exports, "__esModule", { value: true });
     var TreeChild = (function () {
         function TreeChild(children, conceptId, id, label, type) {
+            this.visible = true;
+            this.expanded = true;
             this.children = children;
             this.conceptId = conceptId;
             this.id = id;
             this.label = label;
             this.type = type;
+            if (this.hasChildren()) {
+                this.toggleNode();
+            }
         }
+        TreeChild.prototype.hasChildren = function () {
+            return this.children.length > 0;
+        };
+        TreeChild.prototype.toggleNode = function () {
+            for (var i = 0; i < this.children.length; i++) {
+                this.children[i].visible = !this.children[i].visible;
+            }
+            this.expanded = !this.expanded;
+        };
         return TreeChild;
     }());
     exports.TreeChild = TreeChild;
