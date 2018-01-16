@@ -53,9 +53,9 @@ export class OeThesaurusTree {
     }
     if (!this.treeVisible) {
       this.calcPosition();
-      (this.element.querySelector('.popup') as HTMLElement).focus();
     }
     this.treeVisible = !this.treeVisible;
+    (this.element.querySelector('.popup') as HTMLElement).focus();
   }
 
   public calcPosition() {

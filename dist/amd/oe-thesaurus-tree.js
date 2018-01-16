@@ -47,9 +47,9 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
             }
             if (!this.treeVisible) {
                 this.calcPosition();
-                this.element.querySelector('.popup').focus();
             }
             this.treeVisible = !this.treeVisible;
+            this.element.querySelector('.popup').focus();
         };
         OeThesaurusTree.prototype.calcPosition = function () {
             var buttonBounds = this.element.querySelector('button').getBoundingClientRect();

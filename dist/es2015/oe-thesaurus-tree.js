@@ -45,9 +45,9 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
         if (!this.treeVisible) {
             this.calcPosition();
-            this.element.querySelector('.popup').focus();
         }
         this.treeVisible = !this.treeVisible;
+        this.element.querySelector('.popup').focus();
     }
     calcPosition() {
         const buttonBounds = this.element.querySelector('button').getBoundingClientRect();
