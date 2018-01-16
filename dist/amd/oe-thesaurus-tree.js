@@ -47,6 +47,7 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
             }
             if (!this.treeVisible) {
                 this.calcPosition();
+                this.element.querySelector('.popup').focus();
             }
             this.treeVisible = !this.treeVisible;
         };

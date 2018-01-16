@@ -45,6 +45,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
         if (!this.treeVisible) {
             this.calcPosition();
+            this.element.querySelector('.popup').focus();
         }
         this.treeVisible = !this.treeVisible;
     }

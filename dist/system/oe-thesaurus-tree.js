@@ -61,6 +61,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     }
                     if (!this.treeVisible) {
                         this.calcPosition();
+                        this.element.querySelector('.popup').focus();
                     }
                     this.treeVisible = !this.treeVisible;
                 };
