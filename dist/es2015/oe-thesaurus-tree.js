@@ -64,8 +64,12 @@ let OeThesaurusTree = class OeThesaurusTree {
             this.position = `top: ${buttonBounds.height}px`;
         }
     }
-    updateValue(value) {
-        this.value = value;
+    updateValue(id) {
+        this.service.getConceptById(this.type, id).then((data) => {
+            if (data) {
+                this.value = data;
+            }
+        });
         this.treeVisible = false;
     }
 };

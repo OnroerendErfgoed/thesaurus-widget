@@ -80,8 +80,13 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                         this.position = "top: " + buttonBounds.height + "px";
                     }
                 };
-                OeThesaurusTree.prototype.updateValue = function (value) {
-                    this.value = value;
+                OeThesaurusTree.prototype.updateValue = function (id) {
+                    var _this = this;
+                    this.service.getConceptById(this.type, id).then(function (data) {
+                        if (data) {
+                            _this.value = data;
+                        }
+                    });
                     this.treeVisible = false;
                 };
                 __decorate([

@@ -71,8 +71,13 @@ export class OeThesaurusTree {
     }
   }
 
-  public updateValue(value) {
-    this.value = value;
+  public updateValue(id: number) {
+    this.service.getConceptById(this.type, id).then((data) => {
+        if (data) {
+          this.value = data;
+        }
+      });
+    // this.value = value;
     this.treeVisible = false;
   }
 }

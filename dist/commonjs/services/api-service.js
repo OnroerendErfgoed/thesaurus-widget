@@ -34,6 +34,24 @@ var ApiService = (function () {
             });
         });
     };
+    ApiService.prototype.getConceptById = function (type, id) {
+        return this.http.createRequest(type + "/c/" + id)
+            .asGet()
+            .send()
+            .then(function (response) {
+            if (response.isSuccess) {
+                return response.content;
+            }
+            else {
+                return;
+            }
+        }).catch(function (error) {
+            console.debug(error);
+            return new Promise(function (reject) {
+                reject();
+            });
+        });
+    };
     ApiService.prototype.getTree = function (type) {
         return this.http.get(type + "/tree").then(function (response) {
             if (response.isSuccess) {

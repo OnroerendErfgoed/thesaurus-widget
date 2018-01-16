@@ -17,5 +17,5 @@ export declare class OeThesaurusTree {
     parseNode(node: ITreeChild): TreeChild;
     toggleTree(): void;
     calcPosition(): void;
-    updateValue(value: any): void;
+    updateValue(id: number): void;
 }
