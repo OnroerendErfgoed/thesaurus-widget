@@ -13,11 +13,12 @@ var aurelia_framework_1 = require("aurelia-framework");
 var tree_1 = require("./models/tree");
 var api_service_1 = require("./services/api-service");
 var OeThesaurusTree = (function () {
-    function OeThesaurusTree(element) {
+    function OeThesaurusTree(taskQueue, element) {
+        this.taskQueue = taskQueue;
+        this.element = element;
         this.nodes = [];
         this.baseUrl = '';
         this.treeVisible = false;
-        this.element = null;
         this.context = this;
         this.element = element;
     }
@@ -49,9 +50,11 @@ var OeThesaurusTree = (function () {
         }
         if (!this.treeVisible) {
             this.calcPosition();
+            this.taskQueue.queueMicroTask(function () {
+                _this.element.querySelector('.popup').focus();
+            });
         }
         this.treeVisible = !this.treeVisible;
-        this.element.querySelector('.popup').focus();
     };
     OeThesaurusTree.prototype.calcPosition = function () {
         var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
@@ -83,8 +86,8 @@ var OeThesaurusTree = (function () {
         __metadata("design:type", Object)
     ], OeThesaurusTree.prototype, "value", void 0);
     OeThesaurusTree = __decorate([
-        aurelia_framework_1.inject(Element),
-        __metadata("design:paramtypes", [Element])
+        aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),
+        __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue, Element])
     ], OeThesaurusTree);
     return OeThesaurusTree;
 }());

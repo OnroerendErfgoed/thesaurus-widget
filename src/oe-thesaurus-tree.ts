@@ -1,21 +1,20 @@
-import { inject, bindable, bindingMode } from 'aurelia-framework';
+import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
-@inject(Element)
+@inject(TaskQueue, Element)
 export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
   public treeVisible: boolean = false;
-  public element: Element = null;
   public context: any = this;
   public position: string;
   private service: ApiService;
 
-  constructor(element: Element) {
+  constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;
   }
 
@@ -53,9 +52,11 @@ export class OeThesaurusTree {
     }
     if (!this.treeVisible) {
       this.calcPosition();
+      this.taskQueue.queueMicroTask(() => {
+        (this.element.querySelector('.popup') as HTMLElement).focus();
+      });
     }
     this.treeVisible = !this.treeVisible;
-    (this.element.querySelector('.popup') as HTMLElement).focus();
   }
 
   public calcPosition() {

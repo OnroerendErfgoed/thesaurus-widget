@@ -7,15 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { inject, bindable, bindingMode } from 'aurelia-framework';
+import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { ApiService } from './services/api-service';
 let OeThesaurusTree = class OeThesaurusTree {
-    constructor(element) {
+    constructor(taskQueue, element) {
+        this.taskQueue = taskQueue;
+        this.element = element;
         this.nodes = [];
         this.baseUrl = '';
         this.treeVisible = false;
-        this.element = null;
         this.context = this;
         this.element = element;
     }
@@ -45,9 +46,11 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
         if (!this.treeVisible) {
             this.calcPosition();
+            this.taskQueue.queueMicroTask(() => {
+                this.element.querySelector('.popup').focus();
+            });
         }
         this.treeVisible = !this.treeVisible;
-        this.element.querySelector('.popup').focus();
     }
     calcPosition() {
         const buttonBounds = this.element.querySelector('button').getBoundingClientRect();
@@ -80,7 +83,7 @@ __decorate([
     __metadata("design:type", Object)
 ], OeThesaurusTree.prototype, "value", void 0);
 OeThesaurusTree = __decorate([
-    inject(Element),
-    __metadata("design:paramtypes", [Element])
+    inject(TaskQueue, Element),
+    __metadata("design:paramtypes", [TaskQueue, Element])
 ], OeThesaurusTree);
 export { OeThesaurusTree };

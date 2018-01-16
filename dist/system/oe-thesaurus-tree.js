@@ -25,11 +25,12 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
         ],
         execute: function () {
             OeThesaurusTree = (function () {
-                function OeThesaurusTree(element) {
+                function OeThesaurusTree(taskQueue, element) {
+                    this.taskQueue = taskQueue;
+                    this.element = element;
                     this.nodes = [];
                     this.baseUrl = '';
                     this.treeVisible = false;
-                    this.element = null;
                     this.context = this;
                     this.element = element;
                 }
@@ -61,9 +62,11 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     }
                     if (!this.treeVisible) {
                         this.calcPosition();
+                        this.taskQueue.queueMicroTask(function () {
+                            _this.element.querySelector('.popup').focus();
+                        });
                     }
                     this.treeVisible = !this.treeVisible;
-                    this.element.querySelector('.popup').focus();
                 };
                 OeThesaurusTree.prototype.calcPosition = function () {
                     var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
@@ -95,8 +98,8 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     __metadata("design:type", Object)
                 ], OeThesaurusTree.prototype, "value", void 0);
                 OeThesaurusTree = __decorate([
-                    aurelia_framework_1.inject(Element),
-                    __metadata("design:paramtypes", [Element])
+                    aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),
+                    __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue, Element])
                 ], OeThesaurusTree);
                 return OeThesaurusTree;
             }());
