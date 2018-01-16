@@ -33,6 +33,7 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                     this.treeVisible = false;
                     this.context = this;
                     this.element = element;
+                    this.taskQueue = taskQueue;
                 }
                 OeThesaurusTree.prototype.attached = function () {
                     if (!this.service) {

@@ -6,7 +6,6 @@ export declare class OeThesaurusInput {
     value: string;
     placeholder: string;
     delay: number;
-    label: string;
     disabled: boolean;
     id: number;
     expanded: boolean;

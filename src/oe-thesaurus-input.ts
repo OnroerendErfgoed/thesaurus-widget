@@ -15,7 +15,6 @@ export class OeThesaurusInput {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
-  @bindable public label: string = 'name';
   @bindable public disabled: boolean;
   public id: number;
   public expanded: boolean = false;
@@ -48,7 +47,7 @@ export class OeThesaurusInput {
     if (suggestion == null) {
       return '';
     }
-    return suggestion[this.label];
+    return suggestion['label'];
   }
 
   public collapse() {

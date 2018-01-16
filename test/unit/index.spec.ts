@@ -12,7 +12,7 @@ describe('the configure function', () => {
   it('should register a global resource', () => {
     configure(configuration);
     expect(configuration.globalResources).toHaveBeenCalledWith(
-      ['./oe-thesaurus-input', './oe-thesaurus-tree']
+      ['./oe-thesaurus-component', './oe-thesaurus-input', './oe-thesaurus-tree']
     );
   });
 });

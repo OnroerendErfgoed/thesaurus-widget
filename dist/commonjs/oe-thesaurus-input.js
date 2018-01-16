@@ -19,7 +19,6 @@ var OeThesaurusInput = (function () {
         this.baseUrl = '';
         this.placeholder = '';
         this.delay = 300;
-        this.label = 'name';
         this.expanded = false;
         this.updatingInput = false;
         this.suggestions = [];
@@ -44,7 +43,7 @@ var OeThesaurusInput = (function () {
         if (suggestion == null) {
             return '';
         }
-        return suggestion[this.label];
+        return suggestion['label'];
     };
     OeThesaurusInput.prototype.collapse = function () {
         this.expanded = false;
@@ -186,10 +185,6 @@ var OeThesaurusInput = (function () {
         aurelia_framework_1.bindable,
         __metadata("design:type", Number)
     ], OeThesaurusInput.prototype, "delay", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "label", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", Boolean)

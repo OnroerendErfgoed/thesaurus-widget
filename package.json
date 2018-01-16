@@ -22,6 +22,7 @@
   "aurelia": {
     "build": {
       "resources": [
+        "thesaurus-widget/oe-thesaurus-component",
         "thesaurus-widget/oe-thesaurus-input",
         "thesaurus-widget/oe-thesaurus-tree"
       ]

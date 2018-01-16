@@ -19,6 +19,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         this.treeVisible = false;
         this.context = this;
         this.element = element;
+        this.taskQueue = taskQueue;
     }
     attached() {
         if (!this.service) {

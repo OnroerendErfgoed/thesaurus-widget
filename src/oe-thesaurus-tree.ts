@@ -16,6 +16,7 @@ export class OeThesaurusTree {
 
   constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;
+    this.taskQueue = taskQueue;
   }
 
   public attached() {

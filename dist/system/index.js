@@ -1,8 +1,9 @@
-System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "aurelia-framework"], function (exports_1, context_1) {
+System.register(["./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "aurelia-framework"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function configure(config) {
         config.globalResources([
+            aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-component'),
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-input'),
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-tree')
         ]);
@@ -11,6 +12,11 @@ System.register(["./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "
     var aurelia_framework_1;
     return {
         setters: [
+            function (oe_thesaurus_component_1_1) {
+                exports_1({
+                    "OeThesaurusComponent": oe_thesaurus_component_1_1["OeThesaurusComponent"]
+                });
+            },
             function (oe_thesaurus_input_1_1) {
                 exports_1({
                     "OeThesaurusInput": oe_thesaurus_input_1_1["OeThesaurusInput"]

@@ -18,7 +18,6 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             this.baseUrl = '';
             this.placeholder = '';
             this.delay = 300;
-            this.label = 'name';
             this.expanded = false;
             this.updatingInput = false;
             this.suggestions = [];
@@ -43,7 +42,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             if (suggestion == null) {
                 return '';
             }
-            return suggestion[this.label];
+            return suggestion['label'];
         };
         OeThesaurusInput.prototype.collapse = function () {
             this.expanded = false;
@@ -185,10 +184,6 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
             aurelia_framework_1.bindable,
             __metadata("design:type", Number)
         ], OeThesaurusInput.prototype, "delay", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusInput.prototype, "label", void 0);
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", Boolean)

@@ -21,6 +21,7 @@ var OeThesaurusTree = (function () {
         this.treeVisible = false;
         this.context = this;
         this.element = element;
+        this.taskQueue = taskQueue;
     }
     OeThesaurusTree.prototype.attached = function () {
         if (!this.service) {
