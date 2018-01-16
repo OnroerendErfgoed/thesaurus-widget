@@ -104,6 +104,7 @@
   },
   "dependencies": {
     "aurelia-framework": "^1.1.5",
-    "aurelia-http-client": "^1.2.1"
+    "aurelia-http-client": "^1.2.1",
+    "font-awesome": "^4.7.0"
   }
 }
