@@ -40,23 +40,19 @@ let OeThesaurusTree = class OeThesaurusTree {
                     this.nodes = data.map(d => {
                         return this.parseNode(d);
                     });
-                    this.calcPosition();
                 }
             });
         }
-        else {
-            this.calcPosition();
-        }
+        this.calcPosition();
         this.treeVisible = !this.treeVisible;
     }
     calcPosition() {
-        const popupHeight = this.element.querySelector('.popup').offsetHeight;
         const buttonBounds = this.element.querySelector('button').getBoundingClientRect();
-        if (buttonBounds.top >= popupHeight) {
-            this.position = `top: ${buttonBounds.height}px`;
+        if (buttonBounds.top >= 300) {
+            this.position = `bottom: ${buttonBounds.height}px`;
         }
         else {
-            this.position = `bottom: ${buttonBounds.height}px`;
+            this.position = `top: ${buttonBounds.height}px`;
         }
     }
     updateValue(value) {

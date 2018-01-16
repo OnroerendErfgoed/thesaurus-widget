@@ -48,22 +48,19 @@ export class OeThesaurusTree {
           this.nodes = data.map(d => {
             return this.parseNode(d);
           });
-          this.calcPosition();
         }
       });
-    } else {
-      this.calcPosition();
     }
+    this.calcPosition();
     this.treeVisible = !this.treeVisible;
   }
 
   public calcPosition() {
-    const popupHeight = (this.element.querySelector('.popup') as HTMLElement).offsetHeight;
     const buttonBounds = (this.element.querySelector('button') as HTMLElement).getBoundingClientRect();
-    if (buttonBounds.top >= popupHeight) {
-      this.position = `top: ${buttonBounds.height}px`;
-    } else {
+    if (buttonBounds.top >= 300) {
       this.position = `bottom: ${buttonBounds.height}px`;
+    } else {
+      this.position = `top: ${buttonBounds.height}px`;
     }
   }
 
