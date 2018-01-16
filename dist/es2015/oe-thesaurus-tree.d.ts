@@ -8,10 +8,12 @@ export declare class OeThesaurusTree {
     treeVisible: boolean;
     element: Element;
     context: any;
+    position: string;
     private service;
     constructor(element: Element);
+    attached(): void;
     parseNode(node: ITreeChild): TreeChild;
     toggleTree(): void;
-    attached(): void;
+    calcPosition(): void;
     updateValue(value: any): void;
 }

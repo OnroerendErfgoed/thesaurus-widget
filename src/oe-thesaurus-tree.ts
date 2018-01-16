@@ -12,10 +12,17 @@ export class OeThesaurusTree {
   public treeVisible: boolean = false;
   public element: Element = null;
   public context: any = this;
+  public position: string;
   private service: ApiService;
 
   constructor(element: Element) {
     this.element = element;
+  }
+
+  public attached() {
+    if (!this.service) {
+      this.service = new ApiService(this.baseUrl);
+    }
   }
 
   public parseNode(node: ITreeChild) {
@@ -41,15 +48,22 @@ export class OeThesaurusTree {
           this.nodes = data.map(d => {
             return this.parseNode(d);
           });
+          this.calcPosition();
         }
       });
+    } else {
+      this.calcPosition();
     }
     this.treeVisible = !this.treeVisible;
   }
 
-  public attached() {
-    if (!this.service) {
-      this.service = new ApiService(this.baseUrl);
+  public calcPosition() {
+    const popupHeight = (this.element.querySelector('.popup') as HTMLElement).offsetHeight;
+    const buttonBounds = (this.element.querySelector('button') as HTMLElement).getBoundingClientRect();
+    if (buttonBounds.top >= popupHeight) {
+      this.position = `top: ${buttonBounds.height}px`;
+    } else {
+      this.position = `bottom: ${buttonBounds.height}px`;
     }
   }
 

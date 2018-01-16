@@ -2,6 +2,9 @@ oe-thesaurus-tree {
   display: inline-block;
   position: relative;
 }
+oe-thesaurus-tree button {
+  margin: 0;
+}
 oe-thesaurus-tree .popup {
   position: absolute;
   z-index: 10;
@@ -10,6 +13,8 @@ oe-thesaurus-tree .popup {
   outline: none;
   padding: 10px;
   white-space: nowrap;
+  max-height: 300px;
+  overflow-y: auto;
 }
 oe-thesaurus-tree .popup tree-node {
   display: inline-flex;

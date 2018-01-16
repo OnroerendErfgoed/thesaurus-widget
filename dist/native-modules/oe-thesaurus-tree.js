@@ -19,6 +19,11 @@ var OeThesaurusTree = (function () {
         this.context = this;
         this.element = element;
     }
+    OeThesaurusTree.prototype.attached = function () {
+        if (!this.service) {
+            this.service = new ApiService(this.baseUrl);
+        }
+    };
     OeThesaurusTree.prototype.parseNode = function (node) {
         var _this = this;
         var children = [];
@@ -37,14 +42,23 @@ var OeThesaurusTree = (function () {
                     _this.nodes = data.map(function (d) {
                         return _this.parseNode(d);
                     });
+                    _this.calcPosition();
                 }
             });
         }
+        else {
+            this.calcPosition();
+        }
         this.treeVisible = !this.treeVisible;
     };
-    OeThesaurusTree.prototype.attached = function () {
-        if (!this.service) {
-            this.service = new ApiService(this.baseUrl);
+    OeThesaurusTree.prototype.calcPosition = function () {
+        var popupHeight = this.element.querySelector('.popup').offsetHeight;
+        var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
+        if (buttonBounds.top >= popupHeight) {
+            this.position = "top: " + buttonBounds.height + "px";
+        }
+        else {
+            this.position = "bottom: " + buttonBounds.height + "px";
         }
     };
     OeThesaurusTree.prototype.updateValue = function (value) {
