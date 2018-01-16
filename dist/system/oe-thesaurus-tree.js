@@ -59,7 +59,9 @@ System.register(["aurelia-framework", "./models/tree", "./services/api-service"]
                             }
                         });
                     }
-                    this.calcPosition();
+                    if (!this.treeVisible) {
+                        this.calcPosition();
+                    }
                     this.treeVisible = !this.treeVisible;
                 };
                 OeThesaurusTree.prototype.calcPosition = function () {

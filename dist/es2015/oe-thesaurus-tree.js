@@ -43,7 +43,9 @@ let OeThesaurusTree = class OeThesaurusTree {
                 }
             });
         }
-        this.calcPosition();
+        if (!this.treeVisible) {
+            this.calcPosition();
+        }
         this.treeVisible = !this.treeVisible;
     }
     calcPosition() {

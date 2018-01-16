@@ -47,7 +47,9 @@ var OeThesaurusTree = (function () {
                 }
             });
         }
-        this.calcPosition();
+        if (!this.treeVisible) {
+            this.calcPosition();
+        }
         this.treeVisible = !this.treeVisible;
     };
     OeThesaurusTree.prototype.calcPosition = function () {
