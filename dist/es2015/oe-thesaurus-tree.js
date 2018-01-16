@@ -59,6 +59,7 @@ let OeThesaurusTree = class OeThesaurusTree {
     }
     updateValue(value) {
         this.value = value;
+        this.treeVisible = false;
     }
 };
 __decorate([

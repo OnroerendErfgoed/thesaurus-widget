@@ -63,6 +63,7 @@ var OeThesaurusTree = (function () {
     };
     OeThesaurusTree.prototype.updateValue = function (value) {
         this.value = value;
+        this.treeVisible = false;
     };
     __decorate([
         aurelia_framework_1.bindable,

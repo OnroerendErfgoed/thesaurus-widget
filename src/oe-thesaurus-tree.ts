@@ -68,5 +68,6 @@ export class OeThesaurusTree {
 
   public updateValue(value) {
     this.value = value;
+    this.treeVisible = false;
   }
 }

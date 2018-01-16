@@ -32,9 +32,6 @@ oe-thesaurus-tree .popup ul {
   margin: 0;
   list-style-type: none;
 }
-oe-thesaurus-tree .popup ul ul {
-  margin-left: 15px;
-}
 oe-thesaurus-tree .popup ul ul li {
   padding-left: 7px;
   border-left: 1px dotted #BBB;
