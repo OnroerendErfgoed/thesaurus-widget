@@ -103,7 +103,7 @@
     "preprepare-release": "cross-env npm run test",
     "prepare-release": "cross-env npm run changelog && npm run build && npm run doc",
     "precommit": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
-    "prepush": "au test"
+    "prepush": "npm test"
   },
   "dependencies": {
     "aurelia-framework": "^1.1.5",
