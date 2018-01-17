@@ -50,7 +50,7 @@ let OeThesaurusInput = class OeThesaurusInput {
     }
     select(suggestion) {
         if (suggestion) {
-            this.value = new Member(suggestion.id, suggestion.label, suggestion.type, suggestion.uri);
+            this.value = suggestion;
             const name = this.getName(this.value);
             this.userInput = name;
             this.display(name);

@@ -50,7 +50,7 @@ var OeThesaurusInput = (function () {
     };
     OeThesaurusInput.prototype.select = function (suggestion) {
         if (suggestion) {
-            this.value = new Member(suggestion.id, suggestion.label, suggestion.type, suggestion.uri);
+            this.value = suggestion;
             var name_1 = this.getName(this.value);
             this.userInput = name_1;
             this.display(name_1);

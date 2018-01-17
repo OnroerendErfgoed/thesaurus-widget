@@ -58,7 +58,7 @@ export class OeThesaurusInput {
 
   public select(suggestion: any) {
     if (suggestion) {
-      this.value = new Member(suggestion.id, suggestion.label, suggestion.type, suggestion.uri);
+      this.value = (suggestion as Member);
       const name = this.getName(this.value);
       this.userInput = name;
       this.display(name);
