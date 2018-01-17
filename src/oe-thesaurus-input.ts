@@ -20,12 +20,12 @@ export class OeThesaurusInput {
   public id: number;
   public expanded: boolean = false;
   public updatingInput: boolean = false;
-  public suggestions: string[] = [];
+  public suggestions: Member[] = [];
   public index: number = -1;
   public suggestionsUL = null;
   public userInput: string = '';
   public element: Element = null;
-  private service: any;
+  @bindable private service: ApiService;
 
   constructor(element: Element) {
     this.element = element;
@@ -58,7 +58,7 @@ export class OeThesaurusInput {
 
   public select(suggestion: any) {
     if (suggestion) {
-      this.value = (suggestion as Member);
+      this.value = suggestion;
       const name = this.getName(this.value);
       this.userInput = name;
       this.display(name);
@@ -82,14 +82,17 @@ export class OeThesaurusInput {
     }
     this.service.getConcepts(this.type, { label: value })
     .then((suggestions) => {
-      this.index = -1;
-      this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-      if (suggestions.length === 1) {
-        this.select(suggestions[0]);
-      } else if (suggestions.length === 0) {
-        this.collapse();
-      } else {
-        this.expanded = true;
+      if (suggestions) {
+        this.index = -1;
+        suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
+        this.suggestions.splice(0, this.suggestions.length, ...suggestions);
+        if (suggestions.length === 1) {
+          this.select(suggestions[0]);
+        } else if (suggestions.length === 0) {
+          this.collapse();
+        } else {
+          this.expanded = true;
+        }
       }
     });
   }

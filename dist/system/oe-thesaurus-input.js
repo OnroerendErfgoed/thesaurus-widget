@@ -87,16 +87,19 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     }
                     this.service.getConcepts(this.type, { label: value })
                         .then(function (suggestions) {
-                        _this.index = -1;
-                        (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
-                        if (suggestions.length === 1) {
-                            _this.select(suggestions[0]);
-                        }
-                        else if (suggestions.length === 0) {
-                            _this.collapse();
-                        }
-                        else {
-                            _this.expanded = true;
+                        if (suggestions) {
+                            _this.index = -1;
+                            suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
+                            (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
+                            if (suggestions.length === 1) {
+                                _this.select(suggestions[0]);
+                            }
+                            else if (suggestions.length === 0) {
+                                _this.collapse();
+                            }
+                            else {
+                                _this.expanded = true;
+                            }
                         }
                         var _a;
                     });
@@ -202,6 +205,10 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     aurelia_framework_1.bindable,
                     __metadata("design:type", Boolean)
                 ], OeThesaurusInput.prototype, "disabled", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", api_service_1.ApiService)
+                ], OeThesaurusInput.prototype, "service", void 0);
                 OeThesaurusInput = __decorate([
                     aurelia_framework_1.inject(Element),
                     __metadata("design:paramtypes", [Element])

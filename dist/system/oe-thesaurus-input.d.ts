@@ -11,7 +11,7 @@ export declare class OeThesaurusInput {
     id: number;
     expanded: boolean;
     updatingInput: boolean;
-    suggestions: string[];
+    suggestions: Member[];
     index: number;
     suggestionsUL: any;
     userInput: string;

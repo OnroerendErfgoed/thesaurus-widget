@@ -72,16 +72,19 @@ let OeThesaurusInput = class OeThesaurusInput {
         }
         this.service.getConcepts(this.type, { label: value })
             .then((suggestions) => {
-            this.index = -1;
-            this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-            if (suggestions.length === 1) {
-                this.select(suggestions[0]);
-            }
-            else if (suggestions.length === 0) {
-                this.collapse();
-            }
-            else {
-                this.expanded = true;
+            if (suggestions) {
+                this.index = -1;
+                suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
+                this.suggestions.splice(0, this.suggestions.length, ...suggestions);
+                if (suggestions.length === 1) {
+                    this.select(suggestions[0]);
+                }
+                else if (suggestions.length === 0) {
+                    this.collapse();
+                }
+                else {
+                    this.expanded = true;
+                }
             }
         });
     }
@@ -187,6 +190,10 @@ __decorate([
     bindable,
     __metadata("design:type", Boolean)
 ], OeThesaurusInput.prototype, "disabled", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", ApiService)
+], OeThesaurusInput.prototype, "service", void 0);
 OeThesaurusInput = __decorate([
     inject(Element),
     __metadata("design:paramtypes", [Element])
