@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
+import { Member } from './models/member';
 import { ApiService } from './services/api-service';
 var OeThesaurusTree = (function () {
     function OeThesaurusTree(taskQueue, element) {
@@ -18,10 +19,12 @@ var OeThesaurusTree = (function () {
         this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
+        this.standalone = true;
         this.element = element;
+        this.taskQueue = taskQueue;
     }
     OeThesaurusTree.prototype.attached = function () {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     };
@@ -65,8 +68,13 @@ var OeThesaurusTree = (function () {
             this.position = "top: " + buttonBounds.height + "px";
         }
     };
-    OeThesaurusTree.prototype.updateValue = function (value) {
-        this.value = value;
+    OeThesaurusTree.prototype.updateValue = function (id) {
+        var _this = this;
+        this.service.getConceptById(this.type, id).then(function (data) {
+            if (data) {
+                _this.value = new Member(data.id, data.label, data.type, data.uri);
+            }
+        });
         this.treeVisible = false;
     };
     __decorate([
@@ -83,8 +91,16 @@ var OeThesaurusTree = (function () {
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", Object)
+        __metadata("design:type", Member)
     ], OeThesaurusTree.prototype, "value", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusTree.prototype, "standalone", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", ApiService)
+    ], OeThesaurusTree.prototype, "service", void 0);
     OeThesaurusTree = __decorate([
         inject(TaskQueue, Element),
         __metadata("design:paramtypes", [TaskQueue, Element])

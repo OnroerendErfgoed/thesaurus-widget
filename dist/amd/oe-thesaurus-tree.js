@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "./models/tree", "./services/api-service"], function (require, exports, aurelia_framework_1, tree_1, api_service_1) {
+define(["require", "exports", "aurelia-framework", "./models/tree", "./models/member", "./services/api-service"], function (require, exports, aurelia_framework_1, tree_1, member_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var OeThesaurusTree = (function () {
@@ -18,10 +18,12 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
             this.baseUrl = '';
             this.treeVisible = false;
             this.context = this;
+            this.standalone = true;
             this.element = element;
+            this.taskQueue = taskQueue;
         }
         OeThesaurusTree.prototype.attached = function () {
-            if (!this.service) {
+            if (this.standalone) {
                 this.service = new api_service_1.ApiService(this.baseUrl);
             }
         };
@@ -65,8 +67,13 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
                 this.position = "top: " + buttonBounds.height + "px";
             }
         };
-        OeThesaurusTree.prototype.updateValue = function (value) {
-            this.value = value;
+        OeThesaurusTree.prototype.updateValue = function (id) {
+            var _this = this;
+            this.service.getConceptById(this.type, id).then(function (data) {
+                if (data) {
+                    _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
+                }
+            });
             this.treeVisible = false;
         };
         __decorate([
@@ -83,8 +90,16 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./services/
         ], OeThesaurusTree.prototype, "baseUrl", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", Object)
+            __metadata("design:type", member_1.Member)
         ], OeThesaurusTree.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Boolean)
+        ], OeThesaurusTree.prototype, "standalone", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", api_service_1.ApiService)
+        ], OeThesaurusTree.prototype, "service", void 0);
         OeThesaurusTree = __decorate([
             aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),
             __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue, Element])

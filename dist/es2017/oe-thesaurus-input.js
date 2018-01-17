@@ -8,28 +8,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
+import { Member } from './models/member';
 import { ApiService } from './services/api-service';
 let nextID = 0;
 let OeThesaurusInput = class OeThesaurusInput {
     constructor(element) {
+        this.element = element;
         this.inputValue = '';
         this.minlength = null;
         this.baseUrl = '';
         this.placeholder = '';
         this.delay = 300;
-        this.label = 'name';
         this.expanded = false;
         this.updatingInput = false;
         this.suggestions = [];
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.element = null;
+        this.standalone = true;
         this.element = element;
         this.id = nextID++;
     }
     attached() {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     }
@@ -42,7 +43,7 @@ let OeThesaurusInput = class OeThesaurusInput {
         if (suggestion == null) {
             return '';
         }
-        return suggestion[this.label];
+        return suggestion['label'];
     }
     collapse() {
         this.expanded = false;
@@ -72,16 +73,19 @@ let OeThesaurusInput = class OeThesaurusInput {
         }
         this.service.getConcepts(this.type, { label: value })
             .then((suggestions) => {
-            this.index = -1;
-            this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-            if (suggestions.length === 1) {
-                this.select(suggestions[0]);
-            }
-            else if (suggestions.length === 0) {
-                this.collapse();
-            }
-            else {
-                this.expanded = true;
+            if (suggestions) {
+                this.index = -1;
+                suggestions = suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
+                this.suggestions.splice(0, this.suggestions.length, ...suggestions);
+                if (suggestions.length === 1) {
+                    this.select(suggestions[0]);
+                }
+                else if (suggestions.length === 0) {
+                    this.collapse();
+                }
+                else {
+                    this.expanded = true;
+                }
             }
         });
     }
@@ -173,7 +177,7 @@ __decorate([
 ], OeThesaurusInput.prototype, "baseUrl", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", String)
+    __metadata("design:type", Member)
 ], OeThesaurusInput.prototype, "value", void 0);
 __decorate([
     bindable,
@@ -185,12 +189,16 @@ __decorate([
 ], OeThesaurusInput.prototype, "delay", void 0);
 __decorate([
     bindable,
-    __metadata("design:type", String)
-], OeThesaurusInput.prototype, "label", void 0);
+    __metadata("design:type", Boolean)
+], OeThesaurusInput.prototype, "disabled", void 0);
 __decorate([
     bindable,
     __metadata("design:type", Boolean)
-], OeThesaurusInput.prototype, "disabled", void 0);
+], OeThesaurusInput.prototype, "standalone", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", ApiService)
+], OeThesaurusInput.prototype, "service", void 0);
 OeThesaurusInput = __decorate([
     inject(Element),
     __metadata("design:paramtypes", [Element])

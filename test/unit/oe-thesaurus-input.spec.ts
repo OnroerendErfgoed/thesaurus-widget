@@ -10,7 +10,7 @@ describe('The thesaurus input component', () => {
     component = StageComponent
       .withResources('src/oe-thesaurus-input')
       .inView(`
-        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" base-url.bind="baseUrl" label="label">
+        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" base-url.bind="baseUrl">
           <template replace-part="suggestion"></template>
         </oe-thesaurus-input>
       `)
@@ -40,10 +40,5 @@ describe('The thesaurus input component', () => {
   it('should have a baseUrl property', () => {
     expect(component.viewModel.baseUrl).toBeDefined();
     expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
-  });
-
-  it('should have a label property', () => {
-    expect(component.viewModel.label).toBeDefined();
-    expect(component.viewModel.label).toBe('label');
   });
 });

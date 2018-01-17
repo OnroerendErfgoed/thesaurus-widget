@@ -2,6 +2,7 @@
 original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701aeb
 * */
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
+import { Member } from './models/member';
 import { ApiService } from './services/api-service';
 
 let nextID: number = 0;
@@ -12,28 +13,27 @@ export class OeThesaurusInput {
   @bindable public type: string;
   @bindable public minlength: number = null;
   @bindable public baseUrl: string = '';
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: string;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
   @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
-  @bindable public label: string = 'name';
   @bindable public disabled: boolean;
   public id: number;
   public expanded: boolean = false;
   public updatingInput: boolean = false;
-  public suggestions: string[] = [];
+  public suggestions: Member[] = [];
   public index: number = -1;
   public suggestionsUL = null;
   public userInput: string = '';
-  public element: Element = null;
-  private service: any;
+  @bindable public standalone: boolean = true;
+  @bindable public service: ApiService;
 
-  constructor(element: Element) {
+  constructor(private element: Element) {
     this.element = element;
     this.id = nextID++;
   }
 
   public attached() {
-    if (!this.service) {
+    if (this.standalone) {
       this.service = new ApiService(this.baseUrl);
     }
   }
@@ -48,7 +48,7 @@ export class OeThesaurusInput {
     if (suggestion == null) {
       return '';
     }
-    return suggestion[this.label];
+    return suggestion['label'];
   }
 
   public collapse() {
@@ -82,14 +82,17 @@ export class OeThesaurusInput {
     }
     this.service.getConcepts(this.type, { label: value })
     .then((suggestions) => {
-      this.index = -1;
-      this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-      if (suggestions.length === 1) {
-        this.select(suggestions[0]);
-      } else if (suggestions.length === 0) {
-        this.collapse();
-      } else {
-        this.expanded = true;
+      if (suggestions) {
+        this.index = -1;
+        suggestions = suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
+        this.suggestions.splice(0, this.suggestions.length, ...suggestions);
+        if (suggestions.length === 1) {
+          this.select(suggestions[0]);
+        } else if (suggestions.length === 0) {
+          this.collapse();
+        } else {
+          this.expanded = true;
+        }
       }
     });
   }

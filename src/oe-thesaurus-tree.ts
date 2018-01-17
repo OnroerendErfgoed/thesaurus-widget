@@ -1,5 +1,6 @@
 import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
+import { Member } from './models/member';
 import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
@@ -8,18 +9,20 @@ export class OeThesaurusTree {
   @bindable public nodes: Tree = [];
   @bindable public type: string;
   @bindable public baseUrl: string = '';
-  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
+  @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
   public treeVisible: boolean = false;
   public context: any = this;
   public position: string;
-  private service: ApiService;
+  @bindable public standalone: boolean = true;
+  @bindable public service: ApiService;
 
   constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;
+    this.taskQueue = taskQueue;
   }
 
   public attached() {
-    if (!this.service) {
+    if (this.standalone) {
       this.service = new ApiService(this.baseUrl);
     }
   }
@@ -70,8 +73,12 @@ export class OeThesaurusTree {
     }
   }
 
-  public updateValue(value) {
-    this.value = value;
+  public updateValue(id: number) {
+    this.service.getConceptById(this.type, id).then((data) => {
+      if (data) {
+        this.value = new Member(data.id, data.label, data.type, data.uri);
+      }
+    });
     this.treeVisible = false;
   }
 }

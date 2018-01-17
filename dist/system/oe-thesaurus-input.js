@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "./services/api-service"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "./models/member", "./services/api-service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,11 +10,14 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, api_service_1, nextID, OeThesaurusInput;
+    var aurelia_framework_1, member_1, api_service_1, nextID, OeThesaurusInput;
     return {
         setters: [
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
+            },
+            function (member_1_1) {
+                member_1 = member_1_1;
             },
             function (api_service_1_1) {
                 api_service_1 = api_service_1_1;
@@ -24,24 +27,24 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
             nextID = 0;
             OeThesaurusInput = (function () {
                 function OeThesaurusInput(element) {
+                    this.element = element;
                     this.inputValue = '';
                     this.minlength = null;
                     this.baseUrl = '';
                     this.placeholder = '';
                     this.delay = 300;
-                    this.label = 'name';
                     this.expanded = false;
                     this.updatingInput = false;
                     this.suggestions = [];
                     this.index = -1;
                     this.suggestionsUL = null;
                     this.userInput = '';
-                    this.element = null;
+                    this.standalone = true;
                     this.element = element;
                     this.id = nextID++;
                 }
                 OeThesaurusInput.prototype.attached = function () {
-                    if (!this.service) {
+                    if (this.standalone) {
                         this.service = new api_service_1.ApiService(this.baseUrl);
                     }
                 };
@@ -54,7 +57,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     if (suggestion == null) {
                         return '';
                     }
-                    return suggestion[this.label];
+                    return suggestion['label'];
                 };
                 OeThesaurusInput.prototype.collapse = function () {
                     this.expanded = false;
@@ -85,16 +88,19 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                     }
                     this.service.getConcepts(this.type, { label: value })
                         .then(function (suggestions) {
-                        _this.index = -1;
-                        (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
-                        if (suggestions.length === 1) {
-                            _this.select(suggestions[0]);
-                        }
-                        else if (suggestions.length === 0) {
-                            _this.collapse();
-                        }
-                        else {
-                            _this.expanded = true;
+                        if (suggestions) {
+                            _this.index = -1;
+                            suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
+                            (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
+                            if (suggestions.length === 1) {
+                                _this.select(suggestions[0]);
+                            }
+                            else if (suggestions.length === 0) {
+                                _this.collapse();
+                            }
+                            else {
+                                _this.expanded = true;
+                            }
                         }
                         var _a;
                     });
@@ -186,7 +192,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                 ], OeThesaurusInput.prototype, "baseUrl", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", String)
+                    __metadata("design:type", member_1.Member)
                 ], OeThesaurusInput.prototype, "value", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
@@ -198,12 +204,16 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
                 ], OeThesaurusInput.prototype, "delay", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
-                    __metadata("design:type", String)
-                ], OeThesaurusInput.prototype, "label", void 0);
+                    __metadata("design:type", Boolean)
+                ], OeThesaurusInput.prototype, "disabled", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
                     __metadata("design:type", Boolean)
-                ], OeThesaurusInput.prototype, "disabled", void 0);
+                ], OeThesaurusInput.prototype, "standalone", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", api_service_1.ApiService)
+                ], OeThesaurusInput.prototype, "service", void 0);
                 OeThesaurusInput = __decorate([
                     aurelia_framework_1.inject(Element),
                     __metadata("design:paramtypes", [Element])

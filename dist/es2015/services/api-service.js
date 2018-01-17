@@ -32,6 +32,24 @@ export class ApiService {
             });
         });
     }
+    getConceptById(type, id) {
+        return this.http.createRequest(`${type}/c/${id}`)
+            .asGet()
+            .send()
+            .then(response => {
+            if (response.isSuccess) {
+                return response.content;
+            }
+            else {
+                return;
+            }
+        }).catch(error => {
+            console.debug(error);
+            return new Promise(reject => {
+                reject();
+            });
+        });
+    }
     getTree(type) {
         return this.http.get(`${type}/tree`).then(response => {
             if (response.isSuccess) {
