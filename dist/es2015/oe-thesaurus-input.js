@@ -50,19 +50,21 @@ let OeThesaurusInput = class OeThesaurusInput {
     }
     select(suggestion) {
         if (suggestion) {
-            this.service.getConceptById(this.type, suggestion.id).then((data) => {
-                if (data) {
-                    this.value = new Concept(data);
-                    const name = this.getName(this.value);
-                    this.userInput = name;
-                    this.display(name);
-                    this.collapse();
-                }
-            });
+            this.value = suggestion;
+            const name = this.getName(this.value);
+            this.userInput = name;
+            this.display(name);
+            this.collapse();
         }
     }
     valueChanged() {
-        this.select(this.value);
+        if (this.value.id) {
+            this.service.getConceptById(this.type, this.value.id).then((data) => {
+                if (data) {
+                    this.select(new Concept(data));
+                }
+            });
+        }
     }
     inputValueChanged(value) {
         if (this.updatingInput || (this.minlength > value.length)) {

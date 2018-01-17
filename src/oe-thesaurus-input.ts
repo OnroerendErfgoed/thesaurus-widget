@@ -58,20 +58,22 @@ export class OeThesaurusInput {
 
   public select(suggestion: any) {
     if (suggestion) {
-      this.service.getConceptById(this.type, suggestion.id).then((data) => {
-        if (data) {
-          this.value = new Concept(data);
-          const name = this.getName(this.value);
-          this.userInput = name;
-          this.display(name);
-          this.collapse();
-        }
-      });
+      this.value = suggestion;
+      const name = this.getName(this.value);
+      this.userInput = name;
+      this.display(name);
+      this.collapse();
     }
   }
 
   public valueChanged() {
-    this.select(this.value);
+    if (this.value.id) {
+      this.service.getConceptById(this.type, this.value.id).then((data) => {
+        if (data) {
+          this.select(new Concept(data));
+        }
+      });
+    }
   }
 
   public inputValueChanged(value: string) {

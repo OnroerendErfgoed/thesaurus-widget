@@ -49,21 +49,23 @@ var OeThesaurusInput = (function () {
         this.index = -1;
     };
     OeThesaurusInput.prototype.select = function (suggestion) {
-        var _this = this;
         if (suggestion) {
-            this.service.getConceptById(this.type, suggestion.id).then(function (data) {
-                if (data) {
-                    _this.value = new Concept(data);
-                    var name_1 = _this.getName(_this.value);
-                    _this.userInput = name_1;
-                    _this.display(name_1);
-                    _this.collapse();
-                }
-            });
+            this.value = suggestion;
+            var name_1 = this.getName(this.value);
+            this.userInput = name_1;
+            this.display(name_1);
+            this.collapse();
         }
     };
     OeThesaurusInput.prototype.valueChanged = function () {
-        this.select(this.value);
+        var _this = this;
+        if (this.value.id) {
+            this.service.getConceptById(this.type, this.value.id).then(function (data) {
+                if (data) {
+                    _this.select(new Concept(data));
+                }
+            });
+        }
     };
     OeThesaurusInput.prototype.inputValueChanged = function (value) {
         var _this = this;
