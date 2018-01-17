@@ -1,6 +1,6 @@
 import { HttpClientMock } from 'aurelia-http-client-mock';
 import { ApiService } from '../../src/services/api-service';
-import { ITree, IMember } from '../../src/models/apiModel';
+import { ITree, IMember, IConcept } from '../../src/models/apiModel';
 
 describe('the ApiService module', () => {
 
@@ -55,6 +55,45 @@ describe('the ApiService module', () => {
     }
   ];
 
+  const testConceptById = {
+      id: 19,
+      subordinate_arrays: [],
+      matches: {},
+      labels: [
+          {
+              type: 'prefLabel',
+              language: 'nl-BE',
+              label: 'zilver'
+          }
+      ],
+      narrower: [],
+      related: [],
+      sources: [
+          {
+              citation: 'Nederlandse Art &amp; Architecture Thesaurus'
+          }
+      ],
+      broader: [
+          {
+              label: 'metaal',
+              type: 'concept',
+              id: 8,
+              uri: 'https://id.erfgoed.net/thesauri/materialen/8'
+          }
+      ],
+      member_of: [],
+      notes: [
+          {
+              note: 'Te gebruiken voor het zuivere metaalelement met het symbool Ag.',
+              type: 'scopeNote',
+              language: 'nl-BE'
+          }
+      ],
+      uri: 'https://id.erfgoed.net/thesauri/materialen/19',
+      label: 'zilver',
+      type: 'concept'
+  };
+
   beforeEach(() => {
     httpMock = new HttpClientMock();
     sut = new ApiService(apiBaseUrl, httpMock);
@@ -80,7 +119,7 @@ describe('the ApiService module', () => {
       .withResponseBody(testConcepts);
 
     sut.getConcepts('MATERIALEN', { label: 'aard' })
-      .then(response  => {
+      .then(response => {
         expect(response as IMember[]).toEqual(testConcepts as IMember[]);
         expect(response as IMember[]).toContain(jasmine.objectContaining({id: 19}));
         done();
@@ -94,10 +133,26 @@ describe('the ApiService module', () => {
       .withResponseBody(testTree);
 
     sut.getTree('MATERIALEN')
-      .then(response  => {
+      .then(response => {
         expect(response as ITree).toEqual(testTree as ITree);
         expect(response as ITree).toContain(jasmine.objectContaining({ concept_id: 1 }));
         done();
-      });
     });
+  });
+
+  it('should parse the conceptById response correctly', done => {
+    httpMock.expect(apiBaseUrl + 'conceptschemes/MATERIALEN/c/19')
+      .withMethod('GET')
+      .withResponseStatus(200)
+      .withResponseBody(testConceptById);
+
+    sut.getConceptById('MATERIALEN', 19)
+      .then(response => {
+        if (response) {
+          expect(response as IConcept).toEqual(testConceptById as IConcept);
+          expect(response.id).toBe(19);
+        }
+        done();
+    });
+  });
 });
