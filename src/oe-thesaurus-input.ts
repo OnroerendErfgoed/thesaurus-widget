@@ -84,7 +84,7 @@ export class OeThesaurusInput {
     .then((suggestions) => {
       if (suggestions) {
         this.index = -1;
-        suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
+        suggestions = suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
         this.suggestions.splice(0, this.suggestions.length, ...suggestions);
         if (suggestions.length === 1) {
           this.select(suggestions[0]);

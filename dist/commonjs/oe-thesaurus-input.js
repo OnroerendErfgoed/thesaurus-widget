@@ -77,7 +77,7 @@ var OeThesaurusInput = (function () {
             .then(function (suggestions) {
             if (suggestions) {
                 _this.index = -1;
-                suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
+                suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
                 (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
                 if (suggestions.length === 1) {
                     _this.select(suggestions[0]);
