@@ -91,6 +91,10 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./models/me
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", member_1.Member)
         ], OeThesaurusTree.prototype, "value", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", api_service_1.ApiService)
+        ], OeThesaurusTree.prototype, "service", void 0);
         OeThesaurusTree = __decorate([
             aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),
             __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue, Element])

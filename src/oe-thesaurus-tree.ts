@@ -13,7 +13,7 @@ export class OeThesaurusTree {
   public treeVisible: boolean = false;
   public context: any = this;
   public position: string;
-  private service: ApiService;
+  @bindable private service: ApiService;
 
   constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;
