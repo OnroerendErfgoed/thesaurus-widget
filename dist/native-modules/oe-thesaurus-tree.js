@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
-import { Concept } from './models/concept';
+import { Member } from './models/member';
 import { ApiService } from './services/api-service';
 var OeThesaurusTree = (function () {
     function OeThesaurusTree(taskQueue, element) {
@@ -71,7 +71,7 @@ var OeThesaurusTree = (function () {
         var _this = this;
         this.service.getConceptById(this.type, id).then(function (data) {
             if (data) {
-                _this.value = new Concept(data);
+                _this.value = new Member(data.id, data.label, data.type, data.uri);
             }
         });
         this.treeVisible = false;
@@ -90,7 +90,7 @@ var OeThesaurusTree = (function () {
     ], OeThesaurusTree.prototype, "baseUrl", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
-        __metadata("design:type", Concept)
+        __metadata("design:type", Member)
     ], OeThesaurusTree.prototype, "value", void 0);
     OeThesaurusTree = __decorate([
         inject(TaskQueue, Element),

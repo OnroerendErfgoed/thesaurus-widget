@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "./models/concept", "./services/api-service"], function (require, exports, aurelia_framework_1, concept_1, api_service_1) {
+define(["require", "exports", "aurelia-framework", "./models/member", "./services/api-service"], function (require, exports, aurelia_framework_1, member_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var nextID = 0;
@@ -174,7 +174,7 @@ define(["require", "exports", "aurelia-framework", "./models/concept", "./servic
         ], OeThesaurusInput.prototype, "baseUrl", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-            __metadata("design:type", concept_1.Concept)
+            __metadata("design:type", member_1.Member)
         ], OeThesaurusInput.prototype, "value", void 0);
         __decorate([
             aurelia_framework_1.bindable,

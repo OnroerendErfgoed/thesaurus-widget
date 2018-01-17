@@ -8,7 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
-import { Concept } from './models/concept';
+import { Member } from './models/member';
 import { ApiService } from './services/api-service';
 let nextID = 0;
 let OeThesaurusInput = class OeThesaurusInput {
@@ -173,7 +173,7 @@ __decorate([
 ], OeThesaurusInput.prototype, "baseUrl", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
-    __metadata("design:type", Concept)
+    __metadata("design:type", Member)
 ], OeThesaurusInput.prototype, "value", void 0);
 __decorate([
     bindable,

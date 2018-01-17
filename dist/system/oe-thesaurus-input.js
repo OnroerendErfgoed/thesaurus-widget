@@ -1,4 +1,4 @@
-System.register(["aurelia-framework", "./models/concept", "./services/api-service"], function (exports_1, context_1) {
+System.register(["aurelia-framework", "./models/member", "./services/api-service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,14 +10,14 @@ System.register(["aurelia-framework", "./models/concept", "./services/api-servic
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var aurelia_framework_1, concept_1, api_service_1, nextID, OeThesaurusInput;
+    var aurelia_framework_1, member_1, api_service_1, nextID, OeThesaurusInput;
     return {
         setters: [
             function (aurelia_framework_1_1) {
                 aurelia_framework_1 = aurelia_framework_1_1;
             },
-            function (concept_1_1) {
-                concept_1 = concept_1_1;
+            function (member_1_1) {
+                member_1 = member_1_1;
             },
             function (api_service_1_1) {
                 api_service_1 = api_service_1_1;
@@ -188,7 +188,7 @@ System.register(["aurelia-framework", "./models/concept", "./services/api-servic
                 ], OeThesaurusInput.prototype, "baseUrl", void 0);
                 __decorate([
                     aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-                    __metadata("design:type", concept_1.Concept)
+                    __metadata("design:type", member_1.Member)
                 ], OeThesaurusInput.prototype, "value", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,

@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
-var concept_1 = require("./models/concept");
+var member_1 = require("./models/member");
 var api_service_1 = require("./services/api-service");
 var nextID = 0;
 var OeThesaurusInput = (function () {
@@ -176,7 +176,7 @@ var OeThesaurusInput = (function () {
     ], OeThesaurusInput.prototype, "baseUrl", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
-        __metadata("design:type", concept_1.Concept)
+        __metadata("design:type", member_1.Member)
     ], OeThesaurusInput.prototype, "value", void 0);
     __decorate([
         aurelia_framework_1.bindable,
