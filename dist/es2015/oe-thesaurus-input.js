@@ -58,13 +58,7 @@ let OeThesaurusInput = class OeThesaurusInput {
         }
     }
     valueChanged() {
-        if (this.value.id) {
-            this.service.getConceptById(this.type, this.value.id).then((data) => {
-                if (data) {
-                    this.select(new Concept(data));
-                }
-            });
-        }
+        this.select(this.value);
     }
     inputValueChanged(value) {
         if (this.updatingInput || (this.minlength > value.length)) {

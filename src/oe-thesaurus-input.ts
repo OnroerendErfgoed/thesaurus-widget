@@ -67,13 +67,7 @@ export class OeThesaurusInput {
   }
 
   public valueChanged() {
-    if (this.value.id) {
-      this.service.getConceptById(this.type, this.value.id).then((data) => {
-        if (data) {
-          this.select(new Concept(data));
-        }
-      });
-    }
+    this.select(this.value);
   }
 
   public inputValueChanged(value: string) {

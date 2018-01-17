@@ -58,14 +58,7 @@ var OeThesaurusInput = (function () {
         }
     };
     OeThesaurusInput.prototype.valueChanged = function () {
-        var _this = this;
-        if (this.value.id) {
-            this.service.getConceptById(this.type, this.value.id).then(function (data) {
-                if (data) {
-                    _this.select(new Concept(data));
-                }
-            });
-        }
+        this.select(this.value);
     };
     OeThesaurusInput.prototype.inputValueChanged = function (value) {
         var _this = this;
