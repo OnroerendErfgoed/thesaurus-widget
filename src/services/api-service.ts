@@ -28,7 +28,7 @@ export class ApiService {
       .send()
       .then(response => {
         if (response.isSuccess) {
-          return response.content as [];
+          return response.content as IMember[];
         } else {
           return;
         }
