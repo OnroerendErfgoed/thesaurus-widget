@@ -13,6 +13,7 @@ import { ApiService } from './services/api-service';
 var nextID = 0;
 var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
+        this.element = element;
         this.inputValue = '';
         this.minlength = null;
         this.baseUrl = '';
@@ -24,12 +25,12 @@ var OeThesaurusInput = (function () {
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.element = null;
+        this.standalone = true;
         this.element = element;
         this.id = nextID++;
     }
     OeThesaurusInput.prototype.attached = function () {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     };
@@ -191,6 +192,10 @@ var OeThesaurusInput = (function () {
         bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusInput.prototype, "standalone", void 0);
     __decorate([
         bindable,
         __metadata("design:type", ApiService)

@@ -13,6 +13,7 @@ import { ApiService } from './services/api-service';
 let nextID = 0;
 let OeThesaurusInput = class OeThesaurusInput {
     constructor(element) {
+        this.element = element;
         this.inputValue = '';
         this.minlength = null;
         this.baseUrl = '';
@@ -24,12 +25,12 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.element = null;
+        this.standalone = true;
         this.element = element;
         this.id = nextID++;
     }
     attached() {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     }
@@ -190,6 +191,10 @@ __decorate([
     bindable,
     __metadata("design:type", Boolean)
 ], OeThesaurusInput.prototype, "disabled", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", Boolean)
+], OeThesaurusInput.prototype, "standalone", void 0);
 __decorate([
     bindable,
     __metadata("design:type", ApiService)

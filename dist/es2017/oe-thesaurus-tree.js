@@ -19,11 +19,12 @@ let OeThesaurusTree = class OeThesaurusTree {
         this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
+        this.standalone = true;
         this.element = element;
         this.taskQueue = taskQueue;
     }
     attached() {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     }
@@ -90,6 +91,10 @@ __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Member)
 ], OeThesaurusTree.prototype, "value", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", Boolean)
+], OeThesaurusTree.prototype, "standalone", void 0);
 __decorate([
     bindable,
     __metadata("design:type", ApiService)

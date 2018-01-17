@@ -27,6 +27,7 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
             nextID = 0;
             OeThesaurusInput = (function () {
                 function OeThesaurusInput(element) {
+                    this.element = element;
                     this.inputValue = '';
                     this.minlength = null;
                     this.baseUrl = '';
@@ -38,12 +39,12 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     this.index = -1;
                     this.suggestionsUL = null;
                     this.userInput = '';
-                    this.element = null;
+                    this.standalone = true;
                     this.element = element;
                     this.id = nextID++;
                 }
                 OeThesaurusInput.prototype.attached = function () {
-                    if (!this.service) {
+                    if (this.standalone) {
                         this.service = new api_service_1.ApiService(this.baseUrl);
                     }
                 };
@@ -205,6 +206,10 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     aurelia_framework_1.bindable,
                     __metadata("design:type", Boolean)
                 ], OeThesaurusInput.prototype, "disabled", void 0);
+                __decorate([
+                    aurelia_framework_1.bindable,
+                    __metadata("design:type", Boolean)
+                ], OeThesaurusInput.prototype, "standalone", void 0);
                 __decorate([
                     aurelia_framework_1.bindable,
                     __metadata("design:type", api_service_1.ApiService)

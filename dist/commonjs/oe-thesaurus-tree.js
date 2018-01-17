@@ -21,11 +21,12 @@ var OeThesaurusTree = (function () {
         this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
+        this.standalone = true;
         this.element = element;
         this.taskQueue = taskQueue;
     }
     OeThesaurusTree.prototype.attached = function () {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new api_service_1.ApiService(this.baseUrl);
         }
     };
@@ -94,6 +95,10 @@ var OeThesaurusTree = (function () {
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", member_1.Member)
     ], OeThesaurusTree.prototype, "value", void 0);
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusTree.prototype, "standalone", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", api_service_1.ApiService)

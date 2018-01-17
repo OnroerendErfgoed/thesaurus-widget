@@ -19,11 +19,12 @@ var OeThesaurusTree = (function () {
         this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
+        this.standalone = true;
         this.element = element;
         this.taskQueue = taskQueue;
     }
     OeThesaurusTree.prototype.attached = function () {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new ApiService(this.baseUrl);
         }
     };
@@ -92,6 +93,10 @@ var OeThesaurusTree = (function () {
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Member)
     ], OeThesaurusTree.prototype, "value", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusTree.prototype, "standalone", void 0);
     __decorate([
         bindable,
         __metadata("design:type", ApiService)

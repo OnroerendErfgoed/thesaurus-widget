@@ -1,5 +1,7 @@
 import { Member } from './models/member';
+import { ApiService } from './services/api-service';
 export declare class OeThesaurusInput {
+    private element;
     inputValue: string;
     type: string;
     minlength: number;
@@ -15,8 +17,8 @@ export declare class OeThesaurusInput {
     index: number;
     suggestionsUL: any;
     userInput: string;
-    element: Element;
-    private service;
+    standalone: boolean;
+    service: ApiService;
     constructor(element: Element);
     attached(): void;
     display(name: string): void;

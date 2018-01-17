@@ -24,16 +24,16 @@ export class OeThesaurusInput {
   public index: number = -1;
   public suggestionsUL = null;
   public userInput: string = '';
-  public element: Element = null;
-  @bindable private service: ApiService;
+  @bindable public standalone: boolean = true;
+  @bindable public service: ApiService;
 
-  constructor(element: Element) {
+  constructor(private element: Element) {
     this.element = element;
     this.id = nextID++;
   }
 
   public attached() {
-    if (!this.service) {
+    if (this.standalone) {
       this.service = new ApiService(this.baseUrl);
     }
   }

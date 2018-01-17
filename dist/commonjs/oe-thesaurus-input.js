@@ -15,6 +15,7 @@ var api_service_1 = require("./services/api-service");
 var nextID = 0;
 var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
+        this.element = element;
         this.inputValue = '';
         this.minlength = null;
         this.baseUrl = '';
@@ -26,12 +27,12 @@ var OeThesaurusInput = (function () {
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.element = null;
+        this.standalone = true;
         this.element = element;
         this.id = nextID++;
     }
     OeThesaurusInput.prototype.attached = function () {
-        if (!this.service) {
+        if (this.standalone) {
             this.service = new api_service_1.ApiService(this.baseUrl);
         }
     };
@@ -193,6 +194,10 @@ var OeThesaurusInput = (function () {
         aurelia_framework_1.bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusInput.prototype, "standalone", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", api_service_1.ApiService)

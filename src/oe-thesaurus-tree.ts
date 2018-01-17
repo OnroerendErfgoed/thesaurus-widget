@@ -13,7 +13,8 @@ export class OeThesaurusTree {
   public treeVisible: boolean = false;
   public context: any = this;
   public position: string;
-  @bindable private service: ApiService;
+  @bindable public standalone: boolean = true;
+  @bindable public service: ApiService;
 
   constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;
@@ -21,7 +22,7 @@ export class OeThesaurusTree {
   }
 
   public attached() {
-    if (!this.service) {
+    if (this.standalone) {
       this.service = new ApiService(this.baseUrl);
     }
   }
