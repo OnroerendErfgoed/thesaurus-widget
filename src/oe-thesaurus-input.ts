@@ -80,7 +80,7 @@ export class OeThesaurusInput {
       this.collapse();
       return;
     }
-    this.service.getConcepts(this.type, { label: value })
+    this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
     .then((suggestions) => {
       this.index = -1;
       this.suggestions.splice(0, this.suggestions.length, ...suggestions);
