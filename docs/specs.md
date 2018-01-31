@@ -1,6 +1,8 @@
 
 ## Specs
 
+Original specs: https://github.com/OnroerendErfgoed/inventaris/issues/22#issue-239965138
+
 ### Version 0.1
 - this should be a custom [Aurelia](http://aurelia.io/) component that can be used in other Aurelia projects
 - the component can interact with the api of a thesaurus
