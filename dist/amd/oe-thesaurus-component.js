@@ -13,6 +13,7 @@ define(["require", "exports", "aurelia-framework", "./services/api-service"], fu
     var OeThesaurusComponent = (function () {
         function OeThesaurusComponent(element) {
             this.element = element;
+            this.placeholder = '';
             this.baseUrl = '';
             this.minlength = null;
             this.element = element;

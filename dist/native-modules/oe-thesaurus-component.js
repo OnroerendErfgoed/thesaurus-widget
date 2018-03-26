@@ -12,6 +12,7 @@ import { ApiService } from './services/api-service';
 var OeThesaurusComponent = (function () {
     function OeThesaurusComponent(element) {
         this.element = element;
+        this.placeholder = '';
         this.baseUrl = '';
         this.minlength = null;
         this.element = element;

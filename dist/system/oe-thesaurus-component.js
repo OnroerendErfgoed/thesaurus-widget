@@ -24,6 +24,7 @@ System.register(["aurelia-framework", "./services/api-service"], function (expor
             OeThesaurusComponent = (function () {
                 function OeThesaurusComponent(element) {
                     this.element = element;
+                    this.placeholder = '';
                     this.baseUrl = '';
                     this.minlength = null;
                     this.element = element;
