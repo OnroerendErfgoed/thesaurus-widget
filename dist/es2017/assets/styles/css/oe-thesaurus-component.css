@@ -33,7 +33,13 @@ oe-thesaurus-tree {
   width: 100%; }
   oe-thesaurus-tree button {
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    background: white;
+    border: 1px solid #CCC; }
+    oe-thesaurus-tree button .fa .fa-bars {
+      color: #4d4d4d; }
+    oe-thesaurus-tree button .fa .fa-caret-down {
+      color: #753f7f; }
   oe-thesaurus-tree .popup {
     position: absolute;
     z-index: 10;
@@ -75,4 +81,4 @@ oe-thesaurus-tree {
             border-left: 1px dotted #BBB; }
 
 oe-thesaurus-component oe-thesaurus-input {
-  padding-right: 0.9375rem; }
+  padding-right: 0.9375rem !important; }
