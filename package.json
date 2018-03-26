@@ -38,10 +38,13 @@
     "aurelia-polyfills": "^1.2.2",
     "aurelia-testing": "^1.0.0-beta.3.0.1",
     "aurelia-tools": "^1.0.0",
+    "browser-sync": "^2.23.6",
     "concurrently": "^3.5.0",
     "conventional-changelog-cli": "^1.3.1",
     "copyfiles": "^1.2.0",
     "cross-env": "^5.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.2.1",
     "husky": "^0.14.3",
     "jasmine-core": "^2.5.2",
     "karma": "^1.7.0",
@@ -95,7 +98,7 @@
     "build:system": "cross-env tsc --project tsconfig.build.json --outDir dist/system --module system",
     "postbuild:system": "cross-env copyfiles --up 1 src/**/*.html src/**/*.css src/**/*.scss dist/system",
     "prebuild": "cross-env rimraf dist",
-    "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:es2017\" \"npm run build:native-modules\" \"npm run build:system\"",
+    "build": "concurrently \"npm run build:amd\" \"npm run build:commonjs\" \"npm run build:es2015\" \"npm run build:es2017\" \"npm run build:native-modules\" \"npm run build:system\" \"npm run gulp\"",
     "predoc": "cross-env rimraf doc/api.json && cross-env rimraf dist/doc-temp && cross-env tsc --project tsconfig.build.json --outFile dist/doc-temp/${npm_package_name}.js --module amd && node doc/shape-defs && copyfiles tsconfig.json dist/doc-temp",
     "doc": "cross-env typedoc --json doc/api.json --excludeExternals --includeDeclarations --mode modules --target ES6 --name ${npm_package_name}-docs dist/doc-temp/",
     "postdoc": "cross-env node doc/shape-doc && rimraf dist/doc-temp",
@@ -104,7 +107,8 @@
     "preprepare-release": "cross-env npm run test",
     "prepare-release": "cross-env npm run changelog && npm run build && npm run doc",
     "precommit": "./node_modules/.bin/tslint -c tslint.json 'src/**/*.ts'",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "gulp": "gulp"
   },
   "dependencies": {
     "aurelia-framework": "^1.1.5",
