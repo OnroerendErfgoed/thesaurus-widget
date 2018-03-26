@@ -60,9 +60,10 @@ var OeThesaurusTree = (function () {
         }
     };
     OeThesaurusTree.prototype.calcPosition = function () {
-        var buttonBounds = this.element.getBoundingClientRect();
+        var elBounds = this.element.getBoundingClientRect();
+        var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
         if (buttonBounds.top >= 300) {
-            this.position = "bottom: " + buttonBounds.height + "px;";
+            this.position = "bottom: " + elBounds.height + "px;";
         }
         else {
             this.position = "top: " + buttonBounds.height + "px;";
