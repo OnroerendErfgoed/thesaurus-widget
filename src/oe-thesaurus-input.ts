@@ -10,11 +10,11 @@ let nextID: number = 0;
 @inject(Element)
 export class OeThesaurusInput {
   @observable public inputValue: string = '';
+  @bindable public placeholder: string = '';
   @bindable public type: string;
   @bindable public minlength: number = null;
   @bindable public baseUrl: string = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
-  @bindable public placeholder: string = '';
   @bindable public delay: number = 300;
   @bindable public disabled: boolean;
   public id: number;

@@ -3,11 +3,11 @@ import { ApiService } from './services/api-service';
 export declare class OeThesaurusInput {
     private element;
     inputValue: string;
+    placeholder: string;
     type: string;
     minlength: number;
     baseUrl: string;
     value: Member;
-    placeholder: string;
     delay: number;
     disabled: boolean;
     id: number;

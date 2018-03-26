@@ -62,7 +62,7 @@ var OeThesaurusTree = (function () {
         }
     };
     OeThesaurusTree.prototype.calcPosition = function () {
-        var buttonBounds = this.element.querySelector('button').getBoundingClientRect();
+        var buttonBounds = this.element.getBoundingClientRect();
         if (buttonBounds.top >= 300) {
             this.position = "bottom: " + buttonBounds.height + "px;";
         }

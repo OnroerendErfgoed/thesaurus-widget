@@ -25,6 +25,10 @@ let OeThesaurusComponent = class OeThesaurusComponent {
 __decorate([
     bindable,
     __metadata("design:type", String)
+], OeThesaurusComponent.prototype, "placeholder", void 0);
+__decorate([
+    bindable,
+    __metadata("design:type", String)
 ], OeThesaurusComponent.prototype, "type", void 0);
 __decorate([
     bindable,

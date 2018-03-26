@@ -26,6 +26,10 @@ var OeThesaurusComponent = (function () {
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", String)
+    ], OeThesaurusComponent.prototype, "placeholder", void 0);
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", String)
     ], OeThesaurusComponent.prototype, "type", void 0);
     __decorate([
         aurelia_framework_1.bindable,

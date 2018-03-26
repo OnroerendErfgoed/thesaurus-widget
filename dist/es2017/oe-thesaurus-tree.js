@@ -58,7 +58,7 @@ let OeThesaurusTree = class OeThesaurusTree {
         }
     }
     calcPosition() {
-        const buttonBounds = this.element.querySelector('button').getBoundingClientRect();
+        const buttonBounds = this.element.getBoundingClientRect();
         if (buttonBounds.top >= 300) {
             this.position = `bottom: ${buttonBounds.height}px;`;
         }

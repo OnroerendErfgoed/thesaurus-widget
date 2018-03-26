@@ -15,9 +15,9 @@ var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
         this.element = element;
         this.inputValue = '';
+        this.placeholder = '';
         this.minlength = null;
         this.baseUrl = '';
-        this.placeholder = '';
         this.delay = 300;
         this.expanded = false;
         this.updatingInput = false;
@@ -167,6 +167,10 @@ var OeThesaurusInput = (function () {
     __decorate([
         bindable,
         __metadata("design:type", String)
+    ], OeThesaurusInput.prototype, "placeholder", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", String)
     ], OeThesaurusInput.prototype, "type", void 0);
     __decorate([
         bindable,
@@ -180,10 +184,6 @@ var OeThesaurusInput = (function () {
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Member)
     ], OeThesaurusInput.prototype, "value", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "placeholder", void 0);
     __decorate([
         bindable,
         __metadata("design:type", Number)

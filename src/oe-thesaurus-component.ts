@@ -3,6 +3,7 @@ import { ApiService } from './services/api-service';
 
 @inject(Element)
 export class OeThesaurusComponent {
+  @bindable public placeholder: string;
   @bindable public type: string;
   @bindable public baseUrl: string = '';
   @bindable public minlength: number = null;

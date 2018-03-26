@@ -15,9 +15,9 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
         function OeThesaurusInput(element) {
             this.element = element;
             this.inputValue = '';
+            this.placeholder = '';
             this.minlength = null;
             this.baseUrl = '';
-            this.placeholder = '';
             this.delay = 300;
             this.expanded = false;
             this.updatingInput = false;
@@ -167,6 +167,10 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", String)
+        ], OeThesaurusInput.prototype, "placeholder", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", String)
         ], OeThesaurusInput.prototype, "type", void 0);
         __decorate([
             aurelia_framework_1.bindable,
@@ -180,10 +184,6 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", member_1.Member)
         ], OeThesaurusInput.prototype, "value", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusInput.prototype, "placeholder", void 0);
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", Number)
