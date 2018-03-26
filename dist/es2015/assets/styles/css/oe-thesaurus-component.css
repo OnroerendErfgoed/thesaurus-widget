@@ -34,11 +34,14 @@ oe-thesaurus-tree {
   oe-thesaurus-tree button {
     margin: 0;
     padding: 0;
-    background: white;
+    background: #FFF;
     border: 1px solid #CCC; }
-    oe-thesaurus-tree button .fa .fa-bars {
+    oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {
+      background: #FFF;
+      outline: none; }
+    oe-thesaurus-tree button .fa.fa-bars {
       color: #4d4d4d; }
-    oe-thesaurus-tree button .fa .fa-caret-down {
+    oe-thesaurus-tree button .fa.fa-caret-down {
       color: #753f7f; }
   oe-thesaurus-tree .popup {
     position: absolute;

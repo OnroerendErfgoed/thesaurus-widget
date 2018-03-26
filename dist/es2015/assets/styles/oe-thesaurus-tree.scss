@@ -6,14 +6,19 @@ oe-thesaurus-tree {
   button {
     margin: 0;
     padding: 0;
-    background: white;
+    background: #FFF;
     border: 1px solid #CCC;
     
+    &:hover, &:focus {
+      background: #FFF;
+      outline: none;
+    }
+    
     .fa {
-      .fa-bars {
+      &.fa-bars {
         color: #4d4d4d;
       }
-      .fa-caret-down {
+      &.fa-caret-down {
         color: #753f7f;
       }
     }
