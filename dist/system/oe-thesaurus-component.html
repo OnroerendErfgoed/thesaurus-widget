@@ -3,13 +3,9 @@
   <require from="./oe-thesaurus-tree"></require>
   
   <div class="row collapse">
-    <div class="small-9 columns">
-      <oe-thesaurus-input value.bind="value" type.bind="type" base-url.bind="baseUrl" service.bind="service" standalone.bind="false" minlength.bind="minlength">
+      <oe-thesaurus-input class="small-10 columns" value.bind="value" type.bind="type" base-url.bind="baseUrl" service.bind="service" standalone.bind="false" minlength.bind="minlength">
         <template replace-part="suggestion">${suggestion.label}</template>
       </oe-thesaurus-input>
+      <oe-thesaurus-tree class="small-2 columns" value.bind="value" type.bind="type" base-url.bind="baseUrl" service.bind="service" standalone.bind="false"></oe-thesaurus-tree>
     </div>
-    <div class="small-3 columns">
-      <oe-thesaurus-tree class="postfix" value.bind="value" type.bind="type" base-url.bind="baseUrl" service.bind="service" standalone.bind="false"></oe-thesaurus-tree>
-    </div>
-  </div>
 </template>
