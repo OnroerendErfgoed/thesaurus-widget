@@ -1,5 +1,6 @@
 oe-thesaurus-input {
-  display: inline-block; }
+  display: inline-block;
+  width: 100%; }
   oe-thesaurus-input .suggestions {
     list-style-type: none;
     cursor: default;

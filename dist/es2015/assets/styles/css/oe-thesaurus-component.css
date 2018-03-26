@@ -1,5 +1,6 @@
 oe-thesaurus-input {
-  display: inline-block; }
+  display: inline-block;
+  width: 100%; }
   oe-thesaurus-input .suggestions {
     list-style-type: none;
     cursor: default;
@@ -28,9 +29,11 @@ oe-thesaurus-input {
 
 oe-thesaurus-tree {
   display: inline-block;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   oe-thesaurus-tree button {
-    margin: 0; }
+    margin: 0;
+    padding: 0; }
   oe-thesaurus-tree .popup {
     position: absolute;
     z-index: 10;
@@ -70,3 +73,6 @@ oe-thesaurus-tree {
           border-left: none; }
           oe-thesaurus-tree .popup ul ul li:last-child:before {
             border-left: 1px dotted #BBB; }
+
+oe-thesaurus-component oe-thesaurus-input {
+  padding-right: 0.9375rem; }

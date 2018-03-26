@@ -1,9 +1,11 @@
 oe-thesaurus-tree {
   display: inline-block;
   position: relative;
+  width: 100%;
   
   button {
     margin: 0;
+    padding: 0;
   }
   
   .popup {
