@@ -86,7 +86,7 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                         this.collapse();
                         return;
                     }
-                    this.service.getConcepts(this.type, { label: value })
+                    this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
                         .then(function (suggestions) {
                         if (suggestions) {
                             _this.index = -1;

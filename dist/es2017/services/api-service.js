@@ -25,11 +25,6 @@ export class ApiService {
             else {
                 return;
             }
-        }).catch(error => {
-            console.debug(error);
-            return new Promise(reject => {
-                reject();
-            });
         });
     }
     getConceptById(type, id) {
@@ -43,11 +38,6 @@ export class ApiService {
             else {
                 return;
             }
-        }).catch(error => {
-            console.debug(error);
-            return new Promise(reject => {
-                reject();
-            });
         });
     }
     getTree(type) {
@@ -58,11 +48,6 @@ export class ApiService {
             else {
                 return;
             }
-        }).catch(error => {
-            console.debug(error);
-            return new Promise(reject => {
-                reject();
-            });
         });
     }
 }

@@ -32,11 +32,6 @@ export class ApiService {
         } else {
           return;
         }
-      }).catch(error => {
-        console.debug(error);
-        return new Promise(reject => {
-          reject();
-        });
       });
   }
 
@@ -50,11 +45,6 @@ export class ApiService {
         } else {
           return;
         }
-      }).catch(error => {
-        console.debug(error);
-        return new Promise(reject => {
-          reject();
-        });
       });
   }
 
@@ -65,11 +55,6 @@ export class ApiService {
       } else {
         return;
       }
-    }).catch(error => {
-      console.debug(error);
-      return new Promise(reject => {
-        reject();
-      });
     });
   }
 }

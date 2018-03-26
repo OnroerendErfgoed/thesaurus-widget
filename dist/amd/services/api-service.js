@@ -27,11 +27,6 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
                 else {
                     return;
                 }
-            }).catch(function (error) {
-                console.debug(error);
-                return new Promise(function (reject) {
-                    reject();
-                });
             });
         };
         ApiService.prototype.getConceptById = function (type, id) {
@@ -45,11 +40,6 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
                 else {
                     return;
                 }
-            }).catch(function (error) {
-                console.debug(error);
-                return new Promise(function (reject) {
-                    reject();
-                });
             });
         };
         ApiService.prototype.getTree = function (type) {
@@ -60,11 +50,6 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
                 else {
                     return;
                 }
-            }).catch(function (error) {
-                console.debug(error);
-                return new Promise(function (reject) {
-                    reject();
-                });
             });
         };
         return ApiService;
