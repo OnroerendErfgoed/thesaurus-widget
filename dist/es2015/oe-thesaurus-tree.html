@@ -1,9 +1,11 @@
 <template>
   <require from="./tree-node"></require>
   
-  <button type="button" class="postfix" click.delegate="toggleTree()">
-    <span class="fa fa-bars"></span>&nbsp;<span class="fa fa-caret-down"></span>
-  </button>
+  <div class="placeholder-container">
+    <button type="button" class="postfix" click.delegate="toggleTree()">
+      <span class="fa fa-bars"></span>&nbsp;<span class="fa fa-caret-down"></span>
+    </button>
+  </div>
   <div class="popup" tabindex="0" show.bind="treeVisible" blur.trigger="treeVisible=false" css="${position}">
     <span if.bind="nodes.length === 0" class="fa fa-spinner fa-pulse"></span>
     <ul if.bind="nodes.length > 0">

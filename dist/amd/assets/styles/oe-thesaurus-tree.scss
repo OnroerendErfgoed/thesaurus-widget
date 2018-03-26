@@ -6,11 +6,11 @@ oe-thesaurus-tree {
   button {
     margin: 0;
     padding: 0;
-    background: #FFF;
-    border: 1px solid #CCC;
+    background: transparent;
+    border: none;
     
     &:hover, &:focus {
-      background: #FFF;
+      background: transparent;
       outline: none;
     }
     

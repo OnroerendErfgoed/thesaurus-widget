@@ -5,10 +5,10 @@ oe-thesaurus-tree {
   oe-thesaurus-tree button {
     margin: 0;
     padding: 0;
-    background: #FFF;
-    border: 1px solid #CCC; }
+    background: transparent;
+    border: none; }
     oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {
-      background: #FFF;
+      background: transparent;
       outline: none; }
     oe-thesaurus-tree button .fa.fa-bars {
       color: #4d4d4d; }
