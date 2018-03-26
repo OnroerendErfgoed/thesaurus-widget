@@ -34,7 +34,7 @@ export class ApiService {
         }
       }).catch(error => {
         console.debug(error);
-        return new Promise<void>(reject => {
+        return new Promise(reject => {
           reject();
         });
       });
@@ -52,7 +52,7 @@ export class ApiService {
         }
       }).catch(error => {
         console.debug(error);
-        return new Promise<void>(reject => {
+        return new Promise(reject => {
           reject();
         });
       });
@@ -67,7 +67,7 @@ export class ApiService {
       }
     }).catch(error => {
       console.debug(error);
-      return new Promise<void>(reject => {
+      return new Promise(reject => {
         reject();
       });
     });
