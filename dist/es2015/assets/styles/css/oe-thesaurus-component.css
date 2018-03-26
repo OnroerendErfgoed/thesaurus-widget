@@ -52,6 +52,7 @@ oe-thesaurus-tree {
     padding: 10px;
     white-space: nowrap;
     max-height: 300px;
+    min-width: 100%;
     overflow-y: auto; }
     oe-thesaurus-tree .popup tree-node {
       display: inline-flex; }
