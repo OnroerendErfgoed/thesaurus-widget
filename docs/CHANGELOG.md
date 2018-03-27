@@ -1,6 +1,4 @@
-## 0.1.0 (??-??-????)
+## 0.1.0 (27-03-2018)
 
-
-#### Bug Fixes
-
-#### Features
+Eerste release van de widget. 
+Deze kan gebruitk worden in een Aurelia project.
