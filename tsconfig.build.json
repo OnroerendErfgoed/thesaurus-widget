@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "outDir": "dist/commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "exclude": [
+    ".vscode",
+    ".idea",
+    "dist",
+    "docs",
+    "node_modules",
+    "jspm_packages",
+    "test"
+  ]
+}

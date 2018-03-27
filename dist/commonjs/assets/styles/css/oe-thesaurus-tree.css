@@ -1,0 +1,56 @@
+oe-thesaurus-tree {
+  display: inline-block;
+  position: relative;
+  width: 100%; }
+  oe-thesaurus-tree button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none; }
+    oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {
+      background: transparent;
+      outline: none; }
+    oe-thesaurus-tree button .fa.fa-bars {
+      color: #4d4d4d; }
+    oe-thesaurus-tree button .fa.fa-caret-down {
+      color: #753f7f; }
+  oe-thesaurus-tree .popup {
+    position: absolute;
+    z-index: 10;
+    background: white;
+    border: 1px solid #bfd6eb;
+    outline: none;
+    padding: 10px;
+    white-space: nowrap;
+    max-height: 300px;
+    min-width: 100%;
+    overflow-y: auto; }
+    oe-thesaurus-tree .popup tree-node {
+      display: inline-flex; }
+    oe-thesaurus-tree .popup .fa-plus-square,
+    oe-thesaurus-tree .popup .fa-minus-square {
+      font-size: 12px; }
+    oe-thesaurus-tree .popup .option {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle; }
+    oe-thesaurus-tree .popup ul {
+      margin: 0;
+      list-style-type: none; }
+      oe-thesaurus-tree .popup ul ul li {
+        padding-left: 7px;
+        border-left: 1px dotted #BBB; }
+        oe-thesaurus-tree .popup ul ul li:before {
+          position: relative;
+          top: -0.3em;
+          height: 1em;
+          width: 12px;
+          color: white;
+          border-bottom: 1px dotted #BBB;
+          content: "";
+          display: inline-block;
+          left: -7px; }
+        oe-thesaurus-tree .popup ul ul li:last-child {
+          border-left: none; }
+          oe-thesaurus-tree .popup ul ul li:last-child:before {
+            border-left: 1px dotted #BBB; }

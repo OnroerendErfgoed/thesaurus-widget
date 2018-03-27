@@ -1,0 +1,86 @@
+oe-thesaurus-tree {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  
+  button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    
+    &:hover, &:focus {
+      background: transparent;
+      outline: none;
+    }
+    
+    .fa {
+      &.fa-bars {
+        color: #4d4d4d;
+      }
+      &.fa-caret-down {
+        color: #753f7f;
+      }
+    }
+  }
+  
+  .popup {
+    position: absolute;
+    z-index: 10;
+    background: white;
+    border: 1px solid #bfd6eb;
+    outline: none;
+    padding: 10px;
+    white-space: nowrap;
+    max-height: 300px;
+    min-width: 100%;
+    overflow-y: auto;
+    
+    tree-node {
+      display: inline-flex;
+    }
+    
+    .fa-plus-square,
+    .fa-minus-square {
+      font-size: 12px;
+    }
+    
+    .option {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    ul {
+      margin: 0;
+      list-style-type: none;
+      
+      ul {
+        li {
+          padding-left: 7px;
+          border-left: 1px dotted #BBB;
+
+          &:before {
+            position: relative;
+            top: -0.3em;
+            height: 1em;
+            width: 12px;
+            color: white;
+            border-bottom: 1px dotted #BBB;
+            content: "";
+            display: inline-block;
+            left: -7px;
+          }
+
+          &:last-child {
+            border-left: none;
+
+            &:before {
+              border-left: 1px dotted #BBB;
+            }
+          }
+        }
+      }
+    }
+  }
+}
