@@ -6,6 +6,7 @@ env:
 notifications:
   email:
     - axel.verstappen@gmail.com
+    - cedrik.vanderhaegen@vlaanderen.be
 sudo: required
 addons:
   chrome: stable
