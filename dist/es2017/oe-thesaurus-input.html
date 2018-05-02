@@ -1,5 +1,5 @@
 <template>
-  <div class="placeholder-container">
+  <div class="placeholder-container ${disabled ? 'placeholder-disabled' : ''}">
     <input type="text" autocomplete="off"
          aria-autocomplete="list"
          aria-expanded.bind="expanded"

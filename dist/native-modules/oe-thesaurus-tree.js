@@ -105,6 +105,10 @@ var OeThesaurusTree = (function () {
         bindable,
         __metadata("design:type", ApiService)
     ], OeThesaurusTree.prototype, "service", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusTree.prototype, "disabled", void 0);
     OeThesaurusTree = __decorate([
         inject(TaskQueue, Element),
         __metadata("design:paramtypes", [TaskQueue, Element])

@@ -104,6 +104,10 @@ define(["require", "exports", "aurelia-framework", "./models/tree", "./models/me
             aurelia_framework_1.bindable,
             __metadata("design:type", api_service_1.ApiService)
         ], OeThesaurusTree.prototype, "service", void 0);
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Boolean)
+        ], OeThesaurusTree.prototype, "disabled", void 0);
         OeThesaurusTree = __decorate([
             aurelia_framework_1.inject(aurelia_framework_1.TaskQueue, Element),
             __metadata("design:paramtypes", [aurelia_framework_1.TaskQueue, Element])

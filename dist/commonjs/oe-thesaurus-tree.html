@@ -1,7 +1,7 @@
 <template>
   <require from="./tree-node"></require>
   
-  <div class="placeholder-container">
+  <div class="placeholder-container ${disabled ? 'placeholder-disabled' : ''}">
     <button type="button" class="postfix" click.delegate="toggleTree()">
       <span class="fa fa-bars"></span>&nbsp;<span class="fa fa-caret-down"></span>
     </button>

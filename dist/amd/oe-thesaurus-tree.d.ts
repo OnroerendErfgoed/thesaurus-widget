@@ -15,6 +15,7 @@ export declare class OeThesaurusTree {
     position: string;
     standalone: boolean;
     service: ApiService;
+    disabled: boolean;
     constructor(taskQueue: TaskQueue, element: Element);
     attached(): void;
     parseNode(node: ITreeChild): TreeChild;

@@ -86,3 +86,11 @@ oe-thesaurus-tree {
 
 oe-thesaurus-component oe-thesaurus-input {
   padding-right: 0.9375rem !important; }
+
+.placeholder-container oe-thesaurus-component .placeholder-container {
+  margin: 0;
+  border: none; }
+  .placeholder-container oe-thesaurus-component .placeholder-container oe-thesaurus-input {
+    padding-right: 0; }
+  .placeholder-container oe-thesaurus-component .placeholder-container oe-thesaurus-tree {
+    border-left: 1px solid #d5d5d5; }

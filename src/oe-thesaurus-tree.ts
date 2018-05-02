@@ -15,6 +15,7 @@ export class OeThesaurusTree {
   public position: string;
   @bindable public standalone: boolean = true;
   @bindable public service: ApiService;
+  @bindable public disabled: boolean;
 
   constructor(private taskQueue: TaskQueue, private element: Element) {
     this.element = element;

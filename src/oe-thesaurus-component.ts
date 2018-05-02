@@ -8,6 +8,7 @@ export class OeThesaurusComponent {
   @bindable public baseUrl: string = '';
   @bindable public minlength: number = null;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
+  @bindable public disabled: boolean;
   public service: ApiService;
 
   constructor(private element: Element) {
