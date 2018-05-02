@@ -62,12 +62,14 @@ export class OeThesaurusInput {
       const name = this.getName(this.value);
       this.userInput = name;
       this.display(name);
-      this.collapse();
+    } else {
+      this.display('');
     }
+    this.collapse();
   }
 
-  public valueChanged() {
-    this.select(this.value);
+  public valueChanged(value: any) {
+    this.select(value);
   }
 
   public inputValueChanged(value: string) {

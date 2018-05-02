@@ -55,11 +55,14 @@ let OeThesaurusInput = class OeThesaurusInput {
             const name = this.getName(this.value);
             this.userInput = name;
             this.display(name);
-            this.collapse();
         }
+        else {
+            this.display('');
+        }
+        this.collapse();
     }
-    valueChanged() {
-        this.select(this.value);
+    valueChanged(value) {
+        this.select(value);
     }
     inputValueChanged(value) {
         if (this.updatingInput || (this.minlength > value.length)) {

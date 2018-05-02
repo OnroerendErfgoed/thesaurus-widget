@@ -55,11 +55,14 @@ var OeThesaurusInput = (function () {
             var name_1 = this.getName(this.value);
             this.userInput = name_1;
             this.display(name_1);
-            this.collapse();
         }
+        else {
+            this.display('');
+        }
+        this.collapse();
     };
-    OeThesaurusInput.prototype.valueChanged = function () {
-        this.select(this.value);
+    OeThesaurusInput.prototype.valueChanged = function (value) {
+        this.select(value);
     };
     OeThesaurusInput.prototype.inputValueChanged = function (value) {
         var _this = this;
