@@ -42,6 +42,10 @@ var OeThesaurusComponent = (function () {
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)
     ], OeThesaurusComponent.prototype, "value", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusComponent.prototype, "disabled", void 0);
     OeThesaurusComponent = __decorate([
         inject(Element),
         __metadata("design:paramtypes", [Element])

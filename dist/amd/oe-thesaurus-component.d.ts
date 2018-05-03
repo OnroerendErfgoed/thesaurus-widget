@@ -6,6 +6,7 @@ export declare class OeThesaurusComponent {
     baseUrl: string;
     minlength: number;
     value: any;
+    disabled: boolean;
     service: ApiService;
     constructor(element: Element);
     attached(): void;

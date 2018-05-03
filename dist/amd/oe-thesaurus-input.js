@@ -55,11 +55,14 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
                 var name_1 = this.getName(this.value);
                 this.userInput = name_1;
                 this.display(name_1);
-                this.collapse();
             }
+            else {
+                this.display('');
+            }
+            this.collapse();
         };
-        OeThesaurusInput.prototype.valueChanged = function () {
-            this.select(this.value);
+        OeThesaurusInput.prototype.valueChanged = function (value) {
+            this.select(value);
         };
         OeThesaurusInput.prototype.inputValueChanged = function (value) {
             var _this = this;
@@ -78,10 +81,7 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
                     _this.index = -1;
                     suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
                     (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
-                    if (suggestions.length === 1) {
-                        _this.select(suggestions[0]);
-                    }
-                    else if (suggestions.length === 0) {
+                    if (suggestions.length === 0) {
                         _this.collapse();
                     }
                     else {

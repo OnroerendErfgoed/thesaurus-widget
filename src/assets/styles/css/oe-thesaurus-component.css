@@ -35,7 +35,7 @@ oe-thesaurus-tree {
     margin: 0;
     padding: 0;
     background: transparent;
-    border: none; }
+    border: none !important; }
     oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {
       background: transparent;
       outline: none; }
@@ -86,3 +86,13 @@ oe-thesaurus-tree {
 
 oe-thesaurus-component oe-thesaurus-input {
   padding-right: 0.9375rem !important; }
+
+.placeholder-container oe-thesaurus-component {
+  width: 100%; }
+  .placeholder-container oe-thesaurus-component .placeholder-container {
+    margin: 0;
+    border: none; }
+  .placeholder-container oe-thesaurus-component oe-thesaurus-input {
+    padding-right: 0 !important; }
+  .placeholder-container oe-thesaurus-component oe-thesaurus-tree {
+    border-left: 1px solid #d5d5d5; }

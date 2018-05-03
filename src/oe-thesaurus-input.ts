@@ -62,12 +62,14 @@ export class OeThesaurusInput {
       const name = this.getName(this.value);
       this.userInput = name;
       this.display(name);
-      this.collapse();
+    } else {
+      this.display('');
     }
+    this.collapse();
   }
 
-  public valueChanged() {
-    this.select(this.value);
+  public valueChanged(value: any) {
+    this.select(value);
   }
 
   public inputValueChanged(value: string) {
@@ -86,9 +88,7 @@ export class OeThesaurusInput {
         this.index = -1;
         suggestions = suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
         this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-        if (suggestions.length === 1) {
-          this.select(suggestions[0]);
-        } else if (suggestions.length === 0) {
+        if (suggestions.length === 0) {
           this.collapse();
         } else {
           this.expanded = true;

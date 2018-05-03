@@ -55,11 +55,14 @@ let OeThesaurusInput = class OeThesaurusInput {
             const name = this.getName(this.value);
             this.userInput = name;
             this.display(name);
-            this.collapse();
         }
+        else {
+            this.display('');
+        }
+        this.collapse();
     }
-    valueChanged() {
-        this.select(this.value);
+    valueChanged(value) {
+        this.select(value);
     }
     inputValueChanged(value) {
         if (this.updatingInput || (this.minlength > value.length)) {
@@ -77,10 +80,7 @@ let OeThesaurusInput = class OeThesaurusInput {
                 this.index = -1;
                 suggestions = suggestions.map(s => new Member(s.id, s.label, s.type, s.uri));
                 this.suggestions.splice(0, this.suggestions.length, ...suggestions);
-                if (suggestions.length === 1) {
-                    this.select(suggestions[0]);
-                }
-                else if (suggestions.length === 0) {
+                if (suggestions.length === 0) {
                     this.collapse();
                 }
                 else {
