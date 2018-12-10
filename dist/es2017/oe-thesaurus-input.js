@@ -60,13 +60,16 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.select(value);
     }
     inputValueChanged(value) {
-        if (this.updatingInput || (this.minlength > value.length)) {
+        if (this.updatingInput) {
             return;
         }
         this.userInput = value;
         if (value === '') {
             this.value = null;
             this.collapse();
+            return;
+        }
+        if (this.minlength > value.length) {
             return;
         }
         this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
