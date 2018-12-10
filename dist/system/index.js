@@ -1,5 +1,6 @@
 System.register(["./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "aurelia-framework"], function (exports_1, context_1) {
     "use strict";
+    var aurelia_framework_1;
     var __moduleName = context_1 && context_1.id;
     function configure(config) {
         config.globalResources([
@@ -9,7 +10,6 @@ System.register(["./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesa
         ]);
     }
     exports_1("configure", configure);
-    var aurelia_framework_1;
     return {
         setters: [
             function (oe_thesaurus_component_1_1) {

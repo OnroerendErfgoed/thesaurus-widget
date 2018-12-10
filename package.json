@@ -111,6 +111,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.118",
     "aurelia-framework": "^1.1.5",
     "aurelia-http-client": "^1.2.1",
     "font-awesome": "^4.7.0"

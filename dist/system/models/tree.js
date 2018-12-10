@@ -10,8 +10,8 @@ System.register([], function (exports_1, context_1) {
             d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
         };
     })();
-    var __moduleName = context_1 && context_1.id;
     var TreeChild, Tree;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [],
         execute: function () {

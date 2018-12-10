@@ -50,15 +50,10 @@ let OeThesaurusInput = class OeThesaurusInput {
         this.index = -1;
     }
     select(suggestion) {
-        if (suggestion) {
-            this.value = suggestion;
-            const name = this.getName(this.value);
-            this.userInput = name;
-            this.display(name);
-        }
-        else {
-            this.display('');
-        }
+        this.value = suggestion;
+        const name = this.getName(this.value);
+        this.userInput = name;
+        this.display(name);
         this.collapse();
     }
     valueChanged(value) {

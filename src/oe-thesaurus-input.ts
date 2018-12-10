@@ -56,15 +56,11 @@ export class OeThesaurusInput {
     this.index = -1;
   }
 
-  public select(suggestion: any) {
-    if (suggestion) {
-      this.value = suggestion;
-      const name = this.getName(this.value);
-      this.userInput = name;
-      this.display(name);
-    } else {
-      this.display('');
-    }
+  public select(suggestion) {
+    this.value = suggestion;
+    const name = this.getName(this.value);
+    this.userInput = name;
+    this.display(name);
     this.collapse();
   }
 

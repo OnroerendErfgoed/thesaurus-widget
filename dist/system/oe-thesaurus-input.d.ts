@@ -32,5 +32,5 @@ export declare class OeThesaurusInput {
     blur(): void;
     suggestionClicked(suggestion: any): void;
     focus(): void;
-    private disabledChanged(newValue, oldValue);
+    private disabledChanged;
 }

@@ -9,8 +9,8 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var __moduleName = context_1 && context_1.id;
     var aurelia_framework_1, member_1, api_service_1, nextID, OeThesaurusInput;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_framework_1_1) {
@@ -64,15 +64,10 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     this.index = -1;
                 };
                 OeThesaurusInput.prototype.select = function (suggestion) {
-                    if (suggestion) {
-                        this.value = suggestion;
-                        var name_1 = this.getName(this.value);
-                        this.userInput = name_1;
-                        this.display(name_1);
-                    }
-                    else {
-                        this.display('');
-                    }
+                    this.value = suggestion;
+                    var name = this.getName(this.value);
+                    this.userInput = name;
+                    this.display(name);
                     this.collapse();
                 };
                 OeThesaurusInput.prototype.valueChanged = function (value) {
@@ -91,6 +86,7 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                     }
                     this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
                         .then(function (suggestions) {
+                        var _a;
                         if (suggestions) {
                             _this.index = -1;
                             suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
@@ -102,7 +98,6 @@ System.register(["aurelia-framework", "./models/member", "./services/api-service
                                 _this.expanded = true;
                             }
                         }
-                        var _a;
                     });
                 };
                 OeThesaurusInput.prototype.scroll = function () {

@@ -50,15 +50,10 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
             this.index = -1;
         };
         OeThesaurusInput.prototype.select = function (suggestion) {
-            if (suggestion) {
-                this.value = suggestion;
-                var name_1 = this.getName(this.value);
-                this.userInput = name_1;
-                this.display(name_1);
-            }
-            else {
-                this.display('');
-            }
+            this.value = suggestion;
+            var name = this.getName(this.value);
+            this.userInput = name;
+            this.display(name);
             this.collapse();
         };
         OeThesaurusInput.prototype.valueChanged = function (value) {
@@ -77,6 +72,7 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
             }
             this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
                 .then(function (suggestions) {
+                var _a;
                 if (suggestions) {
                     _this.index = -1;
                     suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
@@ -88,7 +84,6 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
                         _this.expanded = true;
                     }
                 }
-                var _a;
             });
         };
         OeThesaurusInput.prototype.scroll = function () {

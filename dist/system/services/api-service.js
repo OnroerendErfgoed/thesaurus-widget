@@ -1,7 +1,7 @@
 System.register(["aurelia-http-client"], function (exports_1, context_1) {
     "use strict";
-    var __moduleName = context_1 && context_1.id;
     var aurelia_http_client_1, ApiService;
+    var __moduleName = context_1 && context_1.id;
     return {
         setters: [
             function (aurelia_http_client_1_1) {
