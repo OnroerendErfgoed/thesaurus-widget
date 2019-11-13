@@ -73,7 +73,7 @@ define(["require", "exports", "aurelia-framework", "./models/member", "./service
             if (this.minlength > value.length) {
                 return;
             }
-            this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
+            this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
                 .then(function (suggestions) {
                 var _a;
                 if (suggestions) {
