@@ -72,7 +72,7 @@ let OeThesaurusInput = class OeThesaurusInput {
         if (this.minlength > value.length) {
             return;
         }
-        this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
+        this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
             .then((suggestions) => {
             if (suggestions) {
                 this.index = -1;
