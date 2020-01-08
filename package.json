@@ -114,6 +114,12 @@
     "@types/lodash": "^4.14.118",
     "aurelia-framework": "^1.1.5",
     "aurelia-http-client": "^1.2.1",
-    "font-awesome": "^4.7.0"
+    "axios": "0.18.1",
+    "font-awesome": "^4.7.0",
+    "lodash": "4.17.12",
+    "lodash.mergewith": "4.6.2",
+    "lodash.template": "4.5.0",
+    "minimatch": "3.0.2",
+    "set-value": "2.0.1"
   }
 }
