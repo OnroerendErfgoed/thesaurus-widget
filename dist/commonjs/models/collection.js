@@ -17,3 +17,5 @@ var Collection = (function () {
     return Collection;
 }());
 exports.Collection = Collection;
+
+//# sourceMappingURL=collection.js.map
