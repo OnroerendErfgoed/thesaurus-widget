@@ -53,7 +53,8 @@ require.config({
     'aurelia-templating': '/base/node_modules/aurelia-templating/dist/amd/aurelia-templating',
     'aurelia-templating-binding': '/base/node_modules/aurelia-templating-binding/dist/amd/aurelia-templating-binding',
     'aurelia-http-client': '/base/node_modules/aurelia-http-client/dist/amd/aurelia-http-client',
-    'aurelia-http-client-mock': '/base/node_modules/aurelia-http-client-mock/dist/amd/aurelia-http-client-mock'
+    'aurelia-http-client-mock': '/base/node_modules/aurelia-http-client-mock/dist/amd/aurelia-http-client-mock',
+    'text': '/base/node_modules/text/text'
   },
   packages: [
     {
