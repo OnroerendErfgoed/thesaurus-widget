@@ -10,3 +10,5 @@ var Member = (function () {
     return Member;
 }());
 exports.Member = Member;
+
+//# sourceMappingURL=member.js.map

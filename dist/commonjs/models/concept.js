@@ -20,3 +20,5 @@ var Concept = (function () {
     return Concept;
 }());
 exports.Concept = Concept;
+
+//# sourceMappingURL=concept.js.map

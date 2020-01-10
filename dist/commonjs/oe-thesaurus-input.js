@@ -8,6 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var member_1 = require("./models/member");
@@ -81,7 +88,7 @@ var OeThesaurusInput = (function () {
             if (suggestions) {
                 _this.index = -1;
                 suggestions = suggestions.map(function (s) { return new member_1.Member(s.id, s.label, s.type, s.uri); });
-                (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
+                (_a = _this.suggestions).splice.apply(_a, __spreadArrays([0, _this.suggestions.length], suggestions));
                 if (suggestions.length === 0) {
                     _this.collapse();
                 }
@@ -207,3 +214,5 @@ var OeThesaurusInput = (function () {
     return OeThesaurusInput;
 }());
 exports.OeThesaurusInput = OeThesaurusInput;
+
+//# sourceMappingURL=oe-thesaurus-input.js.map

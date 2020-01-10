@@ -18,3 +18,5 @@ var Concept = (function () {
     return Concept;
 }());
 export { Concept };
+
+//# sourceMappingURL=concept.js.map
