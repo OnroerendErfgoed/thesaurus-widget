@@ -2,6 +2,7 @@ export { OeThesaurusComponent } from './oe-thesaurus-component';
 export { OeThesaurusInput } from './oe-thesaurus-input';
 export { OeThesaurusTree } from './oe-thesaurus-tree';
 export { TreeNode } from './tree-node';
+export { IThesaurusConfig } from './models/apiModel';
 
 import { FrameworkConfiguration, PLATFORM } from 'aurelia-framework';
 
