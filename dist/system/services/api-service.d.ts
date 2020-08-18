@@ -5,5 +5,5 @@ export declare class ApiService {
     constructor(base: string, http?: any);
     getConcepts(type: string, params?: any): Promise<IMember[]>;
     getConceptById(type: string, id: number): Promise<IConcept>;
-    getTree(type: string, language: string): Promise<ITree>;
+    getTree(type: string, language?: string): Promise<ITree>;
 }
