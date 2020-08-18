@@ -1,12 +1,14 @@
 import { inject, bindable, bindingMode } from 'aurelia-framework';
+import { IThesaurusConfig } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
 @inject(Element)
 export class OeThesaurusComponent {
-  @bindable public placeholder: string = '';
+  @bindable public config: IThesaurusConfig;
+  /*@bindable public placeholder: string = '';
   @bindable public type: string;
   @bindable public baseUrl: string = '';
-  @bindable public minlength: number = null;
+  @bindable public minlength: number = null;*/
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
   @bindable public disabled: boolean;
   public service: ApiService;
@@ -15,9 +17,9 @@ export class OeThesaurusComponent {
     this.element = element;
   }
 
-  public attached() {
+  public bind() {
     if (!this.service) {
-      this.service = new ApiService(this.baseUrl);
+      this.service = new ApiService(this.config.baseUrl);
     }
   }
 }

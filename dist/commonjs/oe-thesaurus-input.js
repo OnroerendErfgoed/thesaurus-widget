@@ -12,14 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var aurelia_framework_1 = require("aurelia-framework");
 var member_1 = require("./models/member");
 var api_service_1 = require("./services/api-service");
-var nextID = 0;
 var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
         this.element = element;
         this.inputValue = '';
-        this.placeholder = '';
-        this.minlength = null;
-        this.baseUrl = '';
         this.delay = 300;
         this.expanded = false;
         this.updatingInput = false;
@@ -27,13 +23,12 @@ var OeThesaurusInput = (function () {
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.standalone = true;
         this.element = element;
-        this.id = nextID++;
     }
-    OeThesaurusInput.prototype.attached = function () {
-        if (this.standalone) {
-            this.service = new api_service_1.ApiService(this.baseUrl);
+    OeThesaurusInput.prototype.bind = function () {
+        this.setConfigDefaults();
+        if (this.config.standalone) {
+            this.service = new api_service_1.ApiService(this.config.baseUrl);
         }
     };
     OeThesaurusInput.prototype.display = function (name) {
@@ -72,10 +67,10 @@ var OeThesaurusInput = (function () {
             this.collapse();
             return;
         }
-        if (this.minlength > value.length) {
+        if (this.config.minlength > value.length) {
             return;
         }
-        this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
+        this.service.getConcepts(this.config.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
@@ -160,26 +155,17 @@ var OeThesaurusInput = (function () {
     OeThesaurusInput.prototype.disabledChanged = function (newValue, oldValue) {
         this.inputValue = '';
     };
+    OeThesaurusInput.prototype.setConfigDefaults = function () {
+        this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+    };
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", Object)
+    ], OeThesaurusInput.prototype, "config", void 0);
     __decorate([
         aurelia_framework_1.observable,
         __metadata("design:type", String)
     ], OeThesaurusInput.prototype, "inputValue", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "placeholder", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "type", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Number)
-    ], OeThesaurusInput.prototype, "minlength", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "baseUrl", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", member_1.Member)
@@ -192,10 +178,6 @@ var OeThesaurusInput = (function () {
         aurelia_framework_1.bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
-    ], OeThesaurusInput.prototype, "standalone", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", api_service_1.ApiService)

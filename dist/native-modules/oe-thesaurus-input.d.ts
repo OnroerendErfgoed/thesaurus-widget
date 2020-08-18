@@ -1,26 +1,22 @@
 import { Member } from './models/member';
+import { IThesaurusConfig } from './models/apiModel';
 import { ApiService } from './services/api-service';
 export declare class OeThesaurusInput {
     private element;
+    config: IThesaurusConfig;
     inputValue: string;
-    placeholder: string;
-    type: string;
-    minlength: number;
-    baseUrl: string;
     value: Member;
     delay: number;
     disabled: boolean;
-    id: number;
     expanded: boolean;
     updatingInput: boolean;
     suggestions: Member[];
     index: number;
     suggestionsUL: any;
     userInput: string;
-    standalone: boolean;
     service: ApiService;
     constructor(element: Element);
-    attached(): void;
+    bind(): void;
     display(name: string): void;
     getName(suggestion: any): any;
     collapse(): void;
@@ -33,4 +29,5 @@ export declare class OeThesaurusInput {
     suggestionClicked(suggestion: any): void;
     focus(): void;
     private disabledChanged;
+    private setConfigDefaults;
 }

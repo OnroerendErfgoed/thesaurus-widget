@@ -16,16 +16,15 @@ var OeThesaurusTree = (function () {
         this.taskQueue = taskQueue;
         this.element = element;
         this.nodes = [];
-        this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
-        this.standalone = true;
         this.element = element;
         this.taskQueue = taskQueue;
     }
-    OeThesaurusTree.prototype.attached = function () {
-        if (this.standalone) {
-            this.service = new ApiService(this.baseUrl);
+    OeThesaurusTree.prototype.bind = function () {
+        this.setConfigDefaults();
+        if (this.config.standalone) {
+            this.service = new ApiService(this.config.baseUrl);
         }
     };
     OeThesaurusTree.prototype.parseNode = function (node) {
@@ -41,7 +40,7 @@ var OeThesaurusTree = (function () {
     OeThesaurusTree.prototype.toggleTree = function () {
         var _this = this;
         if (this.nodes.length === 0) {
-            this.service.getTree(this.type).then(function (data) {
+            this.service.getTree(this.config.type).then(function (data) {
                 if (data) {
                     _this.nodes = data.map(function (d) {
                         return _this.parseNode(d);
@@ -74,33 +73,28 @@ var OeThesaurusTree = (function () {
     };
     OeThesaurusTree.prototype.updateValue = function (id) {
         var _this = this;
-        this.service.getConceptById(this.type, id).then(function (data) {
+        this.service.getConceptById(this.config.type, id).then(function (data) {
             if (data) {
                 _this.value = new Member(data.id, data.label, data.type, data.uri);
             }
         });
         this.treeVisible = false;
     };
+    OeThesaurusTree.prototype.setConfigDefaults = function () {
+        this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+    };
+    __decorate([
+        bindable,
+        __metadata("design:type", Object)
+    ], OeThesaurusTree.prototype, "config", void 0);
     __decorate([
         bindable,
         __metadata("design:type", Tree)
     ], OeThesaurusTree.prototype, "nodes", void 0);
     __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusTree.prototype, "type", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusTree.prototype, "baseUrl", void 0);
-    __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Member)
     ], OeThesaurusTree.prototype, "value", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", Boolean)
-    ], OeThesaurusTree.prototype, "standalone", void 0);
     __decorate([
         bindable,
         __metadata("design:type", ApiService)

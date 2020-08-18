@@ -12,33 +12,18 @@ import { ApiService } from './services/api-service';
 let OeThesaurusComponent = class OeThesaurusComponent {
     constructor(element) {
         this.element = element;
-        this.placeholder = '';
-        this.baseUrl = '';
-        this.minlength = null;
         this.element = element;
     }
-    attached() {
+    bind() {
         if (!this.service) {
-            this.service = new ApiService(this.baseUrl);
+            this.service = new ApiService(this.config.baseUrl);
         }
     }
 };
 __decorate([
     bindable,
-    __metadata("design:type", String)
-], OeThesaurusComponent.prototype, "placeholder", void 0);
-__decorate([
-    bindable,
-    __metadata("design:type", String)
-], OeThesaurusComponent.prototype, "type", void 0);
-__decorate([
-    bindable,
-    __metadata("design:type", String)
-], OeThesaurusComponent.prototype, "baseUrl", void 0);
-__decorate([
-    bindable,
-    __metadata("design:type", Number)
-], OeThesaurusComponent.prototype, "minlength", void 0);
+    __metadata("design:type", Object)
+], OeThesaurusComponent.prototype, "config", void 0);
 __decorate([
     bindable({ defaultBindingMode: bindingMode.twoWay }),
     __metadata("design:type", Object)

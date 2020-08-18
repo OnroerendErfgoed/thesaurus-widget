@@ -3,38 +3,32 @@ original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701ae
 * */
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 import { Member } from './models/member';
+import { IThesaurusConfig } from './models/apiModel';
 import { ApiService } from './services/api-service';
-
-let nextID: number = 0;
 
 @inject(Element)
 export class OeThesaurusInput {
+  @bindable public config: IThesaurusConfig;
   @observable public inputValue: string = '';
-  @bindable public placeholder: string = '';
-  @bindable public type: string;
-  @bindable public minlength: number = null;
-  @bindable public baseUrl: string = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
   @bindable public delay: number = 300;
   @bindable public disabled: boolean;
-  public id: number;
   public expanded: boolean = false;
   public updatingInput: boolean = false;
   public suggestions: Member[] = [];
   public index: number = -1;
   public suggestionsUL = null;
   public userInput: string = '';
-  @bindable public standalone: boolean = true;
   @bindable public service: ApiService;
 
   constructor(private element: Element) {
     this.element = element;
-    this.id = nextID++;
   }
 
-  public attached() {
-    if (this.standalone) {
-      this.service = new ApiService(this.baseUrl);
+  public bind() {
+    this.setConfigDefaults();
+    if (this.config.standalone) {
+      this.service = new ApiService(this.config.baseUrl);
     }
   }
 
@@ -78,10 +72,10 @@ export class OeThesaurusInput {
       this.collapse();
       return;
     }
-    if (this.minlength > value.length) {
+    if (this.config.minlength > value.length) {
       return;
     }
-    this.service.getConcepts(this.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
+    this.service.getConcepts(this.config.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
     .then((suggestions) => {
       if (suggestions) {
         this.index = -1;
@@ -178,9 +172,8 @@ export class OeThesaurusInput {
     // tslint:enable:no-unused-variable
     this.inputValue = '';
   }
-}
 
-// aria-activedescendant
-// https://webaccessibility.withgoogle.com/unit?unit=6&lesson=13
-// https://www.w3.org/TR/wai-aria/states_and_properties#aria-autocomplete
-// https://www.w3.org/TR/wai-aria/roles#combobox
+  private setConfigDefaults() {
+    this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+  }
+}

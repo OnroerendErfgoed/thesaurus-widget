@@ -63,3 +63,11 @@ export interface IMatches {
     related: any[];
     broad: any[];
 }
+export interface IThesaurusConfig {
+    placeholder: string;
+    type: string;
+    baseUrl: string;
+    minlength: number;
+    language?: string;
+    standalone?: boolean;
+}

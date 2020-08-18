@@ -12,32 +12,17 @@ import { ApiService } from './services/api-service';
 var OeThesaurusComponent = (function () {
     function OeThesaurusComponent(element) {
         this.element = element;
-        this.placeholder = '';
-        this.baseUrl = '';
-        this.minlength = null;
         this.element = element;
     }
-    OeThesaurusComponent.prototype.attached = function () {
+    OeThesaurusComponent.prototype.bind = function () {
         if (!this.service) {
-            this.service = new ApiService(this.baseUrl);
+            this.service = new ApiService(this.config.baseUrl);
         }
     };
     __decorate([
         bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "placeholder", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "type", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "baseUrl", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", Number)
-    ], OeThesaurusComponent.prototype, "minlength", void 0);
+        __metadata("design:type", Object)
+    ], OeThesaurusComponent.prototype, "config", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Object)
