@@ -42,8 +42,8 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
                 }
             });
         };
-        ApiService.prototype.getTree = function (type) {
-            return this.http.get(type + "/tree").then(function (response) {
+        ApiService.prototype.getTree = function (type, language) {
+            return this.http.get(type + "/tree" + (language ? '&language=' + language : null)).then(function (response) {
                 if (response.isSuccess) {
                     return response.content;
                 }

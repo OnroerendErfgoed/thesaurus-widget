@@ -38,7 +38,7 @@ let OeThesaurusTree = class OeThesaurusTree {
     }
     toggleTree() {
         if (this.nodes.length === 0) {
-            this.service.getTree(this.config.type).then((data) => {
+            this.service.getTree(this.config.type, this.config.language).then((data) => {
                 if (data) {
                     this.nodes = data.map(d => {
                         return this.parseNode(d);

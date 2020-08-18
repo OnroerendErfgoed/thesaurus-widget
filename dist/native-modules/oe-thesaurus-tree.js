@@ -40,7 +40,7 @@ var OeThesaurusTree = (function () {
     OeThesaurusTree.prototype.toggleTree = function () {
         var _this = this;
         if (this.nodes.length === 0) {
-            this.service.getTree(this.config.type).then(function (data) {
+            this.service.getTree(this.config.type, this.config.language).then(function (data) {
                 if (data) {
                     _this.nodes = data.map(function (d) {
                         return _this.parseNode(d);
