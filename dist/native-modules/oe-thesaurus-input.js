@@ -7,6 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 import { Member } from './models/member';
 import { ApiService } from './services/api-service';
@@ -68,13 +75,17 @@ var OeThesaurusInput = (function () {
         if (this.config.minlength > value.length) {
             return;
         }
+<<<<<<< HEAD
         this.service.getConcepts(this.config.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
+=======
+        this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
+>>>>>>> master
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
                 _this.index = -1;
                 suggestions = suggestions.map(function (s) { return new Member(s.id, s.label, s.type, s.uri); });
-                (_a = _this.suggestions).splice.apply(_a, [0, _this.suggestions.length].concat(suggestions));
+                (_a = _this.suggestions).splice.apply(_a, __spreadArrays([0, _this.suggestions.length], suggestions));
                 if (suggestions.length === 0) {
                     _this.collapse();
                 }
@@ -187,3 +198,5 @@ var OeThesaurusInput = (function () {
     return OeThesaurusInput;
 }());
 export { OeThesaurusInput };
+
+//# sourceMappingURL=oe-thesaurus-input.js.map
