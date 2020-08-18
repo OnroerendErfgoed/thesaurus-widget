@@ -75,11 +75,7 @@ var OeThesaurusInput = (function () {
         if (this.config.minlength > value.length) {
             return;
         }
-<<<<<<< HEAD
-        this.service.getConcepts(this.config.type, { ctype: 'concept', label: value + '*', mode: 'dijitFilteringSelect' })
-=======
-        this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
->>>>>>> master
+        this.service.getConcepts(this.config.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
