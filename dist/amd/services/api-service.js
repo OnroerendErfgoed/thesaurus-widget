@@ -43,7 +43,7 @@ define(["require", "exports", "aurelia-http-client"], function (require, exports
             });
         };
         ApiService.prototype.getTree = function (type, language) {
-            return this.http.get(type + "/tree" + (language ? '&language=' + language : '')).then(function (response) {
+            return this.http.get(type + "/tree" + (language ? '?language=' + language : '')).then(function (response) {
                 if (response.isSuccess) {
                     return response.content;
                 }
