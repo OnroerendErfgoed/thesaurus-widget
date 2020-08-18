@@ -48,7 +48,7 @@ export class ApiService {
       });
   }
 
-  public getTree(type: string, language: string) {
+  public getTree(type: string, language?: string) {
     return this.http.get(`${type}/tree${ language ? '&language=' + language : null}`).then(response => {
       if (response.isSuccess) {
         return response.content as ITree;

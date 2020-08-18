@@ -12,9 +12,11 @@ describe('The thesaurus tree component', () => {
                 type.bind='type' base-url.bind='baseUrl'>
                </oe-thesaurus-tree>`)
       .boundTo({
-        type: 'MATERIALEN',
-        baseUrl: 'https://www.mock.be/',
-        value: 'test',
+        value: null,
+        config: {
+          type: 'MATERIALEN',
+          baseUrl: 'https://www.mock.be/'
+        },
         nodes: [
           {
               children: [
@@ -77,12 +79,12 @@ describe('The thesaurus tree component', () => {
   });
 
   it('should have a type property', () => {
-    expect(component.viewModel.type).toBeDefined();
-    expect(component.viewModel.type).toBe('MATERIALEN');
+    expect(component.viewModel.config.type).toBeDefined();
+    expect(component.viewModel.config.type).toBe('MATERIALEN');
   });
 
   it('should have a baseUrl property', () => {
-    expect(component.viewModel.baseUrl).toBeDefined();
-    expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
+    expect(component.viewModel.config.baseUrl).toBeDefined();
+    expect(component.viewModel.config.baseUrl).toBe('https://www.mock.be/');
   });
 });
