@@ -9,7 +9,7 @@ describe('The thesaurus tree component', () => {
     component = StageComponent
       .withResources('src/oe-thesaurus-tree')
       .inView(`<oe-thesaurus-tree value.bind='value' nodes.bind='nodes'
-                type.bind='type' base-url.bind='baseUrl'>
+                config.bind='config'>
                </oe-thesaurus-tree>`)
       .boundTo({
         value: null,
