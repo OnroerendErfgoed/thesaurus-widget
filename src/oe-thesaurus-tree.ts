@@ -3,7 +3,6 @@ import { Tree, TreeChild } from './models/tree';
 import { Member } from './models/member';
 import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
-import { IThesaurusConfig } from 'thesaurus-widget';
 
 @inject(TaskQueue, Element)
 export class OeThesaurusTree {

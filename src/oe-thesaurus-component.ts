@@ -1,6 +1,5 @@
 import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { ApiService } from './services/api-service';
-import { IThesaurusConfig } from 'thesaurus-widget';
 
 @inject(Element)
 export class OeThesaurusComponent {
