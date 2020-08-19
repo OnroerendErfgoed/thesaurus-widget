@@ -1,6 +1,6 @@
-export * from './exports';
-
 import { FrameworkConfiguration, PLATFORM } from 'aurelia-framework';
+
+export * from './exports';
 
 export function configure(config: FrameworkConfiguration) {
   config.globalResources([
