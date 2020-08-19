@@ -3,7 +3,6 @@ original source: https://gist.github.com/jdanyow/abe2b8c1587f1853106079dc74701ae
 * */
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 import { Member } from './models/member';
-import { IThesaurusConfig } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
 @inject(Element)

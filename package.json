@@ -14,7 +14,7 @@
   "license": "CC0-1.0",
   "author": "Onroerend Erfgoed <ict@onroerenderfgoed.be> (https://www.onroerenderfgoed.be/)",
   "main": "dist/commonjs/index.js",
-  "typings": "dist/commonjs/index.d.ts",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/OnroerendErfgoed/thesaurus-widget"

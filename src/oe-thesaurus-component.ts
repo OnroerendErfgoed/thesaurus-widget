@@ -1,5 +1,4 @@
 import { inject, bindable, bindingMode } from 'aurelia-framework';
-import { IThesaurusConfig } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
 @inject(Element)

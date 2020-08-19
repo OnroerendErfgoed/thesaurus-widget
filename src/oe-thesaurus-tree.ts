@@ -1,7 +1,7 @@
 import { TaskQueue, inject, bindable, bindingMode } from 'aurelia-framework';
 import { Tree, TreeChild } from './models/tree';
 import { Member } from './models/member';
-import { ITreeChild, IThesaurusConfig } from './models/apiModel';
+import { ITreeChild } from './models/apiModel';
 import { ApiService } from './services/api-service';
 
 @inject(TaskQueue, Element)
