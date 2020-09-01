@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Collection = void 0;
 var Collection = (function () {
     function Collection(apiCollection) {
         this.id = apiCollection.id;

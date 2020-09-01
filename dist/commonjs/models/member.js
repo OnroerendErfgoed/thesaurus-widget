@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Member = void 0;
 var Member = (function () {
     function Member(id, label, type, uri) {
         this.id = id;

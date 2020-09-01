@@ -16,6 +16,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OeThesaurusInput = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var member_1 = require("./models/member");
 var api_service_1 = require("./services/api-service");

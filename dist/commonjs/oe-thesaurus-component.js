@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OeThesaurusComponent = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var api_service_1 = require("./services/api-service");
 var OeThesaurusComponent = (function () {

@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tree = exports.TreeChild = void 0;
 var TreeChild = (function () {
     function TreeChild(children, conceptId, id, label, type) {
         this.visible = true;
