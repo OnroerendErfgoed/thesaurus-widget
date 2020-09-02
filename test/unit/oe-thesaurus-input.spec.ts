@@ -10,14 +10,17 @@ describe('The thesaurus input component', () => {
     component = StageComponent
       .withResources('src/oe-thesaurus-input')
       .inView(`
-        <oe-thesaurus-input type.bind="type" minlength.bind="minlength" base-url.bind="baseUrl">
+        <oe-thesaurus-input value.bind="value" config.bind="config">
           <template replace-part="suggestion"></template>
         </oe-thesaurus-input>
       `)
       .boundTo({
-        type: 'MATERIALEN',
-        minlength: 2,
-        baseUrl: 'https://www.mock.be/'
+        value: null,
+        config: {
+          type: 'MATERIALEN',
+          minlength: 2,
+          baseUrl: 'https://www.mock.be/'
+        }
       });
     await component.create(bootstrap);
     done();
@@ -28,17 +31,17 @@ describe('The thesaurus input component', () => {
   });
 
   it('should have a type property', () => {
-    expect(component.viewModel.type).toBeDefined();
-    expect(component.viewModel.type).toBe('MATERIALEN');
+    expect(component.viewModel.config.type).toBeDefined();
+    expect(component.viewModel.config.type).toBe('MATERIALEN');
   });
 
   it('should have a minlength property', () => {
-    expect(component.viewModel.minlength).toBeDefined();
-    expect(component.viewModel.minlength).toBe(2);
+    expect(component.viewModel.config.minlength).toBeDefined();
+    expect(component.viewModel.config.minlength).toBe(2);
   });
 
   it('should have a baseUrl property', () => {
-    expect(component.viewModel.baseUrl).toBeDefined();
-    expect(component.viewModel.baseUrl).toBe('https://www.mock.be/');
+    expect(component.viewModel.config.baseUrl).toBeDefined();
+    expect(component.viewModel.config.baseUrl).toBe('https://www.mock.be/');
   });
 });

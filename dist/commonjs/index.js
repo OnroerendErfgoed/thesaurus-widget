@@ -1,14 +1,18 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var oe_thesaurus_component_1 = require("./oe-thesaurus-component");
-exports.OeThesaurusComponent = oe_thesaurus_component_1.OeThesaurusComponent;
-var oe_thesaurus_input_1 = require("./oe-thesaurus-input");
-exports.OeThesaurusInput = oe_thesaurus_input_1.OeThesaurusInput;
-var oe_thesaurus_tree_1 = require("./oe-thesaurus-tree");
-exports.OeThesaurusTree = oe_thesaurus_tree_1.OeThesaurusTree;
-var tree_node_1 = require("./tree-node");
-exports.TreeNode = tree_node_1.TreeNode;
+exports.configure = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
+__exportStar(require("./exports"), exports);
 function configure(config) {
     config.globalResources([
         aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-component'),

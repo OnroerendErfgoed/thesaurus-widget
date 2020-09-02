@@ -9,37 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OeThesaurusComponent = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var api_service_1 = require("./services/api-service");
 var OeThesaurusComponent = (function () {
     function OeThesaurusComponent(element) {
         this.element = element;
-        this.placeholder = '';
-        this.baseUrl = '';
-        this.minlength = null;
         this.element = element;
     }
-    OeThesaurusComponent.prototype.attached = function () {
+    OeThesaurusComponent.prototype.bind = function () {
         if (!this.service) {
-            this.service = new api_service_1.ApiService(this.baseUrl);
+            this.service = new api_service_1.ApiService(this.config.baseUrl);
         }
     };
     __decorate([
         aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "placeholder", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "type", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusComponent.prototype, "baseUrl", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Number)
-    ], OeThesaurusComponent.prototype, "minlength", void 0);
+        __metadata("design:type", Object)
+    ], OeThesaurusComponent.prototype, "config", void 0);
     __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", Object)

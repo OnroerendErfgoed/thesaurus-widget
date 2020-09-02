@@ -17,14 +17,10 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 import { inject, bindable, bindingMode, observable } from 'aurelia-framework';
 import { Member } from './models/member';
 import { ApiService } from './services/api-service';
-var nextID = 0;
 var OeThesaurusInput = (function () {
     function OeThesaurusInput(element) {
         this.element = element;
         this.inputValue = '';
-        this.placeholder = '';
-        this.minlength = null;
-        this.baseUrl = '';
         this.delay = 300;
         this.expanded = false;
         this.updatingInput = false;
@@ -32,13 +28,12 @@ var OeThesaurusInput = (function () {
         this.index = -1;
         this.suggestionsUL = null;
         this.userInput = '';
-        this.standalone = true;
         this.element = element;
-        this.id = nextID++;
     }
-    OeThesaurusInput.prototype.attached = function () {
-        if (this.standalone) {
-            this.service = new ApiService(this.baseUrl);
+    OeThesaurusInput.prototype.bind = function () {
+        this.setConfigDefaults();
+        if (this.config.standalone) {
+            this.service = new ApiService(this.config.baseUrl);
         }
     };
     OeThesaurusInput.prototype.display = function (name) {
@@ -77,10 +72,10 @@ var OeThesaurusInput = (function () {
             this.collapse();
             return;
         }
-        if (this.minlength > value.length) {
+        if (this.config.minlength > value.length) {
             return;
         }
-        this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
+        this.service.getConcepts(this.config.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
@@ -165,26 +160,17 @@ var OeThesaurusInput = (function () {
     OeThesaurusInput.prototype.disabledChanged = function (newValue, oldValue) {
         this.inputValue = '';
     };
+    OeThesaurusInput.prototype.setConfigDefaults = function () {
+        this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+    };
+    __decorate([
+        bindable,
+        __metadata("design:type", Object)
+    ], OeThesaurusInput.prototype, "config", void 0);
     __decorate([
         observable,
         __metadata("design:type", String)
     ], OeThesaurusInput.prototype, "inputValue", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "placeholder", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "type", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", Number)
-    ], OeThesaurusInput.prototype, "minlength", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusInput.prototype, "baseUrl", void 0);
     __decorate([
         bindable({ defaultBindingMode: bindingMode.twoWay }),
         __metadata("design:type", Member)
@@ -197,10 +183,6 @@ var OeThesaurusInput = (function () {
         bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
-    __decorate([
-        bindable,
-        __metadata("design:type", Boolean)
-    ], OeThesaurusInput.prototype, "standalone", void 0);
     __decorate([
         bindable,
         __metadata("design:type", ApiService)

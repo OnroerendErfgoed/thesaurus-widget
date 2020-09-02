@@ -1,6 +1,6 @@
 {
   "name": "thesaurus-widget",
-  "version": "0.1.5",
+  "version": "0.1.6-beta",
   "description": "This is a widget that can interact with a thesaurus api to select concepts.",
   "keywords": [
     "aurelia",
@@ -14,7 +14,7 @@
   "license": "CC0-1.0",
   "author": "Onroerend Erfgoed <ict@onroerenderfgoed.be> (https://www.onroerenderfgoed.be/)",
   "main": "dist/commonjs/index.js",
-  "typings": "dist/commonjs/index.d.ts",
+  "typings": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/OnroerendErfgoed/thesaurus-widget"

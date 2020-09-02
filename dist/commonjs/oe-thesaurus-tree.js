@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OeThesaurusTree = void 0;
 var aurelia_framework_1 = require("aurelia-framework");
 var tree_1 = require("./models/tree");
 var member_1 = require("./models/member");
@@ -18,16 +19,15 @@ var OeThesaurusTree = (function () {
         this.taskQueue = taskQueue;
         this.element = element;
         this.nodes = [];
-        this.baseUrl = '';
         this.treeVisible = false;
         this.context = this;
-        this.standalone = true;
         this.element = element;
         this.taskQueue = taskQueue;
     }
-    OeThesaurusTree.prototype.attached = function () {
-        if (this.standalone) {
-            this.service = new api_service_1.ApiService(this.baseUrl);
+    OeThesaurusTree.prototype.bind = function () {
+        this.setConfigDefaults();
+        if (this.config.standalone) {
+            this.service = new api_service_1.ApiService(this.config.baseUrl);
         }
     };
     OeThesaurusTree.prototype.parseNode = function (node) {
@@ -43,7 +43,7 @@ var OeThesaurusTree = (function () {
     OeThesaurusTree.prototype.toggleTree = function () {
         var _this = this;
         if (this.nodes.length === 0) {
-            this.service.getTree(this.type).then(function (data) {
+            this.service.getTree(this.config.type, this.config.language).then(function (data) {
                 if (data) {
                     _this.nodes = data.map(function (d) {
                         return _this.parseNode(d);
@@ -76,33 +76,28 @@ var OeThesaurusTree = (function () {
     };
     OeThesaurusTree.prototype.updateValue = function (id) {
         var _this = this;
-        this.service.getConceptById(this.type, id).then(function (data) {
+        this.service.getConceptById(this.config.type, id).then(function (data) {
             if (data) {
                 _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
             }
         });
         this.treeVisible = false;
     };
+    OeThesaurusTree.prototype.setConfigDefaults = function () {
+        this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+    };
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", Object)
+    ], OeThesaurusTree.prototype, "config", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", tree_1.Tree)
     ], OeThesaurusTree.prototype, "nodes", void 0);
     __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusTree.prototype, "type", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", String)
-    ], OeThesaurusTree.prototype, "baseUrl", void 0);
-    __decorate([
         aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
         __metadata("design:type", member_1.Member)
     ], OeThesaurusTree.prototype, "value", void 0);
-    __decorate([
-        aurelia_framework_1.bindable,
-        __metadata("design:type", Boolean)
-    ], OeThesaurusTree.prototype, "standalone", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", api_service_1.ApiService)

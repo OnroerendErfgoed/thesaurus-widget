@@ -6,14 +6,12 @@ import { ApiService } from './services/api-service';
 
 @inject(TaskQueue, Element)
 export class OeThesaurusTree {
+  @bindable public config: IThesaurusConfig;
   @bindable public nodes: Tree = [];
-  @bindable public type: string;
-  @bindable public baseUrl: string = '';
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
   public treeVisible: boolean = false;
   public context: any = this;
   public position: string;
-  @bindable public standalone: boolean = true;
   @bindable public service: ApiService;
   @bindable public disabled: boolean;
 
@@ -22,9 +20,10 @@ export class OeThesaurusTree {
     this.taskQueue = taskQueue;
   }
 
-  public attached() {
-    if (this.standalone) {
-      this.service = new ApiService(this.baseUrl);
+  public bind() {
+    this.setConfigDefaults();
+    if (this.config.standalone) {
+      this.service = new ApiService(this.config.baseUrl);
     }
   }
 
@@ -46,7 +45,7 @@ export class OeThesaurusTree {
 
   public toggleTree() {
     if (this.nodes.length === 0) {
-      this.service.getTree(this.type).then((data) => {
+      this.service.getTree(this.config.type, this.config.language).then((data) => {
         if (data) {
           this.nodes = data.map(d => {
             return this.parseNode(d);
@@ -79,11 +78,15 @@ export class OeThesaurusTree {
   }
 
   public updateValue(id: number) {
-    this.service.getConceptById(this.type, id).then((data) => {
+    this.service.getConceptById(this.config.type, id).then((data) => {
       if (data) {
         this.value = new Member(data.id, data.label, data.type, data.uri);
       }
     });
     this.treeVisible = false;
+  }
+
+  private setConfigDefaults() {
+    this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
   }
 }

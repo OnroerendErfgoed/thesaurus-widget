@@ -48,8 +48,8 @@ export class ApiService {
       });
   }
 
-  public getTree(type: string) {
-    return this.http.get(`${type}/tree`).then(response => {
+  public getTree(type: string, language?: string) {
+    return this.http.get(`${type}/tree${ language ? '?language=' + language : ''}`).then(response => {
       if (response.isSuccess) {
         return response.content as ITree;
       } else {

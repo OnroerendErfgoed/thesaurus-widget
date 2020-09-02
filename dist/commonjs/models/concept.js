@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Concept = void 0;
 var Concept = (function () {
     function Concept(apiConcept) {
         this.id = apiConcept.id;

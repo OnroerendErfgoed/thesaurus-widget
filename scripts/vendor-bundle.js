@@ -25697,6 +25697,7 @@ define('resources',['resources/index'],function(m){return m;});
 define('text!resources/assets/styles/oe-thesaurus-component.css',['text!__dot_dot__/src/assets/styles/oe-thesaurus-component.css'],function(m){return m;});
 define('text!resources/assets/styles/oe-thesaurus-input.css',['text!__dot_dot__/src/assets/styles/oe-thesaurus-input.css'],function(m){return m;});
 define('text!resources/assets/styles/oe-thesaurus-tree.css',['text!__dot_dot__/src/assets/styles/oe-thesaurus-tree.css'],function(m){return m;});
+define('resources/exports',['__dot_dot__/src/exports'],function(m){return m;});
 define('resources/index',['__dot_dot__/src/index'],function(m){return m;});
 define('resources/models/apiModel',['__dot_dot__/src/models/apiModel'],function(m){return m;});
 define('resources/models/collection',['__dot_dot__/src/models/collection'],function(m){return m;});
@@ -25732,6 +25733,7 @@ function _aureliaConfigureModuleLoader(){requirejs.config({
       "text!__dot_dot__/src/assets/styles/oe-thesaurus-component.css",
       "text!__dot_dot__/src/assets/styles/oe-thesaurus-input.css",
       "text!__dot_dot__/src/assets/styles/oe-thesaurus-tree.css",
+      "__dot_dot__/src/exports",
       "__dot_dot__/src/index",
       "__dot_dot__/src/models/apiModel",
       "__dot_dot__/src/models/collection",

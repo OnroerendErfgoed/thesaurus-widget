@@ -12,6 +12,8 @@ services:
   - xvfb
 addons:
   chrome: stable
+before_script:
+  - "export DISPLAY=:99.0"
 install:
   - (cd ./ && npm install)
 script:

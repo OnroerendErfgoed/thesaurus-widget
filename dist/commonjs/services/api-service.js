@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApiService = void 0;
 var aurelia_http_client_1 = require("aurelia-http-client");
 var ApiService = (function () {
     function ApiService(base, http) {
@@ -42,8 +43,8 @@ var ApiService = (function () {
             }
         });
     };
-    ApiService.prototype.getTree = function (type) {
-        return this.http.get(type + "/tree").then(function (response) {
+    ApiService.prototype.getTree = function (type, language) {
+        return this.http.get(type + "/tree" + (language ? '?language=' + language : '')).then(function (response) {
             if (response.isSuccess) {
                 return response.content;
             }

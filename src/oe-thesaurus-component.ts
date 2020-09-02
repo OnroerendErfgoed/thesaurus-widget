@@ -3,10 +3,7 @@ import { ApiService } from './services/api-service';
 
 @inject(Element)
 export class OeThesaurusComponent {
-  @bindable public placeholder: string = '';
-  @bindable public type: string;
-  @bindable public baseUrl: string = '';
-  @bindable public minlength: number = null;
+  @bindable public config: IThesaurusConfig;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
   @bindable public disabled: boolean;
   public service: ApiService;
@@ -15,9 +12,9 @@ export class OeThesaurusComponent {
     this.element = element;
   }
 
-  public attached() {
+  public bind() {
     if (!this.service) {
-      this.service = new ApiService(this.baseUrl);
+      this.service = new ApiService(this.config.baseUrl);
     }
   }
 }

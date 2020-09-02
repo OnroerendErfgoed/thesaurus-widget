@@ -1,13 +1,22 @@
 define('text!__dot_dot__/src/assets/styles/oe-thesaurus-component.css',[],function(){return "oe-thesaurus-input {\n  display: inline-block;\n  width: 100%; }\n  oe-thesaurus-input .suggestions {\n    list-style-type: none;\n    cursor: default;\n    padding: 0;\n    margin: 0;\n    border: 1px solid #ccc;\n    background: #fff;\n    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);\n    position: absolute;\n    z-index: 9999;\n    max-height: 15rem;\n    overflow: hidden;\n    overflow-y: auto;\n    box-sizing: border-box; }\n  oe-thesaurus-input .suggestion {\n    padding: 0 .3rem;\n    line-height: 1.5rem;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    color: #333; }\n  oe-thesaurus-input .suggestion:hover,\n  oe-thesaurus-input .suggestion.selected {\n    background: #2da3ce;\n    color: #FFF; }\n\noe-thesaurus-tree {\n  display: inline-block;\n  position: relative;\n  width: 100%; }\n  oe-thesaurus-tree button {\n    margin: 0;\n    padding: 0;\n    background: transparent;\n    border: none !important; }\n    oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {\n      background: transparent;\n      outline: none; }\n    oe-thesaurus-tree button .fa.fa-bars {\n      color: #4d4d4d; }\n    oe-thesaurus-tree button .fa.fa-caret-down {\n      color: #753f7f; }\n  oe-thesaurus-tree .popup {\n    position: absolute;\n    z-index: 10;\n    background: white;\n    border: 1px solid #bfd6eb;\n    outline: none;\n    padding: 10px;\n    white-space: nowrap;\n    max-height: 300px;\n    min-width: 100%;\n    overflow-y: auto; }\n    oe-thesaurus-tree .popup tree-node {\n      display: inline-flex; }\n    oe-thesaurus-tree .popup .fa-plus-square,\n    oe-thesaurus-tree .popup .fa-minus-square {\n      font-size: 12px; }\n    oe-thesaurus-tree .popup .option {\n      cursor: pointer;\n      display: inline-block;\n      vertical-align: middle; }\n    oe-thesaurus-tree .popup ul {\n      margin: 0;\n      list-style-type: none; }\n      oe-thesaurus-tree .popup ul ul li {\n        padding-left: 7px;\n        border-left: 1px dotted #BBB; }\n        oe-thesaurus-tree .popup ul ul li:before {\n          position: relative;\n          top: -0.3em;\n          height: 1em;\n          width: 12px;\n          color: white;\n          border-bottom: 1px dotted #BBB;\n          content: \"\";\n          display: inline-block;\n          left: -7px; }\n        oe-thesaurus-tree .popup ul ul li:last-child {\n          border-left: none; }\n          oe-thesaurus-tree .popup ul ul li:last-child:before {\n            border-left: 1px dotted #BBB; }\n\noe-thesaurus-component oe-thesaurus-input {\n  padding-right: 0.9375rem !important; }\n\n.placeholder-container oe-thesaurus-component {\n  width: 100%; }\n  .placeholder-container oe-thesaurus-component .placeholder-container {\n    margin: 0;\n    border: none; }\n  .placeholder-container oe-thesaurus-component oe-thesaurus-input {\n    padding-right: 0 !important; }\n  .placeholder-container oe-thesaurus-component oe-thesaurus-tree {\n    border-left: 1px solid #d5d5d5; }\n";});;
 define('text!__dot_dot__/src/assets/styles/oe-thesaurus-input.css',[],function(){return "oe-thesaurus-input {\n  display: inline-block;\n  width: 100%; }\n  oe-thesaurus-input .suggestions {\n    list-style-type: none;\n    cursor: default;\n    padding: 0;\n    margin: 0;\n    border: 1px solid #ccc;\n    background: #fff;\n    box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.1);\n    position: absolute;\n    z-index: 9999;\n    max-height: 15rem;\n    overflow: hidden;\n    overflow-y: auto;\n    box-sizing: border-box; }\n  oe-thesaurus-input .suggestion {\n    padding: 0 .3rem;\n    line-height: 1.5rem;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    color: #333; }\n  oe-thesaurus-input .suggestion:hover,\n  oe-thesaurus-input .suggestion.selected {\n    background: #2da3ce;\n    color: #FFF; }\n";});;
 define('text!__dot_dot__/src/assets/styles/oe-thesaurus-tree.css',[],function(){return "oe-thesaurus-tree {\n  display: inline-block;\n  position: relative;\n  width: 100%; }\n  oe-thesaurus-tree button {\n    margin: 0;\n    padding: 0;\n    background: transparent;\n    border: none !important; }\n    oe-thesaurus-tree button:hover, oe-thesaurus-tree button:focus {\n      background: transparent;\n      outline: none; }\n    oe-thesaurus-tree button .fa.fa-bars {\n      color: #4d4d4d; }\n    oe-thesaurus-tree button .fa.fa-caret-down {\n      color: #753f7f; }\n  oe-thesaurus-tree .popup {\n    position: absolute;\n    z-index: 10;\n    background: white;\n    border: 1px solid #bfd6eb;\n    outline: none;\n    padding: 10px;\n    white-space: nowrap;\n    max-height: 300px;\n    min-width: 100%;\n    overflow-y: auto; }\n    oe-thesaurus-tree .popup tree-node {\n      display: inline-flex; }\n    oe-thesaurus-tree .popup .fa-plus-square,\n    oe-thesaurus-tree .popup .fa-minus-square {\n      font-size: 12px; }\n    oe-thesaurus-tree .popup .option {\n      cursor: pointer;\n      display: inline-block;\n      vertical-align: middle; }\n    oe-thesaurus-tree .popup ul {\n      margin: 0;\n      list-style-type: none; }\n      oe-thesaurus-tree .popup ul ul li {\n        padding-left: 7px;\n        border-left: 1px dotted #BBB; }\n        oe-thesaurus-tree .popup ul ul li:before {\n          position: relative;\n          top: -0.3em;\n          height: 1em;\n          width: 12px;\n          color: white;\n          border-bottom: 1px dotted #BBB;\n          content: \"\";\n          display: inline-block;\n          left: -7px; }\n        oe-thesaurus-tree .popup ul ul li:last-child {\n          border-left: none; }\n          oe-thesaurus-tree .popup ul ul li:last-child:before {\n            border-left: 1px dotted #BBB; }\n";});;
-define('__dot_dot__/src/index',["require", "exports", "./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node", "aurelia-framework"], function (require, exports, oe_thesaurus_component_1, oe_thesaurus_input_1, oe_thesaurus_tree_1, tree_node_1, aurelia_framework_1) {
+define('__dot_dot__/src/exports',["require", "exports", "./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node"], function (require, exports, oe_thesaurus_component_1, oe_thesaurus_input_1, oe_thesaurus_tree_1, tree_node_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.OeThesaurusComponent = oe_thesaurus_component_1.OeThesaurusComponent;
     exports.OeThesaurusInput = oe_thesaurus_input_1.OeThesaurusInput;
     exports.OeThesaurusTree = oe_thesaurus_tree_1.OeThesaurusTree;
     exports.TreeNode = tree_node_1.TreeNode;
+});
+;
+define('__dot_dot__/src/index',["require", "exports", "aurelia-framework", "./exports"], function (require, exports, aurelia_framework_1, exports_1) {
+    "use strict";
+    function __export(m) {
+        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+    }
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __export(exports_1);
     function configure(config) {
         config.globalResources([
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-component'),
@@ -151,32 +160,17 @@ define('__dot_dot__/src/oe-thesaurus-component',["require", "exports", "aurelia-
     var OeThesaurusComponent = (function () {
         function OeThesaurusComponent(element) {
             this.element = element;
-            this.placeholder = '';
-            this.baseUrl = '';
-            this.minlength = null;
             this.element = element;
         }
-        OeThesaurusComponent.prototype.attached = function () {
+        OeThesaurusComponent.prototype.bind = function () {
             if (!this.service) {
-                this.service = new api_service_1.ApiService(this.baseUrl);
+                this.service = new api_service_1.ApiService(this.config.baseUrl);
             }
         };
         __decorate([
             aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusComponent.prototype, "placeholder", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusComponent.prototype, "type", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusComponent.prototype, "baseUrl", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", Number)
-        ], OeThesaurusComponent.prototype, "minlength", void 0);
+            __metadata("design:type", Object)
+        ], OeThesaurusComponent.prototype, "config", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", Object)
@@ -194,7 +188,7 @@ define('__dot_dot__/src/oe-thesaurus-component',["require", "exports", "aurelia-
     exports.OeThesaurusComponent = OeThesaurusComponent;
 });
 ;
-define('text!__dot_dot__/src/oe-thesaurus-component.html',[],function(){return "<template>\n  <require from=\"./oe-thesaurus-input\"></require>\n  <require from=\"./oe-thesaurus-tree\"></require>\n  \n  <div class=\"row collapse\">\n      <oe-thesaurus-input class=\"small-10 columns\" value.bind=\"value\" placeholder.bind=\"placeholder\" type.bind=\"type\" base-url.bind=\"baseUrl\" service.bind=\"service\" standalone.bind=\"false\" minlength.bind=\"minlength\" disabled.bind=\"disabled\">\n        <template replace-part=\"suggestion\">${suggestion.label}</template>\n      </oe-thesaurus-input>\n      <oe-thesaurus-tree class=\"small-2 columns\" value.bind=\"value\" type.bind=\"type\" base-url.bind=\"baseUrl\" service.bind=\"service\" standalone.bind=\"false\" disabled.bind=\"disabled\"></oe-thesaurus-tree>\n    </div>\n</template>";});;
+define('text!__dot_dot__/src/oe-thesaurus-component.html',[],function(){return "<template>\n  <require from=\"./oe-thesaurus-input\"></require>\n  <require from=\"./oe-thesaurus-tree\"></require>\n  \n  <div class=\"row collapse\">\n      <oe-thesaurus-input class=\"small-10 columns\" value.bind=\"value\" config.bind=\"config\" service.bind=\"service\" disabled.bind=\"disabled\">\n        <template replace-part=\"suggestion\">${suggestion.label}</template>\n      </oe-thesaurus-input>\n      <oe-thesaurus-tree class=\"small-2 columns\" value.bind=\"value\" config.bind=\"config\" service.bind=\"service\" disabled.bind=\"disabled\"></oe-thesaurus-tree>\n    </div>\n</template>\n";});;
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -214,14 +208,10 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-framework", "./models/member", "./services/api-service"], function (require, exports, aurelia_framework_1, member_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var nextID = 0;
     var OeThesaurusInput = (function () {
         function OeThesaurusInput(element) {
             this.element = element;
             this.inputValue = '';
-            this.placeholder = '';
-            this.minlength = null;
-            this.baseUrl = '';
             this.delay = 300;
             this.expanded = false;
             this.updatingInput = false;
@@ -229,13 +219,12 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
             this.index = -1;
             this.suggestionsUL = null;
             this.userInput = '';
-            this.standalone = true;
             this.element = element;
-            this.id = nextID++;
         }
-        OeThesaurusInput.prototype.attached = function () {
-            if (this.standalone) {
-                this.service = new api_service_1.ApiService(this.baseUrl);
+        OeThesaurusInput.prototype.bind = function () {
+            this.setConfigDefaults();
+            if (this.config.standalone) {
+                this.service = new api_service_1.ApiService(this.config.baseUrl);
             }
         };
         OeThesaurusInput.prototype.display = function (name) {
@@ -274,10 +263,10 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
                 this.collapse();
                 return;
             }
-            if (this.minlength > value.length) {
+            if (this.config.minlength > value.length) {
                 return;
             }
-            this.service.getConcepts(this.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
+            this.service.getConcepts(this.config.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
                 .then(function (suggestions) {
                 var _a;
                 if (suggestions) {
@@ -362,26 +351,17 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
         OeThesaurusInput.prototype.disabledChanged = function (newValue, oldValue) {
             this.inputValue = '';
         };
+        OeThesaurusInput.prototype.setConfigDefaults = function () {
+            this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+        };
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], OeThesaurusInput.prototype, "config", void 0);
         __decorate([
             aurelia_framework_1.observable,
             __metadata("design:type", String)
         ], OeThesaurusInput.prototype, "inputValue", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusInput.prototype, "placeholder", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusInput.prototype, "type", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", Number)
-        ], OeThesaurusInput.prototype, "minlength", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusInput.prototype, "baseUrl", void 0);
         __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", member_1.Member)
@@ -396,10 +376,6 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
         ], OeThesaurusInput.prototype, "disabled", void 0);
         __decorate([
             aurelia_framework_1.bindable,
-            __metadata("design:type", Boolean)
-        ], OeThesaurusInput.prototype, "standalone", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
             __metadata("design:type", api_service_1.ApiService)
         ], OeThesaurusInput.prototype, "service", void 0);
         OeThesaurusInput = __decorate([
@@ -411,7 +387,7 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
     exports.OeThesaurusInput = OeThesaurusInput;
 });
 ;
-define('text!__dot_dot__/src/oe-thesaurus-input.html',[],function(){return "<template>\n  <div class=\"placeholder-container ${disabled ? 'placeholder-disabled' : ''}\">\n    <input type=\"text\" autocomplete=\"off\"\n         aria-autocomplete=\"list\"\n         aria-expanded.bind=\"expanded\"\n         aria-owns.one-time=\"'au-autocomplete-' + id + '-suggestions'\"\n         aria-activedescendant.bind=\"index >= 0 ? 'au-autocomplete-' + id + '-suggestion-' + index : ''\"\n         id.one-time=\"'au-autocomplete-' + id\"\n         placeholder.bind=\"placeholder\"\n         value.bind=\"inputValue & debounce:delay\"\n         keydown.delegate=\"keydown($event.which)\"\n         blur.trigger=\"blur()\"\n         disabled.bind=\"disabled\"\n         >\n    <ul class=\"suggestions\" role=\"listbox\"\n        if.bind=\"expanded\"\n        id.one-time=\"'au-autocomplete-' + id + '-suggestions'\"\n        ref=\"suggestionsUL\">\n      <li repeat.for=\"suggestion of suggestions\"\n          id.one-time=\"'au-autocomplete-' + id + '-suggestion-' + $index\"\n          role=\"option\"\n          class-name.bind=\"($index === index ? 'selected' : '') + ' suggestion'\"\n          mousedown.delegate=\"suggestionClicked(suggestion)\">\n        <template replaceable part=\"suggestion\">\n          ${suggestion}\n        </template>\n      </li>\n    </ul>\n  </div>\n</template>";});;
+define('text!__dot_dot__/src/oe-thesaurus-input.html',[],function(){return "<template>\n  <div class=\"placeholder-container ${disabled ? 'placeholder-disabled' : ''}\">\n    <input type=\"text\" autocomplete=\"off\"\n         aria-autocomplete=\"list\"\n         aria-expanded.bind=\"expanded\"\n         placeholder.bind=\"config.placeholder\"\n         value.bind=\"inputValue & debounce:delay\"\n         keydown.delegate=\"keydown($event.which)\"\n         blur.trigger=\"blur()\"\n         disabled.bind=\"disabled\"\n         >\n    <ul class=\"suggestions\" role=\"listbox\"\n        if.bind=\"expanded\"\n        ref=\"suggestionsUL\">\n      <li repeat.for=\"suggestion of suggestions\"\n          role=\"option\"\n          class-name.bind=\"($index === index ? 'selected' : '') + ' suggestion'\"\n          mousedown.delegate=\"suggestionClicked(suggestion)\">\n        <template replaceable part=\"suggestion\">\n          ${suggestion}\n        </template>\n      </li>\n    </ul>\n  </div>\n</template>\n";});;
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -429,16 +405,15 @@ define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-frame
             this.taskQueue = taskQueue;
             this.element = element;
             this.nodes = [];
-            this.baseUrl = '';
             this.treeVisible = false;
             this.context = this;
-            this.standalone = true;
             this.element = element;
             this.taskQueue = taskQueue;
         }
-        OeThesaurusTree.prototype.attached = function () {
-            if (this.standalone) {
-                this.service = new api_service_1.ApiService(this.baseUrl);
+        OeThesaurusTree.prototype.bind = function () {
+            this.setConfigDefaults();
+            if (this.config.standalone) {
+                this.service = new api_service_1.ApiService(this.config.baseUrl);
             }
         };
         OeThesaurusTree.prototype.parseNode = function (node) {
@@ -454,7 +429,7 @@ define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-frame
         OeThesaurusTree.prototype.toggleTree = function () {
             var _this = this;
             if (this.nodes.length === 0) {
-                this.service.getTree(this.type).then(function (data) {
+                this.service.getTree(this.config.type, this.config.language).then(function (data) {
                     if (data) {
                         _this.nodes = data.map(function (d) {
                             return _this.parseNode(d);
@@ -487,33 +462,28 @@ define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-frame
         };
         OeThesaurusTree.prototype.updateValue = function (id) {
             var _this = this;
-            this.service.getConceptById(this.type, id).then(function (data) {
+            this.service.getConceptById(this.config.type, id).then(function (data) {
                 if (data) {
                     _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
                 }
             });
             this.treeVisible = false;
         };
+        OeThesaurusTree.prototype.setConfigDefaults = function () {
+            this.config.standalone = typeof this.config.standalone === 'undefined' ? true : this.config.standalone;
+        };
+        __decorate([
+            aurelia_framework_1.bindable,
+            __metadata("design:type", Object)
+        ], OeThesaurusTree.prototype, "config", void 0);
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", tree_1.Tree)
         ], OeThesaurusTree.prototype, "nodes", void 0);
         __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusTree.prototype, "type", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", String)
-        ], OeThesaurusTree.prototype, "baseUrl", void 0);
-        __decorate([
             aurelia_framework_1.bindable({ defaultBindingMode: aurelia_framework_1.bindingMode.twoWay }),
             __metadata("design:type", member_1.Member)
         ], OeThesaurusTree.prototype, "value", void 0);
-        __decorate([
-            aurelia_framework_1.bindable,
-            __metadata("design:type", Boolean)
-        ], OeThesaurusTree.prototype, "standalone", void 0);
         __decorate([
             aurelia_framework_1.bindable,
             __metadata("design:type", api_service_1.ApiService)
@@ -576,8 +546,8 @@ define('__dot_dot__/src/services/api-service',["require", "exports", "aurelia-ht
                 }
             });
         };
-        ApiService.prototype.getTree = function (type) {
-            return this.http.get(type + "/tree").then(function (response) {
+        ApiService.prototype.getTree = function (type, language) {
+            return this.http.get(type + "/tree" + (language ? '?language=' + language : '')).then(function (response) {
                 if (response.isSuccess) {
                     return response.content;
                 }
