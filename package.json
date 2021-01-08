@@ -1,6 +1,6 @@
 {
   "name": "thesaurus-widget",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "This is a widget that can interact with a thesaurus api to select concepts.",
   "keywords": [
     "aurelia",
