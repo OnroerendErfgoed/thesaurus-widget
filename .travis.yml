@@ -3,10 +3,6 @@ node_js:
  - 'node'
 env:
   - PROJECT=thesaurus-widget
-notifications:
-  email:
-    - axel.verstappen@gmail.com
-    - cedrik.vanderhaegen@vlaanderen.be
 sudo: required
 services:
   - xvfb
