@@ -74,7 +74,7 @@ export class OeThesaurusInput {
     if (this.config.minlength > value.length) {
       return;
     }
-    this.service.getConcepts(this.config.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
+    this.service.getConcepts(this.config.type, { ctype: 'concept', label: value })
     .then((suggestions) => {
       if (suggestions) {
         this.index = -1;
