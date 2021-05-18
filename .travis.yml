@@ -10,6 +10,9 @@ addons:
   chrome: stable
 before_script:
   - "export DISPLAY=:99.0"
+before_install:
+  - nvm install 11.2.0
+  - nvm use 11.2.0
 install:
   - (cd ./ && npm install)
 script:

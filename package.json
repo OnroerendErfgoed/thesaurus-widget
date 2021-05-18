@@ -1,6 +1,6 @@
 {
   "name": "thesaurus-widget",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "This is a widget that can interact with a thesaurus api to select concepts.",
   "keywords": [
     "aurelia",
@@ -72,7 +72,7 @@
     "axios": "0.21.1",
     "font-awesome": "^4.7.0",
     "karma-requirejs": "^1.1.0",
-    "lodash": "4.17.19",
+    "lodash": "4.17.21",
     "lodash.mergewith": "4.6.2",
     "lodash.template": "4.5.0",
     "minimatch": "3.0.4",
