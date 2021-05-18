@@ -78,7 +78,7 @@ var OeThesaurusInput = (function () {
         if (this.config.minlength > value.length) {
             return;
         }
-        this.service.getConcepts(this.config.type, { ctype: 'concept', label: value })
+        this.service.getConcepts(this.config.type, { language: 'la', ctype: 'concept', label: value })
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
