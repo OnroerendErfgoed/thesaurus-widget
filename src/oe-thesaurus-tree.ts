@@ -83,7 +83,7 @@ export class OeThesaurusTree {
         let selectedLabel = null;
         if (this.config.language) {
           selectedLabel = data.labels.filter(label => label.language === this.config.language);
-          if (selectedLabel) {
+          if (selectedLabel.length > 0) {
             selectedLabel = selectedLabel[0].label;
           } else {
             selectedLabel = data.label;
