@@ -77,8 +77,11 @@ var OeThesaurusTree = (function () {
             if (data) {
                 var selectedLabel = null;
                 if (_this.config.language) {
-                    selectedLabel = data.labels.filter(function (label) { return label.language === _this.config.language; })[0].label;
-                    if (!selectedLabel) {
+                    selectedLabel = data.labels.filter(function (label) { return label.language === _this.config.language; });
+                    if (selectedLabel) {
+                        selectedLabel = selectedLabel[0].label;
+                    }
+                    else {
                         selectedLabel = data.label;
                     }
                 }
