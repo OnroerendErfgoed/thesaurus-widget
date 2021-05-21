@@ -78,18 +78,15 @@ var OeThesaurusTree = (function () {
         var _this = this;
         this.service.getConceptById(this.config.type, id).then(function (data) {
             if (data) {
-                var selectedLabel = null;
-                if (_this.config.language) {
-                    selectedLabel = data.labels.filter(function (label) { return label.language === _this.config.language; });
-                    if (selectedLabel.length > 0) {
-                        selectedLabel = selectedLabel[0].label;
-                    }
-                    else {
-                        selectedLabel = data.label;
-                    }
+                if (!data) {
+                    return;
                 }
-                else {
-                    selectedLabel = data.label;
+                var selectedLabel = data.label;
+                if (_this.config.language) {
+                    var value = data.labels.filter(function (label) { return label.language === _this.config.language; });
+                    if (selectedLabel.length > 0) {
+                        selectedLabel = value[0].label;
+                    }
                 }
                 _this.value = new member_1.Member(data.id, selectedLabel, data.type, data.uri);
             }
