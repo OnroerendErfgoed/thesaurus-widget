@@ -76,7 +76,7 @@
     "lodash.mergewith": "4.6.2",
     "lodash.template": "4.5.0",
     "minimatch": "3.0.4",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "set-value": "2.0.1"
   },
   "jspm": {
