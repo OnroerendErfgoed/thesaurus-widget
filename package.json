@@ -110,6 +110,7 @@
   "private": true,
   "files": [
     "dist",
-    "src"
+    "src",
+    "types"
   ]
 }
