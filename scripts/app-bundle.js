@@ -479,7 +479,14 @@ define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-frame
             var _this = this;
             this.service.getConceptById(this.config.type, id).then(function (data) {
                 if (data) {
-                    _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
+                    var label = null;
+                    if (_this.config.language) {
+                        label = data.labels.filter(function (label) { return label.language === 'la'; });
+                    }
+                    else {
+                        label = data.label;
+                    }
+                    _this.value = new member_1.Member(data.id, label, data.type, data.uri);
                 }
             });
             this.treeVisible = false;

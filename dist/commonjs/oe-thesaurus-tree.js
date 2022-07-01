@@ -78,7 +78,17 @@ var OeThesaurusTree = (function () {
         var _this = this;
         this.service.getConceptById(this.config.type, id).then(function (data) {
             if (data) {
-                _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
+                if (!data) {
+                    return;
+                }
+                var selectedLabel = data.label;
+                if (_this.config.language) {
+                    var value = data.labels.filter(function (label) { return label.language === _this.config.language; });
+                    if (selectedLabel.length > 0) {
+                        selectedLabel = value[0].label;
+                    }
+                }
+                _this.value = new member_1.Member(data.id, selectedLabel, data.type, data.uri);
             }
         });
         this.treeVisible = false;
