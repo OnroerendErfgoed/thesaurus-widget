@@ -4,19 +4,27 @@ define('text!__dot_dot__/src/assets/styles/oe-thesaurus-tree.css',[],function(){
 define('__dot_dot__/src/exports',["require", "exports", "./oe-thesaurus-component", "./oe-thesaurus-input", "./oe-thesaurus-tree", "./tree-node"], function (require, exports, oe_thesaurus_component_1, oe_thesaurus_input_1, oe_thesaurus_tree_1, tree_node_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    exports.OeThesaurusComponent = oe_thesaurus_component_1.OeThesaurusComponent;
-    exports.OeThesaurusInput = oe_thesaurus_input_1.OeThesaurusInput;
-    exports.OeThesaurusTree = oe_thesaurus_tree_1.OeThesaurusTree;
-    exports.TreeNode = tree_node_1.TreeNode;
+    Object.defineProperty(exports, "OeThesaurusComponent", { enumerable: true, get: function () { return oe_thesaurus_component_1.OeThesaurusComponent; } });
+    Object.defineProperty(exports, "OeThesaurusInput", { enumerable: true, get: function () { return oe_thesaurus_input_1.OeThesaurusInput; } });
+    Object.defineProperty(exports, "OeThesaurusTree", { enumerable: true, get: function () { return oe_thesaurus_tree_1.OeThesaurusTree; } });
+    Object.defineProperty(exports, "TreeNode", { enumerable: true, get: function () { return tree_node_1.TreeNode; } });
 });
 ;
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 define('__dot_dot__/src/index',["require", "exports", "aurelia-framework", "./exports"], function (require, exports, aurelia_framework_1, exports_1) {
     "use strict";
-    function __export(m) {
-        for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-    }
     Object.defineProperty(exports, "__esModule", { value: true });
-    __export(exports_1);
+    exports.configure = void 0;
+    __exportStar(exports_1, exports);
     function configure(config) {
         config.globalResources([
             aurelia_framework_1.PLATFORM.moduleName('./oe-thesaurus-component'),
@@ -35,6 +43,7 @@ define('__dot_dot__/src/models/apiModel',["require", "exports"], function (requi
 define('__dot_dot__/src/models/collection',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Collection = void 0;
     var Collection = (function () {
         function Collection(apiCollection) {
             this.id = apiCollection.id;
@@ -57,6 +66,7 @@ define('__dot_dot__/src/models/collection',["require", "exports"], function (req
 define('__dot_dot__/src/models/concept',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Concept = void 0;
     var Concept = (function () {
         function Concept(apiConcept) {
             this.id = apiConcept.id;
@@ -82,6 +92,7 @@ define('__dot_dot__/src/models/concept',["require", "exports"], function (requir
 define('__dot_dot__/src/models/member',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Member = void 0;
     var Member = (function () {
         function Member(id, label, type, uri) {
             this.id = id;
@@ -110,6 +121,7 @@ var __extends = (this && this.__extends) || (function () {
 define('__dot_dot__/src/models/tree',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Tree = exports.TreeChild = void 0;
     var TreeChild = (function () {
         function TreeChild(children, conceptId, id, label, type) {
             this.visible = true;
@@ -157,6 +169,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 define('__dot_dot__/src/oe-thesaurus-component',["require", "exports", "aurelia-framework", "./services/api-service"], function (require, exports, aurelia_framework_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.OeThesaurusComponent = void 0;
     var OeThesaurusComponent = (function () {
         function OeThesaurusComponent(element) {
             this.element = element;
@@ -208,6 +221,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-framework", "./models/member", "./services/api-service"], function (require, exports, aurelia_framework_1, member_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.OeThesaurusInput = void 0;
     var OeThesaurusInput = (function () {
         function OeThesaurusInput(element) {
             this.element = element;
@@ -266,7 +280,7 @@ define('__dot_dot__/src/oe-thesaurus-input',["require", "exports", "aurelia-fram
             if (this.config.minlength > value.length) {
                 return;
             }
-            this.service.getConcepts(this.config.type, { ctype: 'concept', label: value, mode: 'dijitFilteringSelect' })
+            this.service.getConcepts(this.config.type, { language: this.config.language || '', ctype: 'concept', label: value })
                 .then(function (suggestions) {
                 var _a;
                 if (suggestions) {
@@ -400,6 +414,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-framework", "./models/tree", "./models/member", "./services/api-service"], function (require, exports, aurelia_framework_1, tree_1, member_1, api_service_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.OeThesaurusTree = void 0;
     var OeThesaurusTree = (function () {
         function OeThesaurusTree(taskQueue, element) {
             this.taskQueue = taskQueue;
@@ -464,7 +479,14 @@ define('__dot_dot__/src/oe-thesaurus-tree',["require", "exports", "aurelia-frame
             var _this = this;
             this.service.getConceptById(this.config.type, id).then(function (data) {
                 if (data) {
-                    _this.value = new member_1.Member(data.id, data.label, data.type, data.uri);
+                    var label = null;
+                    if (_this.config.language) {
+                        label = data.labels.filter(function (label) { return label.language === 'la'; });
+                    }
+                    else {
+                        label = data.label;
+                    }
+                    _this.value = new member_1.Member(data.id, label, data.type, data.uri);
                 }
             });
             this.treeVisible = false;
@@ -505,6 +527,7 @@ define('text!__dot_dot__/src/oe-thesaurus-tree.html',[],function(){return "<temp
 define('__dot_dot__/src/services/api-service',["require", "exports", "aurelia-http-client"], function (require, exports, aurelia_http_client_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.ApiService = void 0;
     var ApiService = (function () {
         function ApiService(base, http) {
             this.http = http || new aurelia_http_client_1.HttpClient();
@@ -573,6 +596,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 define('__dot_dot__/src/tree-node',["require", "exports", "aurelia-framework", "./models/tree"], function (require, exports, aurelia_framework_1, tree_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.TreeNode = void 0;
     var TreeNode = (function () {
         function TreeNode() {
             this.current = null;
@@ -594,6 +618,7 @@ define('text!__dot_dot__/src/tree-node.html',[],function(){return "<template>\n 
 define('app',["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.App = void 0;
     var App = (function () {
         function App() {
             this.message = 'from Aurelia!';
@@ -618,6 +643,7 @@ define('environment',["require", "exports"], function (require, exports) {
 define('main',["require", "exports", "./environment"], function (require, exports, environment_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    exports.configure = void 0;
     function configure(aurelia) {
         aurelia.use
             .standardConfiguration()

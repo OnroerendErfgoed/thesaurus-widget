@@ -1,4 +1,4 @@
-!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?n():"function"==typeof define&&define.amd?define(n):n()}(0,function(){"use strict";function e(e){var n=this.constructor;return this.then(function(t){return n.resolve(e()).then(function(){return t})},function(t){return n.resolve(e()).then(function(){return n.reject(t)})})}function n(e){return!(!e||"undefined"==typeof e.length)}function t(){}function o(e){if(!(this instanceof o))throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=undefined,this._deferreds=[],c(e,this)}function r(e,n){for(;3===e._state;)e=e._value;0!==e._state?(e._handled=!0,o._immediateFn(function(){var t=1===e._state?n.onFulfilled:n.onRejected;if(null!==t){var o;try{o=t(e._value)}catch(r){return void f(n.promise,r)}i(n.promise,o)}else(1===e._state?i:f)(n.promise,e._value)})):e._deferreds.push(n)}function i(e,n){try{if(n===e)throw new TypeError("A promise cannot be resolved with itself.");if(n&&("object"==typeof n||"function"==typeof n)){var t=n.then;if(n instanceof o)return e._state=3,e._value=n,void u(e);if("function"==typeof t)return void c(function(e,n){return function(){e.apply(n,arguments)}}(t,n),e)}e._state=1,e._value=n,u(e)}catch(r){f(e,r)}}function f(e,n){e._state=2,e._value=n,u(e)}function u(e){2===e._state&&0===e._deferreds.length&&o._immediateFn(function(){e._handled||o._unhandledRejectionFn(e._value)});for(var n=0,t=e._deferreds.length;t>n;n++)r(e,e._deferreds[n]);e._deferreds=null}function c(e,n){var t=!1;try{e(function(e){t||(t=!0,i(n,e))},function(e){t||(t=!0,f(n,e))})}catch(o){if(t)return;t=!0,f(n,o)}}var a=setTimeout;o.prototype["catch"]=function(e){return this.then(null,e)},o.prototype.then=function(e,n){var o=new this.constructor(t);return r(this,new function(e,n,t){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof n?n:null,this.promise=t}(e,n,o)),o},o.prototype["finally"]=e,o.all=function(e){return new o(function(t,o){function r(e,n){try{if(n&&("object"==typeof n||"function"==typeof n)){var u=n.then;if("function"==typeof u)return void u.call(n,function(n){r(e,n)},o)}i[e]=n,0==--f&&t(i)}catch(c){o(c)}}if(!n(e))return o(new TypeError("Promise.all accepts an array"));var i=Array.prototype.slice.call(e);if(0===i.length)return t([]);for(var f=i.length,u=0;i.length>u;u++)r(u,i[u])})},o.resolve=function(e){return e&&"object"==typeof e&&e.constructor===o?e:new o(function(n){n(e)})},o.reject=function(e){return new o(function(n,t){t(e)})},o.race=function(e){return new o(function(t,r){if(!n(e))return r(new TypeError("Promise.race accepts an array"));for(var i=0,f=e.length;f>i;i++)o.resolve(e[i]).then(t,r)})},o._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},o._unhandledRejectionFn=function(e){void 0!==console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)};var l=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if("undefined"!=typeof global)return global;throw Error("unable to locate global object")}();"Promise"in l?l.Promise.prototype["finally"]||(l.Promise.prototype["finally"]=e):l.Promise=o});
+!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t():"function"==typeof define&&define.amd?define(t):t()}(0,function(){"use strict";function e(e){var t=this.constructor;return this.then(function(n){return t.resolve(e()).then(function(){return n})},function(n){return t.resolve(e()).then(function(){return t.reject(n)})})}function t(e){return new this(function(t,n){function o(e,n){if(n&&("object"==typeof n||"function"==typeof n)){var f=n.then;if("function"==typeof f)return void f.call(n,function(t){o(e,t)},function(n){r[e]={status:"rejected",reason:n},0==--i&&t(r)})}r[e]={status:"fulfilled",value:n},0==--i&&t(r)}if(!e||"undefined"==typeof e.length)return n(new TypeError(typeof e+" "+e+" is not iterable(cannot read property Symbol(Symbol.iterator))"));var r=Array.prototype.slice.call(e);if(0===r.length)return t([]);for(var i=r.length,f=0;r.length>f;f++)o(f,r[f])})}function n(e){return!(!e||"undefined"==typeof e.length)}function o(){}function r(e){if(!(this instanceof r))throw new TypeError("Promises must be constructed via new");if("function"!=typeof e)throw new TypeError("not a function");this._state=0,this._handled=!1,this._value=undefined,this._deferreds=[],l(e,this)}function i(e,t){for(;3===e._state;)e=e._value;0!==e._state?(e._handled=!0,r._immediateFn(function(){var n=1===e._state?t.onFulfilled:t.onRejected;if(null!==n){var o;try{o=n(e._value)}catch(r){return void u(t.promise,r)}f(t.promise,o)}else(1===e._state?f:u)(t.promise,e._value)})):e._deferreds.push(t)}function f(e,t){try{if(t===e)throw new TypeError("A promise cannot be resolved with itself.");if(t&&("object"==typeof t||"function"==typeof t)){var n=t.then;if(t instanceof r)return e._state=3,e._value=t,void c(e);if("function"==typeof n)return void l(function(e,t){return function(){e.apply(t,arguments)}}(n,t),e)}e._state=1,e._value=t,c(e)}catch(o){u(e,o)}}function u(e,t){e._state=2,e._value=t,c(e)}function c(e){2===e._state&&0===e._deferreds.length&&r._immediateFn(function(){e._handled||r._unhandledRejectionFn(e._value)});for(var t=0,n=e._deferreds.length;n>t;t++)i(e,e._deferreds[t]);e._deferreds=null}function l(e,t){var n=!1;try{e(function(e){n||(n=!0,f(t,e))},function(e){n||(n=!0,u(t,e))})}catch(o){if(n)return;n=!0,u(t,o)}}var a=setTimeout;r.prototype["catch"]=function(e){return this.then(null,e)},r.prototype.then=function(e,t){var n=new this.constructor(o);return i(this,new function(e,t,n){this.onFulfilled="function"==typeof e?e:null,this.onRejected="function"==typeof t?t:null,this.promise=n}(e,t,n)),n},r.prototype["finally"]=e,r.all=function(e){return new r(function(t,o){function r(e,n){try{if(n&&("object"==typeof n||"function"==typeof n)){var u=n.then;if("function"==typeof u)return void u.call(n,function(t){r(e,t)},o)}i[e]=n,0==--f&&t(i)}catch(c){o(c)}}if(!n(e))return o(new TypeError("Promise.all accepts an array"));var i=Array.prototype.slice.call(e);if(0===i.length)return t([]);for(var f=i.length,u=0;i.length>u;u++)r(u,i[u])})},r.allSettled=t,r.resolve=function(e){return e&&"object"==typeof e&&e.constructor===r?e:new r(function(t){t(e)})},r.reject=function(e){return new r(function(t,n){n(e)})},r.race=function(e){return new r(function(t,o){if(!n(e))return o(new TypeError("Promise.race accepts an array"));for(var i=0,f=e.length;f>i;i++)r.resolve(e[i]).then(t,o)})},r._immediateFn="function"==typeof setImmediate&&function(e){setImmediate(e)}||function(e){a(e,0)},r._unhandledRejectionFn=function(e){void 0!==console&&console&&console.warn("Possible Unhandled Promise Rejection:",e)};var s=function(){if("undefined"!=typeof self)return self;if("undefined"!=typeof window)return window;if("undefined"!=typeof global)return global;throw Error("unable to locate global object")}();"function"!=typeof s.Promise?s.Promise=r:s.Promise.prototype["finally"]?s.Promise.allSettled||(s.Promise.allSettled=t):s.Promise.prototype["finally"]=e});
 ;
 /** vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.3.6 Copyright jQuery Foundation and other contributors.
@@ -5956,7 +5956,7 @@ var SetterObserver = exports.SetterObserver = (_dec6 = subscriberCollection(), _
 
   SetterObserver.prototype.call = function call() {
     var oldValue = this.oldValue;
-    var newValue = this.currentValue;
+    var newValue = this.oldValue = this.currentValue;
 
     this.queued = false;
 
@@ -18321,6 +18321,7 @@ var AbstractRepeater = (function () {
     return AbstractRepeater;
 }());
 
+var matcherExtractionMarker = '__marker_extracted__';
 var Repeat = (function (_super) {
     __extends(Repeat, _super);
     function Repeat(viewFactory, instruction, viewSlot, viewResources, observerLocator, strategyLocator) {
@@ -18348,7 +18349,11 @@ var Repeat = (function (_super) {
     };
     Repeat.prototype.bind = function (bindingContext, overrideContext) {
         this.scope = { bindingContext: bindingContext, overrideContext: overrideContext };
-        this.matcherBinding = this._captureAndRemoveMatcherBinding();
+        var instruction = this.instruction;
+        if (!(matcherExtractionMarker in instruction)) {
+            instruction[matcherExtractionMarker] = this._captureAndRemoveMatcherBinding();
+        }
+        this.matcherBinding = instruction[matcherExtractionMarker];
         this.itemsChanged();
     };
     Repeat.prototype.unbind = function () {
@@ -18449,10 +18454,10 @@ var Repeat = (function (_super) {
             if (Repeat_1.useInnerMatcher) {
                 return extractMatcherBindingExpression(instructions);
             }
-            if (template.children.length > 1) {
+            if (getChildrenCount(template) > 1) {
                 return undefined;
             }
-            var repeatedElement = template.firstElementChild;
+            var repeatedElement = getFirstElementChild(template);
             if (!repeatedElement.hasAttribute('au-target-id')) {
                 return undefined;
             }
@@ -18546,6 +18551,26 @@ var extractMatcherBindingExpression = function (instructions, targetedElementId)
             }
         }
     }
+};
+var getChildrenCount = function (el) {
+    var childNodes = el.childNodes;
+    var count = 0;
+    for (var i = 0, ii = childNodes.length; ii > i; ++i) {
+        if (childNodes[i].nodeType === 1) {
+            ++count;
+        }
+    }
+    return count;
+};
+var getFirstElementChild = function (el) {
+    var firstChild = el.firstChild;
+    while (firstChild !== null) {
+        if (firstChild.nodeType === 1) {
+            return firstChild;
+        }
+        firstChild = firstChild.nextSibling;
+    }
+    return null;
 };
 
 var aureliaHideClassName = 'aurelia-hide';
@@ -19721,7 +19746,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _class, _temp, _class2, _temp2, _dec, _class3, _dec2, _class4, _dec3, _class5, _dec4, _class6, _dec5, _class7, _dec6, _class8, _class9, _temp3, _class10, _temp4, _class12, _dec7, _class14, _dec8, _class15, _class16, _temp5, _dec9, _class17, _dec10, _class18, _dec11, _class19;
+var _class, _temp, _class2, _temp2, _dec, _class3, _dec2, _class4, _dec3, _class5, _dec4, _class6, _dec5, _class7, _dec6, _class8, _class9, _temp3, _class10, _temp4, _class12, _class14, _temp5, _dec7, _class15, _dec8, _class16, _dec9, _class17;
 
 exports._hyphenate = _hyphenate;
 exports._isAllWhitespace = _isAllWhitespace;
@@ -20638,7 +20663,9 @@ var PassThroughSlot = exports.PassThroughSlot = function () {
     this.destinationName = destinationName;
     this.fallbackFactory = fallbackFactory;
     this.destinationSlot = null;
+
     this.projections = 0;
+
     this.contentView = null;
 
     var attr = new SlotCustomAttribute(this.anchor);
@@ -20749,6 +20776,7 @@ var ShadowSlot = exports.ShadowSlot = function () {
     this.fallbackFactory = fallbackFactory;
     this.contentView = null;
     this.projections = 0;
+
     this.children = [];
     this.projectFromAnchors = null;
     this.destinationSlots = null;
@@ -20794,6 +20822,7 @@ var ShadowSlot = exports.ShadowSlot = function () {
       });
       if (found) {
         var _children = found.auProjectionChildren;
+        var ownChildren = this.children;
 
         for (var i = 0, ii = _children.length; i < ii; ++i) {
           var _child = _children[i];
@@ -20802,7 +20831,12 @@ var ShadowSlot = exports.ShadowSlot = function () {
             _children.splice(i, 1);
             view.fragment.appendChild(_child);
             i--;ii--;
+
             this.projections--;
+            var idx = ownChildren.indexOf(_child);
+            if (idx > -1) {
+              ownChildren.splice(idx, 1);
+            }
           }
         }
 
@@ -20825,10 +20859,17 @@ var ShadowSlot = exports.ShadowSlot = function () {
 
       if (found) {
         var _children2 = found.auProjectionChildren;
+        var ownChildren = this.children;
+
         for (var i = 0, ii = _children2.length; i < ii; ++i) {
           var _child2 = _children2[i];
           _child2.auOwnerView.fragment.appendChild(_child2);
+
           this.projections--;
+          var idx = ownChildren.indexOf(_child2);
+          if (idx > -1) {
+            ownChildren.splice(idx, 1);
+          }
         }
 
         found.auProjectionChildren = [];
@@ -22465,7 +22506,11 @@ function makeShadowSlot(compiler, resources, node, instructions, parentInjectorI
 
 var defaultLetHandler = BindingLanguage.prototype.createLetExpressions;
 
-var ViewCompiler = exports.ViewCompiler = (_dec7 = (0, _aureliaDependencyInjection.inject)(BindingLanguage, ViewResources), _dec7(_class14 = function () {
+var ViewCompiler = exports.ViewCompiler = function () {
+  ViewCompiler.inject = function inject() {
+    return [BindingLanguage, ViewResources];
+  };
+
   function ViewCompiler(bindingLanguage, resources) {
     
 
@@ -22882,7 +22927,7 @@ var ViewCompiler = exports.ViewCompiler = (_dec7 = (0, _aureliaDependencyInjecti
   };
 
   return ViewCompiler;
-}()) || _class14);
+}();
 
 var ResourceModule = exports.ResourceModule = function () {
   function ResourceModule(moduleId) {
@@ -23171,7 +23216,11 @@ var ProxyViewFactory = function () {
 
 var auSlotBehavior = null;
 
-var ViewEngine = exports.ViewEngine = (_dec8 = (0, _aureliaDependencyInjection.inject)(_aureliaLoader.Loader, _aureliaDependencyInjection.Container, ViewCompiler, ModuleAnalyzer, ViewResources), _dec8(_class15 = (_temp5 = _class16 = function () {
+var ViewEngine = exports.ViewEngine = (_temp5 = _class14 = function () {
+  ViewEngine.inject = function inject() {
+    return [_aureliaLoader.Loader, _aureliaDependencyInjection.Container, ViewCompiler, ModuleAnalyzer, ViewResources];
+  };
+
   function ViewEngine(loader, container, viewCompiler, moduleAnalyzer, appResources) {
     
 
@@ -23360,7 +23409,7 @@ var ViewEngine = exports.ViewEngine = (_dec8 = (0, _aureliaDependencyInjection.i
   };
 
   return ViewEngine;
-}(), _class16.viewModelRequireMetadataKey = 'aurelia:view-model-require', _temp5)) || _class15);
+}(), _class14.viewModelRequireMetadataKey = 'aurelia:view-model-require', _temp5);
 
 var Controller = exports.Controller = function () {
   function Controller(behavior, instruction, viewModel, container) {
@@ -23533,7 +23582,7 @@ var Controller = exports.Controller = function () {
   return Controller;
 }();
 
-var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec9 = (0, _aureliaBinding.subscriberCollection)(), _dec9(_class17 = function () {
+var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec7 = (0, _aureliaBinding.subscriberCollection)(), _dec7(_class15 = function () {
   function BehaviorPropertyObserver(taskQueue, obj, propertyName, selfSubscriber, initialValue) {
     
 
@@ -23595,7 +23644,7 @@ var BehaviorPropertyObserver = exports.BehaviorPropertyObserver = (_dec9 = (0, _
   };
 
   return BehaviorPropertyObserver;
-}()) || _class17);
+}()) || _class15);
 
 
 function getObserver(instance, name) {
@@ -24285,6 +24334,7 @@ function trackMutation(groupedMutations, binder, record) {
 function onChildChange(mutations, observer) {
   var binders = observer.binders;
   var bindersLength = binders.length;
+
   var groupedMutations = new Map();
 
   for (var _i10 = 0, _ii9 = mutations.length; _i10 < _ii9; ++_i10) {
@@ -24297,6 +24347,7 @@ function onChildChange(mutations, observer) {
       if (_node.nodeType === 1) {
         for (var k = 0; k < bindersLength; ++k) {
           var binder = binders[k];
+
           if (binder.onRemove(_node)) {
             trackMutation(groupedMutations, binder, record);
           }
@@ -24309,6 +24360,7 @@ function onChildChange(mutations, observer) {
       if (_node2.nodeType === 1) {
         for (var _k = 0; _k < bindersLength; ++_k) {
           var _binder = binders[_k];
+
           if (_binder.onAdd(_node2)) {
             trackMutation(groupedMutations, _binder, record);
           }
@@ -24317,9 +24369,9 @@ function onChildChange(mutations, observer) {
     }
   }
 
-  groupedMutations.forEach(function (value, key) {
-    if (key.changeHandler !== null) {
-      key.viewModel[key.changeHandler](value);
+  groupedMutations.forEach(function (mutationRecords, binder) {
+    if (binder.isBound && binder.changeHandler !== null) {
+      binder.viewModel[binder.changeHandler](mutationRecords);
     }
   });
 }
@@ -24329,6 +24381,7 @@ var ChildObserverBinder = function () {
     
 
     this.selector = selector;
+
     this.viewHost = viewHost;
     this.property = property;
     this.viewModel = viewModel;
@@ -24342,6 +24395,8 @@ var ChildObserverBinder = function () {
     } else {
       this.contentView = null;
     }
+    this.source = null;
+    this.isBound = false;
   }
 
   ChildObserverBinder.prototype.matches = function matches(element) {
@@ -24372,6 +24427,14 @@ var ChildObserverBinder = function () {
   };
 
   ChildObserverBinder.prototype.bind = function bind(source) {
+    if (this.isBound) {
+      if (this.source === source) {
+        return;
+      }
+      this.source = source;
+    }
+    this.isBound = true;
+
     var viewHost = this.viewHost;
     var viewModel = this.viewModel;
     var observer = viewHost.__childObserver__;
@@ -24446,7 +24509,14 @@ var ChildObserverBinder = function () {
         return true;
       }
 
-      return false;
+      var currentValue = this.viewModel[this.property];
+      if (currentValue === _value2) {
+        this.viewModel[this.property] = null;
+
+        if (this.isBound && this.changeHandler !== null) {
+          this.viewModel[this.changeHandler](_value2);
+        }
+      }
     }
 
     return false;
@@ -24481,7 +24551,7 @@ var ChildObserverBinder = function () {
 
       this.viewModel[this.property] = _value3;
 
-      if (this.changeHandler !== null) {
+      if (this.isBound && this.changeHandler !== null) {
         this.viewModel[this.changeHandler](_value3);
       }
     }
@@ -24490,10 +24560,28 @@ var ChildObserverBinder = function () {
   };
 
   ChildObserverBinder.prototype.unbind = function unbind() {
-    if (this.viewHost.__childObserver__) {
-      this.viewHost.__childObserver__.disconnect();
-      this.viewHost.__childObserver__ = null;
-      this.viewModel[this.property] = null;
+    if (!this.isBound) {
+      return;
+    }
+    this.isBound = false;
+    this.source = null;
+    var childObserver = this.viewHost.__childObserver__;
+    if (childObserver) {
+      var binders = childObserver.binders;
+      if (binders && binders.length) {
+        var idx = binders.indexOf(this);
+        if (idx !== -1) {
+          binders.splice(idx, 1);
+        }
+        if (binders.length === 0) {
+          childObserver.disconnect();
+          this.viewHost.__childObserver__ = null;
+        }
+      }
+
+      if (this.usesShadowDOM) {
+        this.viewModel[this.property] = null;
+      }
     }
   };
 
@@ -24526,7 +24614,7 @@ function tryActivateViewModel(context) {
   return context.viewModel.activate(context.model) || Promise.resolve();
 }
 
-var CompositionEngine = exports.CompositionEngine = (_dec10 = (0, _aureliaDependencyInjection.inject)(ViewEngine, ViewLocator), _dec10(_class18 = function () {
+var CompositionEngine = exports.CompositionEngine = (_dec8 = (0, _aureliaDependencyInjection.inject)(ViewEngine, ViewLocator), _dec8(_class16 = function () {
   function CompositionEngine(viewEngine, viewLocator) {
     
 
@@ -24692,7 +24780,7 @@ var CompositionEngine = exports.CompositionEngine = (_dec10 = (0, _aureliaDepend
   };
 
   return CompositionEngine;
-}()) || _class18);
+}()) || _class16);
 
 var ElementConfigResource = exports.ElementConfigResource = function () {
   function ElementConfigResource() {
@@ -24904,7 +24992,7 @@ function viewResources() {
   };
 }
 
-var TemplatingEngine = exports.TemplatingEngine = (_dec11 = (0, _aureliaDependencyInjection.inject)(_aureliaDependencyInjection.Container, ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec11(_class19 = function () {
+var TemplatingEngine = exports.TemplatingEngine = (_dec9 = (0, _aureliaDependencyInjection.inject)(_aureliaDependencyInjection.Container, ModuleAnalyzer, ViewCompiler, CompositionEngine), _dec9(_class17 = function () {
   function TemplatingEngine(container, moduleAnalyzer, viewCompiler, compositionEngine) {
     
 
@@ -24948,7 +25036,7 @@ var TemplatingEngine = exports.TemplatingEngine = (_dec11 = (0, _aureliaDependen
   };
 
   return TemplatingEngine;
-}()) || _class19);
+}()) || _class17);
 });
 ;
 define('aurelia-testing/dist/commonjs/aurelia-testing',['require','exports','module','./compile-spy','./view-spy','./component-tester','./wait'],function (require, exports, module) {"use strict";
