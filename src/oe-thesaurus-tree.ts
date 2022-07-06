@@ -80,14 +80,12 @@ export class OeThesaurusTree {
   public updateValue(id: number) {
     this.service.getConceptById(this.config.type, id).then((data) => {
       if (data) {
-        if (!data) { return; }
-
         let selectedLabel = data.label;
 
         if (this.config.language) {
-          const value = data.labels.filter(label => label.language === this.config.language);
-          if (selectedLabel.length > 0) {
-            selectedLabel = value[0].label;
+          const labels = data.labels.filter((label) => label.language === this.config.language);
+          if (labels.length > 0) {
+            selectedLabel = labels[0].label;
           }
         }
         this.value = new Member(data.id, selectedLabel, data.type, data.uri);
