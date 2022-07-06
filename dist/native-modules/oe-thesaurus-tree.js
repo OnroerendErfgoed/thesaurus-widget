@@ -75,14 +75,11 @@ var OeThesaurusTree = (function () {
         var _this = this;
         this.service.getConceptById(this.config.type, id).then(function (data) {
             if (data) {
-                if (!data) {
-                    return;
-                }
                 var selectedLabel = data.label;
                 if (_this.config.language) {
-                    var value = data.labels.filter(function (label) { return label.language === _this.config.language; });
-                    if (selectedLabel.length > 0) {
-                        selectedLabel = value[0].label;
+                    var labels = data.labels.filter(function (label) { return label.language === _this.config.language; });
+                    if (labels.length > 0) {
+                        selectedLabel = labels[0].label;
                     }
                 }
                 _this.value = new Member(data.id, selectedLabel, data.type, data.uri);
