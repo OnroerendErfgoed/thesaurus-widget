@@ -12,6 +12,7 @@ import { ApiService } from './services/api-service';
 var OeThesaurusComponent = (function () {
     function OeThesaurusComponent(element) {
         this.element = element;
+        this.collectiesZoeken = false;
         this.element = element;
     }
     OeThesaurusComponent.prototype.bind = function () {
@@ -31,6 +32,10 @@ var OeThesaurusComponent = (function () {
         bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusComponent.prototype, "disabled", void 0);
+    __decorate([
+        bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusComponent.prototype, "collectiesZoeken", void 0);
     OeThesaurusComponent = __decorate([
         inject(Element),
         __metadata("design:paramtypes", [Element])
