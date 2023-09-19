@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -25,6 +36,7 @@ var OeThesaurusInput = (function () {
         this.element = element;
         this.inputValue = '';
         this.delay = 300;
+        this.collectiesZoeken = false;
         this.expanded = false;
         this.updatingInput = false;
         this.suggestions = [];
@@ -78,7 +90,7 @@ var OeThesaurusInput = (function () {
         if (this.config.minlength > value.length) {
             return;
         }
-        this.service.getConcepts(this.config.type, { language: this.config.language || '', ctype: 'concept', label: value })
+        this.service.getConcepts(this.config.type, __assign({ language: this.config.language || '', label: value }, (!this.collectiesZoeken && { type: 'concept' })))
             .then(function (suggestions) {
             var _a;
             if (suggestions) {
@@ -186,6 +198,10 @@ var OeThesaurusInput = (function () {
         aurelia_framework_1.bindable,
         __metadata("design:type", Boolean)
     ], OeThesaurusInput.prototype, "disabled", void 0);
+    __decorate([
+        aurelia_framework_1.bindable,
+        __metadata("design:type", Boolean)
+    ], OeThesaurusInput.prototype, "collectiesZoeken", void 0);
     __decorate([
         aurelia_framework_1.bindable,
         __metadata("design:type", api_service_1.ApiService)
