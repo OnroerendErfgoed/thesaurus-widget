@@ -3,7 +3,7 @@
   <require from="./oe-thesaurus-tree"></require>
   
   <div class="row collapse">
-      <oe-thesaurus-input class="small-10 columns" value.bind="value" config.bind="config" service.bind="service" disabled.bind="disabled">
+      <oe-thesaurus-input class="small-10 columns" value.bind="value" config.bind="config" service.bind="service" disabled.bind="disabled" collecties-zoeken.bind="collectiesZoeken">
         <template replace-part="suggestion">${suggestion.label}</template>
       </oe-thesaurus-input>
       <oe-thesaurus-tree class="small-2 columns" value.bind="value" config.bind="config" service.bind="service" disabled.bind="disabled"></oe-thesaurus-tree>

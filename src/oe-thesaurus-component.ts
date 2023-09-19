@@ -6,6 +6,7 @@ export class OeThesaurusComponent {
   @bindable public config: IThesaurusConfig;
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: any;
   @bindable public disabled: boolean;
+  @bindable public collectiesZoeken: boolean = false;
   public service: ApiService;
 
   constructor(private element: Element) {
