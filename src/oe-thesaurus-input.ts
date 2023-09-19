@@ -12,6 +12,7 @@ export class OeThesaurusInput {
   @bindable({ defaultBindingMode: bindingMode.twoWay }) public value: Member;
   @bindable public delay: number = 300;
   @bindable public disabled: boolean;
+  @bindable public collectiesZoeken: boolean = false;
   public expanded: boolean = false;
   public updatingInput: boolean = false;
   public suggestions: Member[] = [];
@@ -74,7 +75,11 @@ export class OeThesaurusInput {
     if (this.config.minlength > value.length) {
       return;
     }
-    this.service.getConcepts(this.config.type, { language: this.config.language || '', ctype: 'concept', label: value })
+    this.service.getConcepts(this.config.type, {
+      language: this.config.language || '',
+      label: value,
+      ...(!this.collectiesZoeken && {type : 'concept'})
+    })
     .then((suggestions) => {
       if (suggestions) {
         this.index = -1;
